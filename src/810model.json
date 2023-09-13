@@ -1,0 +1,367 @@
+{
+  "sender": {
+    "isaId": "ISA06"
+  },
+  "receiver": {
+    "isaId": "ISA08"
+  },
+  "type": {
+    "name": ""
+  },
+  "stream": "",
+  "message": {
+    "transactionSets": [
+      {
+        "transactionSetHeader": [
+          {
+            "transactionSetIdentifierCode": "ST01",
+            "transactionSetControlNumber": "ST02"
+          }
+        ],
+        "beginningSegmentForInvoice": [
+          {
+            "date": "BIG01",
+            "invoiceNumber": "BIG02",
+            "date1": "BIG03",
+            "purchaseOrderNumber": "BIG04",
+            "releaseNumber": "BIG05",
+            "changeOrderSequenceNumber": "BIG06",
+            "transactionTypeCode": "BIG07"
+          }
+        ],
+        "noteSpecialInstruction": [
+          {
+            "noteReferenceCode": "NTE01",
+            "description": "NTE02"
+          }
+        ],
+        "currency": [
+          {
+            "entityIdentifierCode": "CUR01",
+            "currencyCode": "CUR02"
+          }
+        ],
+        "referenceInformation": [
+          {
+            "referenceIdentificationQualifier": "REF01",
+            "referenceIdentification": "REF02",
+            "description": "REF03"
+          }
+        ],
+        "N1_loop": [
+          {
+            "partyIdentification": [
+              {
+                "entityIdentifierCode": "N101",
+                "name": "N102",
+                "identificationCodeQualifier": "N103",
+                "identificationCode": "N104"
+              }
+            ],
+            "additionalNameInformation": [
+              {
+                "name": "N201",
+                "name1": "N202"
+              }
+            ],
+            "partyLocation": [
+              {
+                "addressInformation": "N301",
+                "addressInformation1": "N302"
+              }
+            ],
+            "geographicLocation": [
+              {
+                "cityName": "N401",
+                "stateOrProvinceCode": "N402",
+                "postalCode": "N403",
+                "countryCode": "N404"
+              }
+            ]
+          },
+          {
+            "partyIdentification": [
+              {
+                "entityIdentifierCode": "N101",
+                "identificationCodeQualifier": "N103",
+                "identificationCode": "N104"
+              }
+            ]
+          },
+          {
+            "partyIdentification": [
+              {
+                "entityIdentifierCode": "N101",
+                "identificationCodeQualifier": "N103",
+                "identificationCode": "N104"
+              }
+            ]
+          },
+          {
+            "partyIdentification": [
+              {
+                "entityIdentifierCode": "N101",
+                "identificationCodeQualifier": "N103",
+                "identificationCode": "N104"
+              }
+            ]
+          }
+        ],
+        "termsOfSaleDeferredTermsOfSale": [
+          {
+            "termsTypeCode": "ITD01",
+            "termsBasisDateCode": "ITD02",
+            "termsDiscountPercent": "ITD03",
+            "termsDiscountDueDate": "ITD04",
+            "termsDiscountDaysDue": "ITD05",
+            "termsNetDueDate": "ITD06",
+            "termsNetDays": "ITD07",
+            "termsDiscountAmount": "ITD08",
+            "termsDeferredDueDate": "ITD09",
+            "deferredAmountDue": "ITD10",
+            "percentOfInvoicePayable": "ITD11",
+            "description": "ITD12",
+            "dayOfMonth": "ITD13",
+            "paymentMethodTypeCode": "ITD14",
+            "percentageAsDecimal": "ITD15"
+          }
+        ],
+        "dateTimeReference": [
+          {
+            "dateTimeQualifier": "DTM01",
+            "date": "DTM02"
+          }
+        ],
+        "FOBRelatedInstructions": [
+          {
+            "shipmentMethodOfPaymentCode": "FOB01",
+            "transportationTermsQualifierCode": "FOB04",
+            "transportationTermsCode": "FOB05",
+            "locationQualifier1": "FOB06",
+            "description1": "FOB07"
+          }
+        ],
+        "N9_loop": [
+          {
+            "extendedReferenceInformation": [
+              {
+                "referenceIdentificationQualifier": "N901",
+                "referenceIdentification": "N902"
+              }
+            ],
+            "messageText": [
+              {
+                "freeFormMessageText": "MSG01"
+              }
+            ]
+          }
+        ],
+        "IT1_loop": [
+          {
+            "baselineItemDataInvoice": [
+              {
+                "assignedIdentification": "IT101",
+                "quantityInvoiced": "IT102",
+                "unitOrBasisForMeasurementCode": "IT103",
+                "unitPrice": "IT104",
+                "basisOfUnitPriceCode": "IT105",
+                "productServiceIDQualifier": "IT106",
+                "productServiceID": "IT107",
+                "productServiceIDQualifier1": "IT108",
+                "productServiceID1": "IT109",
+                "productServiceIDQualifier2": "IT110",
+                "productServiceID2": "IT111"
+              }
+            ],
+            "taxInformation": [
+              {
+                "taxTypeCode": "TXI01",
+                "monetaryAmount": "TXI02",
+                "relationshipCode": "TXI07"
+              }
+            ],
+            "pricingInformation": [
+              {
+                "priceIdentifierCode": "CTP02",
+                "unitPrice": "CTP03"
+              }
+            ],
+            "PID_loop": [
+              {
+                "productItemDescription": [
+                  {
+                    "itemDescriptionTypeCode": "PID01",
+                    "productProcessCharacteristicCode": "PID02",
+                    "agencyQualifierCode": "PID03",
+                    "productDescriptionCode": "PID04",
+                    "description": "PID05"
+                  }
+                ]
+              }
+            ],
+            "itemPhysicalDetails": [
+              {
+                "pack": "PO401",
+                "size": "PO402",
+                "unitOrBasisForMeasurementCode": "PO403",
+                "packagingCode": "PO404",
+                "weightQualifier": "PO405",
+                "grossWeightPerPack": "PO406",
+                "unitOrBasisForMeasurementCode1": "PO407",
+                "grossVolumePerPack": "PO408",
+                "unitOrBasisForMeasurementCode2": "PO409",
+                "length": "PO410",
+                "width": "PO411",
+                "height": "PO412",
+                "unitOrBasisForMeasurementCode3": "PO413",
+                "innerPack": "PO414"
+              }
+            ],
+            "SAC_loop": [
+              {
+                "servicePromotionAllowanceOrChargeInformation": [
+                  {
+                    "allowanceOrChargeIndicatorCode": "SAC01",
+                    "servicePromotionAllowanceOrChargeCode": "SAC02",
+                    "agencyQualifierCode": "SAC03",
+                    "agencyServicePromotionAllowanceOrChargeCode": "SAC04",
+                    "amount": "SAC05",
+                    "allowanceChargePercentQualifier": "SAC06",
+                    "percentDecimalFormat": "SAC07",
+                    "rate": "SAC08",
+                    "unitOrBasisForMeasurementCode": "SAC09",
+                    "quantity": "SAC10",
+                    "quantity1": "SAC11",
+                    "allowanceOrChargeMethodOfHandlingCode": "SAC12",
+                    "referenceIdentification": "SAC13",
+                    "optionNumber": "SAC14",
+                    "description": "SAC15"
+                  }
+                ],
+                "TXI_loop": [
+                  {
+                    "taxInformation": [
+                      {
+                        "taxTypeCode": "TXI01",
+                        "monetaryAmount": "TXI02",
+                        "relationshipCode": "TXI07"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "totalMonetaryValueSummary": [
+          {
+            "amount": "TDS01",
+            "amount1": "TDS02"
+          }
+        ],
+        "taxInformation": [
+          {
+            "taxTypeCode": "TXI01",
+            "monetaryAmount": "TXI02",
+            "relationshipCode": "TXI07",
+            "taxIdentificationNumber": "TXI09"
+          }
+        ],
+        "carrierDetails": [
+          {
+            "transportationMethodTypeCode": "CAD01",
+            "equipmentInitial": "CAD02",
+            "equipmentNumber": "CAD03",
+            "standardCarrierAlphaCode": "CAD04",
+            "routing": "CAD05",
+            "shipmentOrderStatusCode": "CAD06",
+            "referenceIdentificationQualifier": "CAD07",
+            "referenceIdentification": "CAD08"
+          }
+        ],
+        "SAC_loop": [
+          {
+            "servicePromotionAllowanceOrChargeInformation": [
+              {
+                "allowanceOrChargeIndicatorCode": "SAC01",
+                "servicePromotionAllowanceOrChargeCode": "SAC02",
+                "agencyQualifierCode": "SAC03",
+                "agencyServicePromotionAllowanceOrChargeCode": "SAC04",
+                "amount": "SAC05",
+                "allowanceChargePercentQualifier": "SAC06",
+                "percentDecimalFormat": "SAC07",
+                "rate": "SAC08",
+                "unitOrBasisForMeasurementCode": "SAC09",
+                "quantity": "SAC10",
+                "quantity1": "SAC11",
+                "allowanceOrChargeMethodOfHandlingCode": "SAC12",
+                "referenceIdentification": "SAC13",
+                "optionNumber": "SAC14",
+                "description": "SAC15"
+              }
+            ],
+            "TXI_loop": [
+              {
+                "taxInformation": [
+                  {
+                    "taxTypeCode": "TXI01",
+                    "monetaryAmount": "TXI02",
+                    "relationshipCode": "TXI07"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "servicePromotionAllowanceOrChargeInformation": [
+              {
+                "allowanceOrChargeIndicatorCode": "SAC01",
+                "servicePromotionAllowanceOrChargeCode": "SAC02",
+                "amount": "SAC05",
+                "allowanceOrChargeMethodOfHandlingCode": "SAC12",
+                "description": "SAC15"
+              }
+            ]
+          },
+          {
+            "servicePromotionAllowanceOrChargeInformation": [
+              {
+                "allowanceOrChargeIndicatorCode": "SAC01",
+                "servicePromotionAllowanceOrChargeCode": "SAC02",
+                "amount": "SAC05",
+                "description": "SAC15",
+                "agencyQualifierCode": "SAC03",
+                "agencyServicePromotionAllowanceOrChargeCode": "SAC04"
+              }
+            ]
+          }
+        ],
+        "ISS_loop": [
+          {
+            "invoiceShipmentSummary": [
+              {
+                "numberOfUnitsShipped": "ISS01",
+                "unitOrBasisForMeasurementCode": "ISS02",
+                "weight": "ISS03",
+                "unitOrBasisForMeasurementCode1": "ISS04",
+                "volume": "ISS05",
+                "unitOrBasisForMeasurementCode2": "ISS06"
+              }
+            ]
+          }
+        ],
+        "transactionTotals": [
+          {
+            "numberOfLineItems": "CTT01"
+          }
+        ],
+        "transactionSetTrailer": [
+          {
+            "numberOfIncludedSegments": "SE01",
+            "transactionSetControlNumber": "SE02"
+          }
+        ]
+      }
+    ]
+  }
+}
