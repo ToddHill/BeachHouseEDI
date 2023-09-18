@@ -1,21 +1,15 @@
 import './styles.css';
 import options from './810Nordstrom.json';
 
-document.getElementById("app").innerHTML = '810 Nordstom Script';
+document.getElementById("app810").innerHTML = '810 Nordstom Script';
 /*
 Everything Below this Comment is for Celigo.  There is a marker below to
 Say where to stop.  The content above is for testing purposes.
 */
 // BEGIN CELIGO CODE
-/* 
-
-We get the first record so we can use it to modify the header data BEFORE
-going into the detail level issues.  In Celigo, we get main body, which is
-basically the entire grouped record in Celigo.
-We then get firstNode, which is the information repeated on all records that
-we require as a header.
-
-*/ 
+// We get the first record so we can use it to modify the header data BEFORE
+// going into the detail level issues.
+const data = [];
 const mainBody = options.data[0];
 const firstNode = mainBody[0];
 //  We're going to load the addresses as the array is so many levels deep that
@@ -35,8 +29,7 @@ for (let i=0; i < firstNode.N101.length; i++) {
     addressInformation.push(addressInformationObject);
     partyIdentificationObject.partyIdentification = [addressInformationObject];
     N1_loop.push(partyIdentificationObject);
-  };
-
+  }
 // Now, we place the functions to the top so we can begug them properly
 // inserting the returns into the JSON itself to maintain integrity of 
 // the loops and braces.
@@ -73,44 +66,6 @@ const getReferenceInformation = node => {
   }
   return referenceInformation;
 }
-//  We will add a function to do the same thing with the Date and Time Qualifiers
-//  including the allowing of single NON-array data
-//
-const getDateInformation = node => {
-  const dateInformation = [];
-// Make sure it is an array.  Then loop through it. If not
-// write the single records and move on.
-  if (Array.isArray(node.DTM01)) {
-    node.DTM01.forEach((DTM01, index) => {
-      // For each value in node.DTM01, we're going to create a new... OBJECT
-      const dateInformationObject = {};
-      dateInformationObject.dateTimeQualifier = DTM01;
-      if (node.DTM02.length >= index) {
-        // If there's a corresponding value in node.DTM02, we're going to add that data
-        // to the OBJECT
-        dateInformationObject.date = node.DTM02[index];
-      }
-      if (node.DTM03 && node.DTM03.length >= index) {
-        // If there's a corresponding value in node.DTM03, we're going to add that data
-        // to the OBJECT
-        dateInformationObject.description = node.DTM03[index];
-      }
-      // Then we're going to push the OBJECT onto the dateInformation ARRAY
-      dateInformation.push(dateInformationObject);
-    })
-  } else {
-    const dateInformationObject = {};
-    dateInformationObject.dateTimeQualifier = node.DTM01;
-    dateInformationObject.dateTime = node.DTM02;
-    dateInformationObject.description = node.DTM03;
-    dateInformation.push(dateInformationObject);   
-  }
-  return dateInformation;
-}
-//
-//
-//
-
 // We will add a function to loop through the addresses the same way we 
 // looped through the reference Identification information.
 //
@@ -168,7 +123,7 @@ const getItems = node => {
 // to Orderful for processing.  All of the previous lines are functions
 // that inform this constant.
 //
-const response = {
+const response = [{
   sender: {
     isaId: firstNode.ISA06
   },
@@ -207,7 +162,12 @@ const response = {
                   termsBasisDateCode: firstNode.ITD02
                 }
               ],
-        dateTimeReference: getDateInformation(firstNode),
+        dateTimeReference: [
+                {
+                  dateTimeQualifier: firstNode.DTM01,
+                  date: firstNode.DTM02
+                }
+              ],
         IT1_loop: [getItems(mainBody)],     
         totalMonetaryValueSummary: [
                 {
@@ -230,8 +190,9 @@ const response = {
       }
     ]
   }
-};
-options.data = response;
+}];
+response[0].updaterec = firstNode.id;
+data.push(response);
 ///////// END CELIGO CODE ///////////////////////////////////
 
 /*

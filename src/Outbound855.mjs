@@ -1,7 +1,7 @@
 import './styles.css';
 import options from './855Nordstrom.json';
-document.getElementById("app").innerHTML = '855 Nordstom Script';
-// CELIGO PORTIONS BELOW THIS LINE
+document.getElementById("app855").innerHTML = '855 Nordstom Script';
+// CELIGO PORTIONS BELOW THIS LINE /////////////////////////////////////////////
 /*
 Everything BETWEEN the CELIGO PORTIONS BELONGS IN CELIGO.  The
 rest if for development purposes and will do nothing in Celigo
