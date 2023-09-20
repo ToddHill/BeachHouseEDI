@@ -68,6 +68,38 @@ const getReferenceInformation = node => {
 }
 // We will add a function to loop through the addresses the same way we 
 // looped through the reference Identification information.
+//DATETIME INFORMATION FUNCTION
+const getDateInformation = node => {
+  const dateInformation = [];
+// Make sure it is an array.  Then loop through it. If not
+// write the single records and move on.
+  if (Array.isArray(node.DTM01)) {
+    node.DTM01.forEach((DTM01, index) => {
+      // For each value in node.DTM01, we're going to create a new... OBJECT
+      const dateInformationObject = {};
+      dateInformationObject.dateTimeQualifier = DTM01;
+      if (node.DTM02.length >= index) {
+        // If there's a corresponding value in node.DTM02, we're going to add that data
+        // to the OBJECT
+        dateInformationObject.date = node.DTM02[index];
+      }
+      if (node.DTM03 && node.DTM03.length >= index) {
+        // If there's a corresponding value in node.DTM03, we're going to add that data
+        // to the OBJECT
+        dateInformationObject.description = node.DTM03[index];
+      }
+      // Then we're going to push the OBJECT onto the dateInformation ARRAY
+      dateInformation.push(dateInformationObject);
+    })
+  } else {
+    const dateInformationObject = {};
+    dateInformationObject.dateTimeQualifier = node.DTM01;
+    dateInformationObject.dateTime = node.DTM02;
+    dateInformationObject.description = node.DTM03;
+    dateInformation.push(dateInformationObject);   
+  }
+  return dateInformation;
+}
 //
 // ADDRESS INFORMATION FUNCTION
 const getAddressInformation = node => {
@@ -162,12 +194,7 @@ const response = [{
                   termsBasisDateCode: firstNode.ITD02
                 }
               ],
-        dateTimeReference: [
-                {
-                  dateTimeQualifier: firstNode.DTM01,
-                  date: firstNode.DTM02
-                }
-              ],
+        dateTimeReference: getDateInformation(firstNode),
         IT1_loop: [getItems(mainBody)],     
         totalMonetaryValueSummary: [
                 {

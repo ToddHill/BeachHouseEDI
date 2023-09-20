@@ -131,7 +131,7 @@ const getItems = node => {
 This is where it is all assembled to go out to Orderful and
 all of the items are combined with the headers.
 */
-const response ={
+const response =[{
   sender: {
     isaId: firstNode.ISA06
   },
@@ -174,8 +174,9 @@ const response ={
         }
       ]
     }
-  }
-  options.data = [response];
+  }]
+response[0].updaterec = firstNode.id;
+options.data.push(response);
 ///////// END CELIGO CODE ///////////////////////////////////
 
 /*
