@@ -7,11 +7,14 @@ Everything BETWEEN the CELIGO PORTIONS BELONGS IN CELIGO.  The
 rest if for development purposes and will do nothing in Celigo
 */
 // REFERENCE INFORMATION FUNCTION
+console.log('Initiate 856 Ship/Notice Advice Script');
 const getReferenceInformation = node => {
+
     const referenceInformation = [];
   // Make sure it is an array.  Then loop through it. If not
   // write the single records and move on.
     if (Array.isArray(node.REF01)) {
+        console.log('Reference Array Loop');
       node.REF01.forEach((ref01, index) => {
         // For each value in node.REF01, we're going to create a new... OBJECT
         const referenceInformationObject = {};
@@ -30,6 +33,7 @@ const getReferenceInformation = node => {
         referenceInformation.push(referenceInformationObject);
       })
     } else {
+        console.log('Single Reference Object');
       const referenceInformationObject = {};
       referenceInformationObject.referenceIdentificationQualifier = node.REF01;
       referenceInformationObject.referenceIdentification = node.REF02;
@@ -102,7 +106,9 @@ const response = [{
     }
   }];
   response[0].updaterec = firstNode.id;
+  console.log('Update Record Stored...');
   data.push(response);
+  console.log('Record Processed');
 ///////// END CELIGO CODE ///////////////////////////////////
 /*
 Everything Above this is Celigo Ready.  Nothing Below this
