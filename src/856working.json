@@ -1,0 +1,4278 @@
+{
+    "interchangeControlHeader": [
+      {
+        "authorizationInformationQualifier": "00",
+        "authorizationInformation": "          ",
+        "securityInformationQualifier": "00",
+        "securityInformation": "          ",
+        "interchangeIDQualifier": "ZZ",
+        "interchangeSenderID": "BEACHHOUSEMOON ",
+        "interchangeIDQualifier1": "12",
+        "interchangeReceiverID": "2062336664     ",
+        "interchangeDate": "230922",
+        "interchangeTime": "1004",
+        "repetitionSeparator": "^",
+        "interchangeControlStandardsIdentifier": "U",
+        "interchangeControlVersionNumberCode": "00401",
+        "interchangeControlNumber": "000002257",
+        "acknowledgmentRequestedCode": "0",
+        "interchangeUsageIndicatorCode": "P",
+        "componentElementSeparator": ">"
+      }
+    ],
+    "functionalGroupHeader": [
+      {
+        "functionalIdentifierCode": "SH",
+        "applicationSendersCode": "BEACHHOUSEMOON",
+        "applicationReceiversCode": "2062336664",
+        "date": "20230922",
+        "time": "1004",
+        "groupControlNumber": "2257",
+        "responsibleAgencyCode": "X",
+        "versionReleaseIndustryIdentifierCode": "004010VICS"
+      }
+    ],
+    "transactionSets": [
+      {
+        "transactionSetHeader": [
+          {
+            "transactionSetIdentifierCode": "856",
+            "transactionSetControlNumber": "0001"
+          }
+        ],
+        "beginningSegmentForShipNotice": [
+          {
+            "transactionSetPurposeCode": "00",
+            "shipmentIdentification": "IF2475668",
+            "date": "20230922",
+            "time": "100418",
+            "hierarchicalStructureCode": "0001"
+          }
+        ],
+        "HL_loop": [
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "1",
+                "hierarchicalLevelCode": "S"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "40",
+                "weightQualifier": "G",
+                "weight": "1166.92",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "carrierDetailsRoutingSequenceTransitTime": [
+              {
+                "routingSequenceCode": "B",
+                "identificationCodeQualifier": "2",
+                "identificationCode": "CTEB",
+                "transportationMethodTypeCode": "U"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "BM",
+                "referenceIdentification": "85000094800034218"
+              },
+              {
+                "referenceIdentificationQualifier": "CN",
+                "referenceIdentification": "85000094800034218"
+              },
+              {
+                "referenceIdentificationQualifier": "MB",
+                "referenceIdentification": "85000094800034218"
+              },
+              {
+                "referenceIdentificationQualifier": "IA",
+                "referenceIdentification": "0005182598"
+              }
+            ],
+            "dateTimeReference": [
+              {
+                "dateTimeQualifier": "011",
+                "date": "20230919"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "entityIdentifierCode": "ST",
+                    "name": "Central States DC",
+                    "identificationCodeQualifier": "92",
+                    "identificationCode": "0299"
+                  }
+                ],
+                "additionalNameInformation": [
+                  {
+                    "name": "5050 Chavenelle Drive"
+                  }
+                ],
+                "geographicLocation": [
+                  {
+                    "cityName": "Dubuque",
+                    "stateOrProvinceCode": "IA",
+                    "postalCode": "52002",
+                    "countryCode": "US"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "2",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "8.983",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "3",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "2"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578213"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "4",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "3"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "4"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "5",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "3"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "6",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "3"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "7",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "3"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "8",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "3"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "9",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "2",
+                "weightQualifier": "G",
+                "weight": "29.456",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "10",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "9"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482579357"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "11",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "10"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "12",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "9"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482579364"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "13",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "12"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "14",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "12"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "15",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "12"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "16",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "12"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "17",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "12"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "18",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "3",
+                "weightQualifier": "G",
+                "weight": "107.404",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "19",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "18"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578084"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "20",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "19"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "21",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "19"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948884",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON431253-B"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "22",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "19"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948877",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON429251-B"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "23",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "18"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578053"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "24",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "23"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "25",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "23"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "26",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "23"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "27",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "23"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "28",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "18"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578015"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "29",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "28"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "30",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "5.683",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "31",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "30"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482576653"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "32",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "31"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "33",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "31"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "34",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "31"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "35",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "31"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "36",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "3",
+                "weightQualifier": "G",
+                "weight": "81.799",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "37",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "36"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578978"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "38",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "37"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "39",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "36"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578985"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "40",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "39"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "41",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "36"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578992"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "42",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "41"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "43",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "41"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "44",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "41"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "45",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "41"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "46",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "41"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948884",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON431253-B"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "47",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "4",
+                "weightQualifier": "G",
+                "weight": "152.35",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "48",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "47"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482575984"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "49",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "48"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "50",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "47"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482575991"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "51",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "50"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "52",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "50"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "53",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "47"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482576004"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "54",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "53"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "55",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "53"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "56",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "53"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "57",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "47"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482576011"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "58",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "57"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948877",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON429251-B"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "59",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "57"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948884",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON431253-B"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "60",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "11.483",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "61",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "60"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578701"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "62",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "61"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "63",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "61"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "64",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "61"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "65",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "61"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "66",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "61"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "67",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "61"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "68",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "3",
+                "weightQualifier": "G",
+                "weight": "80.404",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "69",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "68"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578145"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "70",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "69"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "71",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "68"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578220"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "72",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "71"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "73",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "71"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "74",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "71"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "75",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "71"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "76",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "68"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578244"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "77",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "76"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "78",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "76"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948884",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON431253-B"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "79",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "7",
+                "weightQualifier": "G",
+                "weight": "484.48",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "80",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "79"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482579111"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "81",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "80"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "82",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "79"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482579128"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "83",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "82"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "84",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "79"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482579135"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "85",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "84"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948884",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON431253-B"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "86",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "79"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482579142"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "87",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "86"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "88",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "79"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482579159"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "89",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "88"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948877",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON429251-B"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "90",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "79"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482579166"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "91",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "90"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "18"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "92",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "90"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "93",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "79"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482579173"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "94",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "93"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "95",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "93"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "18"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "96",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "5.683",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "97",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "96"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482576455"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "98",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "97"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "99",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "97"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "100",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "97"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "101",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "97"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "102",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "3",
+                "weightQualifier": "G",
+                "weight": "81.799",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "103",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "102"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482577339"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "104",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "103"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "105",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "102"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482577346"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "106",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "105"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "107",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "105"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "108",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "102"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482577353"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "109",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "108"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "110",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "108"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "111",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "108"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948884",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON431253-B"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "112",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "108"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "113",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "11.483",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "114",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "113"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482578541"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "115",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "114"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "116",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "114"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "117",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "114"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "118",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "114"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "119",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "114"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "120",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "114"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "121",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "11.483",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "122",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "121"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482576325"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "123",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "122"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "124",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "122"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "125",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "122"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "126",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "122"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "127",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "122"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "128",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "122"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "129",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "2",
+                "weightQualifier": "G",
+                "weight": "29.456",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "130",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "129"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482577254"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "131",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "130"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "132",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "129"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482577261"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "133",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "132"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "134",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "132"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "135",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "132"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "136",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "132"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "137",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "132"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "138",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "5.683",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "139",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "138"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482576721"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "140",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "139"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "141",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "139"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "142",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "139"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "143",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "139"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "144",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "2",
+                "weightQualifier": "G",
+                "weight": "24.956",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "145",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "144"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482577230"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "146",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "145"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "12"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "147",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "144"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482577247"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "148",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "147"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "149",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "147"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "150",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "147"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "151",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "147"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "152",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "147"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "153",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "5.683",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "154",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "153"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482576752"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "155",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "154"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "156",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "154"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "157",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "154"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "158",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "154"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "159",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "11.483",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "160",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "159"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482577926"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "161",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "160"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "162",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "160"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "163",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "160"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "164",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "160"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "165",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "160"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "4"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "166",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "160"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "167",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "5.683",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "168",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "167"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482576882"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "169",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "168"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "170",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "168"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "171",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "168"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "172",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "168"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "173",
+                "hierarchicalLevelCode": "O",
+                "hierarchicalParentIDNumber": "1"
+              }
+            ],
+            "purchaseOrderReference": [
+              {
+                "purchaseOrderNumber": "40053401"
+              }
+            ],
+            "carrierDetailsQuantityAndWeight": [
+              {
+                "packagingCode": "CTN",
+                "ladingQuantity": "1",
+                "weightQualifier": "G",
+                "weight": "11.483",
+                "unitOrBasisForMeasurementCode": "LB"
+              }
+            ],
+            "referenceInformation": [
+              {
+                "referenceIdentificationQualifier": "DP",
+                "referenceIdentification": "0815"
+              }
+            ],
+            "N1_loop": [
+              {
+                "partyIdentification": [
+                  {
+                    "identificationCode": "0242",
+                    "entityIdentifierCode": "BY",
+                    "identificationCodeQualifier": "92"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "174",
+                "hierarchicalLevelCode": "P",
+                "hierarchicalParentIDNumber": "173"
+              }
+            ],
+            "marksAndNumbersInformation": [
+              {
+                "marksAndNumbersQualifier": "GM",
+                "marksAndNumbers": "00008500009482577681"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "175",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "174"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948006",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON119102"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "176",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "174"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948013",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON425247"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "177",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "174"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850037797127",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON122305"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "178",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "174"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948488",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON220178"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "179",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "174"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948549",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON219187"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          },
+          {
+            "hierarchicalLevel": [
+              {
+                "hierarchicalIDNumber": "180",
+                "hierarchicalLevelCode": "I",
+                "hierarchicalParentIDNumber": "174"
+              }
+            ],
+            "itemIdentification": [
+              {
+                "productServiceIDQualifier": "UP",
+                "productServiceID": "850000948020",
+                "productServiceIDQualifier1": "VA",
+                "productServiceID1": "MOON339261"
+              }
+            ],
+            "itemDetailShipment": [
+              {
+                "unitOrBasisForMeasurementCode": "EA",
+                "numberOfUnitsShipped": "6"
+              }
+            ]
+          }
+        ],
+        "transactionTotals": [
+          {
+            "numberOfLineItems": "180"
+          }
+        ],
+        "transactionSetTrailer": [
+          {
+            "numberOfIncludedSegments": "552",
+            "transactionSetControlNumber": "0001"
+          }
+        ]
+      }
+    ]
+  }
