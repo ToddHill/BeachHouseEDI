@@ -12,6 +12,7 @@ Say where to stop.  The content above is for testing purposes.
 const data = [];
 const mainBody = options.data[0];
 const firstNode = mainBody[0];
+console.log('initiating 810 script...');
 //  We're going to load the addresses as the array is so many levels deep that
 //  Building it as a function is untenebale.
 //
@@ -21,6 +22,7 @@ const N1_loop = [];
 const addressInformation = [];
 const addressInformationObject = {};
 const partyIdentificationObject ={};
+console.log('build addresses');
 for (let i=0; i < firstNode.N101.length; i++) {
     addressInformationObject.entityIdentifierCode = firstNode.N101[i];
     addressInformationObject.name = firstNode.N102[i];
@@ -42,6 +44,7 @@ const getReferenceInformation = node => {
   if (Array.isArray(node.REF01)) {
     node.REF01.forEach((ref01, index) => {
       // For each value in node.REF01, we're going to create a new... OBJECT
+      console.log('multiple reference array');
       const referenceInformationObject = {};
       referenceInformationObject.referenceIdentificationQualifier = ref01;
       if (node.REF02.length >= index) {
@@ -58,6 +61,7 @@ const getReferenceInformation = node => {
       referenceInformation.push(referenceInformationObject);
     })
   } else {
+    console.log('single reference object');
     const referenceInformationObject = {};
     referenceInformationObject.referenceIdentificationQualifier = node.REF01;
     referenceInformationObject.referenceIdentification = node.REF02;
@@ -77,6 +81,7 @@ const getDateInformation = node => {
     node.DTM01.forEach((DTM01, index) => {
       // For each value in node.DTM01, we're going to create a new... OBJECT
       const dateInformationObject = {};
+      console.log('multiple date array');
       dateInformationObject.dateTimeQualifier = DTM01;
       if (node.DTM02.length >= index) {
         // If there's a corresponding value in node.DTM02, we're going to add that data
@@ -92,6 +97,7 @@ const getDateInformation = node => {
       dateInformation.push(dateInformationObject);
     })
   } else {
+    console.log('single date object');
     const dateInformationObject = {};
     dateInformationObject.dateTimeQualifier = node.DTM01;
     dateInformationObject.dateTime = node.DTM02;
