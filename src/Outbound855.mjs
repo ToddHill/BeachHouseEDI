@@ -8,6 +8,7 @@ rest if for development purposes and will do nothing in Celigo
 */
 // We get the first record so we can use it to modify the header data BEFORE
 // going into the detail level issues.
+console.log('Initiate 855 Script');
 const mainBody = options.data[0];
 const firstNode = mainBody[0];
 const linecount = mainBody.length;
@@ -19,6 +20,7 @@ const linecount = mainBody.length;
 // REFERENCE INFORMATION FUNCTION
 const getReferenceInformation = node => {
   const referenceInformation = [];
+  console.log('get REF information');
 // Make sure it is an array.  Then loop through it. If not
 // write the single records and move on.
   if (Array.isArray(node.REF01)) {
@@ -57,6 +59,7 @@ function assures that the dates work both ways.
 //DATETIME INFORMATION FUNCTION
 const getDateInformation = node => {
   const dateInformation = [];
+  console.log('get date information');
 // Make sure it is an array.  Then loop through it. If not
 // write the single records and move on.
   if (Array.isArray(node.DTM01)) {
@@ -95,6 +98,7 @@ const getDateInformation = node => {
 
 */
 const getItems = node => {
+  console.log('perform Item looping...');
   const itemInformation = [];
   const destinationQ = [];
   node.forEach((record, index) => {
@@ -177,6 +181,7 @@ const response =[{
   }]
 response[0].updaterec = firstNode.id;
 options.data.push(response);
+console.log('Record processed');
 ///////// END CELIGO CODE ///////////////////////////////////
 
 /*
