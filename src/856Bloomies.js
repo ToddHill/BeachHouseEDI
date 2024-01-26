@@ -686,6 +686,7 @@ function combineByBol(oldRecord, newRecord) {
         const addressInformationObject = {};
         const partyIdentificationObject = {};
         addressInformationObject.entityIdentifierCode = oldRecord[i].N101[n];
+        addressInformationObject.name = oldRecord[i].N102[n];
         addressInformationObject.identificationCodeQualifier =
           oldRecord[i].N103[n];
         addressInformationObject.identificationCode = oldRecord[i].N104[n];
