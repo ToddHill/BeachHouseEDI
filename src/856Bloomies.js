@@ -555,7 +555,7 @@ function preSavePage(options) {
     responseData.push(newRecord[bolKey]);
   }
 
-  console.log(JSON.stringify(responseData, undefined, 2));
+  // console.log(JSON.stringify(responseData, undefined, 2));
 
   return {
     data: responseData,
@@ -570,9 +570,13 @@ function combineByBol(oldRecord, newRecord, newOptions) {
   // find a way to get the ladingQuantity
   // and the weight.
   // NEW.OPTIONS is the object to cath the items.
-  console.log("what");
+
   for (let i = 0; i < oldRecord.length; i++) {
     let bolKey = oldRecord[i].BSN02;
+    let dcKey = oldRecord[i].N104[0];
+    let poAndStoreKey = oldRecord[i].PRF01 + "-" + oldRecord[i].N104[1];
+    let cartonKey = oldRecord[i].MAN02;
+    let itemKey = oldRecord[i].LIN03;
     if (!newOptions[bolKey]) {
       newOptions[bolKey] = {};
       newOptions[bolKey]["dcObj"] = {};
@@ -619,8 +623,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       };
     }
   }
-  // console.log(JSON.stringify(oldRecord, undefined, 2));
-  // console.log(JSON.stringify(newOptions[bolKey], undefined, 2));
+  console.log(JSON.stringify(newOptions[bolKey], undefined, 2));
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   // Loop through the options.data to combine records with the same                                  //
