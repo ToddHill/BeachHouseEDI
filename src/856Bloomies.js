@@ -526,13 +526,14 @@ Within the cartons which contain the Carton IDs, we find the items.
 
 function preSavePage(options) {
   let newRecord = {};
+  let newOptions = {};
   let oldRecord = options.data;
   let responseData = [];
   let totalLines = 0;
   // Execute Combination of Records into Separate Documents
   // Based on Keys we've set.
 
-  combineByBol(oldRecord, newRecord);
+  combineByBol(oldRecord, newRecord, newOptions);
 
   // now we take 'newRecord' and convert it
   // This loop is looping through our newly consolidated newRecord and
@@ -565,11 +566,65 @@ function preSavePage(options) {
 
 // THIS IS WHERE THE LOOPS ARE BUILT
 
-function combineByBol(oldRecord, newRecord) {
-  // Loop through the options.data to combine records with the same
-  // BOL number into a new object to be sent to Orderful
-  // set 'keys' for BOL (Shipment Level), then DC (Same Shipment), then PO & Store (Order Level)
-  // Transaction Sets
+function combineByBol(oldRecord, newRecord, newOptions) {
+  // find a way to get the ladingQuantity
+  // and the weight.
+  // NEW.OPTIONS is the object to cath the items.
+  for (let i = 0; i < oldRecord.length; i++) {
+    let bolKey = oldRecord[i].BSN02;
+    if (!newOptions[bolKey]) {
+      newOptions[bolKey] = {};
+      newOptions[bolKey]["dcObj"] = {};
+    }
+
+    if (!newOptions[bolKey]["dcObj"][dcKey]) {
+      newOptions[bolKey]["dcObj"][dcKey] = {
+        poAndStoreObj: {},
+        poAndStoreList: [],
+        Package_weight: "0",
+      };
+    }
+
+    if (!newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]) {
+      newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey] = {
+        cartonObj: {},
+        cartonList: [],
+        Package_weight: "0",
+      };
+    }
+
+    if (
+      !newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey][
+        "cartonObj"
+      ][cartonKey]
+    ) {
+      newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey][
+        "cartonObj"
+      ][cartonKey] = {
+        itemObj: {},
+        itemList: [],
+      };
+    }
+
+    if (
+      !newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey][
+        "cartonObj"
+      ][cartonKey]["itemObj"][itemKey]
+    ) {
+      newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey][
+        "cartonObj"
+      ][cartonKey]["itemObj"][itemKey] = {
+        endObj: {},
+      };
+    }
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Loop through the options.data to combine records with the same                                  //
+  // BOL number into a new object to be sent to Orderful                                             //
+  // set 'keys' for BOL (Shipment Level), then DC (Same Shipment), then PO & Store (Order Level)     //
+  // Transaction Sets                                                                                //
+  /////////////////////////////////////////////////////////////////////////////////////////////////////
   let hierarchicalIDNumberCounter = 0;
   let hierarchicalParentIDNumberCounter = 0;
   let hierarchicalIDShipmentNumber = 0;
