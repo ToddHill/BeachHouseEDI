@@ -570,6 +570,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
   // find a way to get the ladingQuantity
   // and the weight.
   // NEW.OPTIONS is the object to cath the items.
+  /*
   for (let i = 0; i < oldRecord.length; i++) {
     let bolKey = oldRecord[i].BSN02;
     if (!newOptions[bolKey]) {
@@ -618,7 +619,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       };
     }
   }
-
+*/
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   // Loop through the options.data to combine records with the same                                  //
   // BOL number into a new object to be sent to Orderful                                             //
