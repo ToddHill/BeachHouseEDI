@@ -570,7 +570,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
   // find a way to get the ladingQuantity
   // and the weight.
   // NEW.OPTIONS is the object to cath the items.
-  /*
+  console.log("what");
   for (let i = 0; i < oldRecord.length; i++) {
     let bolKey = oldRecord[i].BSN02;
     if (!newOptions[bolKey]) {
@@ -590,7 +590,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey] = {
         cartonObj: {},
         cartonList: [],
-        Package_weight: "0",
+        Package_weight: oldRecord[i].TD107,
       };
     }
 
@@ -619,7 +619,9 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       };
     }
   }
-*/
+  // console.log(JSON.stringify(oldRecord, undefined, 2));
+  // console.log(JSON.stringify(newOptions[bolKey], undefined, 2));
+
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   // Loop through the options.data to combine records with the same                                  //
   // BOL number into a new object to be sent to Orderful                                             //
