@@ -14,7 +14,7 @@
       "command": "yarn start",
       "runAtStart": true,
       "preview": {
-        "port": 3000
+        "port": 1234
       }
     },
     "build": {

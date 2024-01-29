@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  SyntaxError: /workspaces/BeachHouseEDI/package.json: Expected double-quoted property name in JSON at position 58
+  SyntaxError: /workspaces/BeachHouseEDI/package.json: Expected double-quoted property name in JSON at position 94
       at JSON.parse (<anonymous>)
       at /opt/yarn-v1.22.19/lib/cli.js:1629:59
       at Generator.next (<anonymous>)
@@ -26,8 +26,13 @@ npm manifest:
     "dependencies": {
       "package-json": "^9.0.0"
     },
+    "license": "(MIT OR Apache-2.0)",
     {
-      "license": "(MIT OR Apache-2.0)"
+      "name": "my-package",
+      "scripts": {
+        "build": "babel src -d lib",
+        "test": "jest"
+      }
     }
   }
 
