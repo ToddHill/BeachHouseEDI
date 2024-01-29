@@ -6,6 +6,7 @@
 // The Next Lines are to create a development environment similar
 // to what Celigo will pass through
 import options from './856Bloomingdales.json';
+console.log('Proof of Life');
 
 
 // The following lines are for use in Celigo 
