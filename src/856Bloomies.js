@@ -531,10 +531,11 @@ function preSavePage(options) {
   let oldRecord = options.data;
   let responseData = [];
   let totalLines = 0;
+  let hierarchicalIDNumberCounter = 0;
   // Execute Combination of Records into Separate Documents
   // Based on Keys we've set.
 
-  combineByBol(oldRecord, newRecord, newOptions);
+  combineByBol(oldRecord, newRecord, newOptions, hierarchicalIDNumberCounter);
 
   // now we take 'newRecord' and convert it
   // This loop is looping through our newly consolidated newRecord and
@@ -542,6 +543,7 @@ function preSavePage(options) {
   // the data and generate the document before sending it to Orderful.
 
   for (let bolKey in newRecord) {
+
     for (let dcKey in newRecord[bolKey]["dcObj"]) {
       for (let poAndStoreKey in newRecord[bolKey]["dcObj"][dcKey][
         "poAndStoreObj"
@@ -552,11 +554,14 @@ function preSavePage(options) {
       let bolObj = newRecord[bolKey];
     }
     newRecord[bolKey]["dcObj"] = undefined;
-
+    newRecord[bolKey]["transactionTotals"] = [];
+    newRecord[bolKey]["transactionTotals"].push({
+      numberOfLineItems: totalLines.toString(),
+    });
     responseData.push(newRecord[bolKey]);
   }
 
-//  console.log(JSON.stringify(responseData, undefined, 2));
+  console.log(JSON.stringify(responseData, undefined, 2));
 
   return {
     data: responseData,
@@ -568,13 +573,13 @@ function preSavePage(options) {
 // THIS IS WHERE THE LOOPS ARE BUILT
 
 function combineByBol(oldRecord, newRecord, newOptions) {
-  // find a way to get the ladingQuantity
-  // and the weight.
-  // NEW.OPTIONS is the object to cath the items.
+
+// set up the newOptions object to hold the shipmentladingQuantity and shipmentWeight
   let shipmentladingQuantity = 0;
   let shipmentWeight = 0;
   let orderladingQuantity = 0;
   let orderWeight = 0;
+  let totalLines = 0;
   for (let i = 0; i < oldRecord.length; i++) {
     let bolKey = oldRecord[i].BSN02;
     let dcKey = oldRecord[i].N104[0];
@@ -619,18 +624,12 @@ function combineByBol(oldRecord, newRecord, newOptions) {
         itemObj: {},
         itemList: [],
       };
+// update the shipmentladingQuantity and shipmentWeight
       newOptions[bolKey]["shipmentladingQuantity"] = newOptions[bolKey]["shipmentladingQuantity"] + 1;
       newOptions[bolKey]["shipmentWeight"] = newOptions[bolKey]["shipmentWeight"] + parseFloat(oldRecord[i].TD107);
-
+// update the orderladingQuantity and orderWeight
       newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"] = newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"] + 1;
       newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"] = newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"] + parseFloat(oldRecord[i].TD107);
-/*
-      console.log(bolKey + " | shipmentladingQuantity: " + newOptions[bolKey]["shipmentladingQuantity"]);
-      console.log(bolKey + " | shipmentWeight: " + newOptions[bolKey]["shipmentWeight"]);
-
-      console.log(bolKey + " | orderladingQuantity: " + newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"]);      
-      console.log(bolKey + " | orderWeight: " + newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"]);
-*/
     }
 
     if (
@@ -644,20 +643,24 @@ function combineByBol(oldRecord, newRecord, newOptions) {
         endObj: {},
       };
     }
-    //
+    
   }
-
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   // Loop through the options.data to combine records with the same                                  //
   // BOL number into a new object to be sent to Orderful                                             //
   // set 'keys' for BOL (Shipment Level), then DC (Same Shipment), then PO & Store (Order Level)     //
-  // Transaction Sets                                                                                //
   /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Initialize the Hierarchical ID Number Counter
   let hierarchicalIDNumberCounter = 0;
+  // Initialize the Hierarchical Parent ID Number Counter
   let hierarchicalParentIDNumberCounter = 0;
+  // Initialize the Hierarchical ID Shipment Number
   let hierarchicalIDShipmentNumber = 0;
+  // Initialize the Hierarchical ID Order Number
   let hierarchicalIDOrderNumber = 0;
+  // Loop through the oldRecord to combine records with the same BOL number
   for (let i = 0; i < oldRecord.length; i++) {
     let bolKey = oldRecord[i].BSN02;
     let dcKey = oldRecord[i].N104[0];
@@ -665,7 +668,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
     let cartonKey = oldRecord[i].MAN02;
     let itemKey = oldRecord[i].LIN03;
 
-    //Initializing
+  //Build the newRecord Object
     if (!newRecord[bolKey]) {
       hierarchicalIDNumberCounter = 1;
       // Transaction Set Headers
@@ -846,7 +849,9 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       var cartonline = {};
       var itemline = {};
 
-      // TOP LEVEL
+// BEGIN THE PROCESS OF BUILDING THE NEW RECORD OBJECT
+// TOP LEVEL
+// The Level 1 Object is the BOL, which defines the Shipment Level
       newRecord[bolKey] = {
         sender: { isaId: oldRecord[i].ISA06 },
         receiver: { isaId: oldRecord[i].ISA08 },
@@ -861,8 +866,8 @@ function combineByBol(oldRecord, newRecord, newOptions) {
         HL_loop,
       });
     }
-
-    // STORE LEVEL
+// STORE LEVEL
+// The Level 2 Object is the DC, which defines the DC Level.  No data is needed here.
     if (!newRecord[bolKey]["dcObj"][dcKey]) {
       newRecord[bolKey]["dcObj"][dcKey] = {
         poAndStoreObj: {},
@@ -871,7 +876,9 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       };
     }
 
-    // ORDER LEVEL
+// ORDER LEVEL
+// The Level 3 Object is the PO and Store, which defines the Order Level.  This is where the Orderline is
+// built to be added to the HL_loop array.
     if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]) {
       //
       hierarchicalParentIDNumberCounter = hierarchicalIDNumberCounter;
@@ -927,7 +934,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       };
     }
 
-    // Carton Level
+// CARTON LEVEL - This is where the Carton is built to be added to the HL_loop array.
     if (
       !newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey][
         "cartonObj"
@@ -961,7 +968,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       };
     }
 
-    // Item Level
+// ITEM LEVEL - This is where the Item is built to be added to the HL_loop array.
     if (
       !newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey][
         "cartonObj"
@@ -1000,12 +1007,12 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       };
     }
 
-    //Mapping
-    //BOL Mapping
+//Mapping = This is where the data from the LOOPS is pushed into the newRecord Object
+//BOL Mapping
     newRecord[bolKey]["dcObj"] = newRecord[bolKey]["dcObj"][dcKey];
 
-    //combine by DC
-    //DC mapping
+//combine by DC
+//DC mapping - pushing the Order Line
     let bolWeight = String(
       (
         Number(newRecord[bolKey]["dcObj"].Package_weight) +
@@ -1019,9 +1026,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
     newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(
       orderline,
     );
-
-    //    PO and Store mapping
-    //  let poAndStoreWeight = String( (Number(newRecord[bolKey]['dcObj'][dcKey]['poAndStoreObj'][poAndStoreKey].Package_weight) + Number(oldRecord[i].TD107)).toFixed(2) );
+//Carton Mapping - pushing the Carton Line
     newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey] = {
       StoreCode: oldRecord[i].N104[1],
       DCCODE: oldRecord[i].N104[0],
@@ -1036,5 +1041,6 @@ function combineByBol(oldRecord, newRecord, newOptions) {
     newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(
       itemline,
     );
+
   }
 }
