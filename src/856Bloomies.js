@@ -480,6 +480,7 @@ const options = {
 };
 preSavePage(options);
 
+
 /////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                         //
 // Below is what goes to Celigo.  Everything ABOVE this line is development                //
@@ -555,7 +556,7 @@ function preSavePage(options) {
     responseData.push(newRecord[bolKey]);
   }
 
-  // console.log(JSON.stringify(responseData, undefined, 2));
+//  console.log(JSON.stringify(responseData, undefined, 2));
 
   return {
     data: responseData,
@@ -570,16 +571,24 @@ function combineByBol(oldRecord, newRecord, newOptions) {
   // find a way to get the ladingQuantity
   // and the weight.
   // NEW.OPTIONS is the object to cath the items.
-
+  let shipmentladingQuantity = 0;
+  let shipmentWeight = 0;
+  let orderladingQuantity = 0;
+  let orderWeight = 0;
   for (let i = 0; i < oldRecord.length; i++) {
     let bolKey = oldRecord[i].BSN02;
     let dcKey = oldRecord[i].N104[0];
     let poAndStoreKey = oldRecord[i].PRF01 + "-" + oldRecord[i].N104[1];
     let cartonKey = oldRecord[i].MAN02;
     let itemKey = oldRecord[i].LIN03;
+
     if (!newOptions[bolKey]) {
-      newOptions[bolKey] = {};
+      newOptions[bolKey] = {
+        shipmentladingQuantity: 0,
+        shipmentWeight: 0
+      };
       newOptions[bolKey]["dcObj"] = {};
+      
     }
 
     if (!newOptions[bolKey]["dcObj"][dcKey]) {
@@ -594,7 +603,8 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey] = {
         cartonObj: {},
         cartonList: [],
-        Package_weight: oldRecord[i].TD107,
+        orderladingQuantity: 0,
+        orderWeight: 0,
       };
     }
 
@@ -609,6 +619,18 @@ function combineByBol(oldRecord, newRecord, newOptions) {
         itemObj: {},
         itemList: [],
       };
+      newOptions[bolKey]["shipmentladingQuantity"] = newOptions[bolKey]["shipmentladingQuantity"] + 1;
+      newOptions[bolKey]["shipmentWeight"] = newOptions[bolKey]["shipmentWeight"] + parseFloat(oldRecord[i].TD107);
+
+      newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"] = newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"] + 1;
+      newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"] = newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"] + parseFloat(oldRecord[i].TD107);
+/*
+      console.log(bolKey + " | shipmentladingQuantity: " + newOptions[bolKey]["shipmentladingQuantity"]);
+      console.log(bolKey + " | shipmentWeight: " + newOptions[bolKey]["shipmentWeight"]);
+
+      console.log(bolKey + " | orderladingQuantity: " + newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"]);      
+      console.log(bolKey + " | orderWeight: " + newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"]);
+*/
     }
 
     if (
@@ -622,8 +644,9 @@ function combineByBol(oldRecord, newRecord, newOptions) {
         endObj: {},
       };
     }
+    //
   }
-  console.log(JSON.stringify(newOptions[bolKey], undefined, 2));
+
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   // Loop through the options.data to combine records with the same                                  //
@@ -775,10 +798,10 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       var carrierDetailsQuantityAndWeight = [];
       var carrierDetailsQuantityAndWeightObject = {};
       carrierDetailsQuantityAndWeightObject.packagingCode = oldRecord[i].TD101;
-      carrierDetailsQuantityAndWeightObject.ladingQuantity = "";
+      carrierDetailsQuantityAndWeightObject.ladingQuantity = newOptions[bolKey]["shipmentladingQuantity"].toString();
       carrierDetailsQuantityAndWeightObject.weightQualifier =
         oldRecord[i].TD106;
-      carrierDetailsQuantityAndWeightObject.weight = oldRecord[i].TD107;
+      carrierDetailsQuantityAndWeightObject.weight = newOptions[bolKey]["shipmentWeight"].toString();
       carrierDetailsQuantityAndWeightObject.unitOrBasisForMeasurementCode =
         oldRecord[i].TD108;
       carrierDetailsQuantityAndWeight.push({
@@ -884,9 +907,9 @@ function combineByBol(oldRecord, newRecord, newOptions) {
         carrierDetailsQuantityAndWeight: [
           {
             packagingCode: oldRecord[i].TD101,
-            ladingQuantity: oldRecord[i].TD102,
+            ladingQuantity: newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"].toString(),
             weightQualifier: oldRecord[i].TD106,
-            weight: oldRecord[i].TD107,
+            weight: newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"].toString(),
             unitOrBasisForMeasurementCode: oldRecord[i].TD108,
           },
         ],
