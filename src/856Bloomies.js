@@ -483,47 +483,29 @@ preSavePage(options);
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                         //
-// Below is what goes to Celigo.  Everything ABOVE this line is development                //
+// Everything BELOW this block goes to Celigo.  Everything ABOVE this block is development //
 // information used for populating and executing this script by creating an environment    //
 // That Simulates Celigo Data as Celigo Delivers it, and executes the PreSavePage as       //
-// Celigo would. Everything BELOW this is the contents of the 856 Script                   //
+// Celigo would. Everything BELOW this is the contents of the MacysNet 856 Script          //
+//                                                                                         //
+/////////////////////////////////////////////////////////////////////////////////////////////
+// The BOL (Bill of Lading) is the Primary Key Object.                                     //
+// Within the BOL, it is separated by DC (Distribution Center),                            //
+// within the DC it is separated by PO/Store (Purchase Order/Store),                       //  
+// within the PO and Store the cartons are contained.                                      //
+// Within the cartons which contain the Carton IDs, we find the items.                     //
 //                                                                                         //
 /////////////////////////////////////////////////////////////////////////////////////////////
 /*
-
-The Plan: Organize Data into following structure
-
-bol > DC > po and store > carton > item
-
-Required Object Structure when completed looks like this:
-
-  {
-    [
-      {
-        bol: {
-
-                [{
-                    poAndStoreList :
-                    [{
-                        cartonList :
-                        [{
-                            item : {}
-                        }]
-                    }]
-                }]
-             }
-      }
-    ]
-  }
-
-Make particular note of what is an Object, and what is an array.
-The BOL is the Primary Key Object.  
-Within the BOL, it is separated by DC, 
-within the DC it is separated by PO/Store, 
-within the PO and Store the cartons are contained.  
-Within the cartons which contain the Carton IDs, we find the items.
-
+Release History:
+1.0.0 - 2024-01-27 - Initial Release
+1.0.1 - 2024-01-29 - Added the newObject to the preSavePage function to collect counts of the number of lines and the total weight of the shipment.
+1.0.2 - 2024-01-30 - Added the total transaction lines to the newObject.
+1.0.3 - 2024-01-30 - placed total transaction lines in the correct location.
+1.0.4 - 2024-01-30 - removed the total transaction lines from the newObject.  they just won't hunt
+1.0.5 - 2024-01-30 - set shipping weight using toFixed(2) to eliminate extra decimals. Ended up with entirely new variable to do this.
 */
+
 
 function preSavePage(options) {
   let newRecord = {};
@@ -554,15 +536,15 @@ function preSavePage(options) {
       let bolObj = newRecord[bolKey];
     }
     newRecord[bolKey]["dcObj"] = undefined;
-    newRecord[bolKey]["transactionTotals"] = [];
-    newRecord[bolKey]["transactionTotals"].push({
-      numberOfLineItems: totalLines.toString(),
-    });
+
+    
+    
     responseData.push(newRecord[bolKey]);
   }
 
-  console.log(JSON.stringify(responseData, undefined, 2));
-
+// useful debug to see the entire object before it is sent.
+ console.log(JSON.stringify(responseData, undefined, 2));
+//   
   return {
     data: responseData,
     errors: options.errors,
@@ -625,11 +607,12 @@ function combineByBol(oldRecord, newRecord, newOptions) {
         itemList: [],
       };
 // update the shipmentladingQuantity and shipmentWeight
+      var shortWeight = parseFloat(oldRecord[i].TD107);
       newOptions[bolKey]["shipmentladingQuantity"] = newOptions[bolKey]["shipmentladingQuantity"] + 1;
-      newOptions[bolKey]["shipmentWeight"] = newOptions[bolKey]["shipmentWeight"] + parseFloat(oldRecord[i].TD107);
+      newOptions[bolKey]["shipmentWeight"] = newOptions[bolKey]["shipmentWeight"] + shortWeight;
 // update the orderladingQuantity and orderWeight
       newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"] = newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"] + 1;
-      newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"] = newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"] + parseFloat(oldRecord[i].TD107);
+      newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"] = newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"] + shortWeight;
     }
 
     if (
