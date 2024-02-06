@@ -59801,29 +59801,83 @@ var options = {
     },
     "testMode": true
   }
-//
-//
 preSavePage(options);
+
 //
-  function preSavePage(options) {
-  let transdate = options.data[0].transactionSets[0].reportingDateAction[0].date;
-  let movedate = options.data[0].transactionSets[0].reportingDateAction[0].date1;
-  let record = options.data[0].transactionSets[0].LIN_loop;
-  var pilesize = record.length;
-  console.log(pilesize);
-  console.log(JSON.stringify(transdate));
-  console.log(JSON.stringify(record));
-  
-  for (var key in data.messages) {
-      var obj = data.messages[key];
-      // ...
-  }
-  
-  
-    return {
-      data: options.data,
-      errors: options.errors,
-      abort: false,
-      newErrorsAndRetryData: []
-    }
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+
+//
+//
+
+//
+function preSavePage(options) {
+  // options.data now directly contains the relevant array
+  const data = options.data;
+
+  // The object to hold the grouped data by productServiceID2
+  let groupedData = {};
+
+  data.forEach(record => {
+    record.transactionSets.forEach(transactionSet => {
+      transactionSet.LIN_loop.forEach(item => {
+        const productServiceID2 = item.itemIdentification.find(id => id.productServiceIDQualifier2 === "VA").productServiceID2;
+        item.ZA_loop.forEach(za => {
+          za.productActivityReporting.forEach(activity => {
+            if (activity.activityCode === "QA") {
+              if (!groupedData[productServiceID2]) {
+                groupedData[productServiceID2] = [];
+              }
+              za.destinationQuantity.forEach(quantity => {
+                // Loop through possible identification codes and quantities
+                for (let i = 0; i <= 9; i++) {
+                  const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
+                  const quantityKey = `quantity${i !== 0 ? i : ''}`;
+                  const identificationCode = quantity[identificationCodeKey];
+                  const qty = quantity[quantityKey];
+                  if (identificationCode !== undefined && qty !== undefined) {
+                    groupedData[productServiceID2].push({
+                      identificationCode,
+                      quantity: qty
+                    });
+                  }
+                }
+              });
+            }
+          });
+        });
+      });
+    });
+  });
+  console.log(JSON.stringify(groupedData, null, 2));
+  // Updated function returns the grouped data
+  return {
+    data: groupedData, // Modified to return the new structured data
+    errors: options.errors,
+    abort: false,
+    newErrorsAndRetryData: []
   };
+}
