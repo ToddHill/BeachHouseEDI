@@ -59625,231 +59625,219 @@ var options = {
                         "identificationCodeQualifier": "92",
                         "identificationCode": "2370",
                         "quantity": "1",
-                        "identificationCode1": "2395",
-                        "quantity1": "1",
-                        "identificationCode2": "2409",
-                        "quantity2": "1",
-                        "identificationCode3": "2501",
-                        "quantity3": "1",
-                        "identificationCode4": "2572",
-                        "quantity4": "1",
-                        "identificationCode5": "2764",
-                        "quantity5": "1",
-                        "identificationCode6": "2881",
-                        "quantity6": "1",
-                        "identificationCode7": "2890",
-                        "quantity7": "1",
-                        "identificationCode8": "2893",
-                        "quantity8": "2",
-                        "identificationCode9": "2902",
-                        "quantity9": "2"
-                      },
-                      {
-                        "unitOrBasisForMeasurementCode": "EA",
-                        "identificationCodeQualifier": "92",
-                        "identificationCode": "2904",
-                        "quantity": "2",
-                        "identificationCode1": "3322",
-                        "quantity1": "4",
-                        "identificationCode2": "3447",
-                        "quantity2": "2",
-                        "identificationCode3": "3840",
-                        "quantity3": "70",
-                        "identificationCode4": "3841",
-                        "quantity4": "78",
-                        "identificationCode5": "3842",
-                        "quantity5": "46"
-                      }
-                    ]
-                  },
-                  {
-                    "productActivityReporting": [
-                      {
-                        "activityCode": "QS"
-                      }
-                    ],
-                    "destinationQuantity": [
-                      {
-                        "unitOrBasisForMeasurementCode": "EA",
-                        "identificationCodeQualifier": "92",
-                        "identificationCode": "0290",
-                        "quantity": "1",
-                        "identificationCode1": "0341",
-                        "quantity1": "1",
-                        "identificationCode2": "0896",
-                        "quantity2": "1",
-                        "identificationCode3": "1224",
-                        "quantity3": "1",
-                        "identificationCode4": "1280",
-                        "quantity4": "1",
-                        "identificationCode5": "1302",
-                        "quantity5": "1",
-                        "identificationCode6": "1515",
-                        "quantity6": "1",
-                        "identificationCode7": "1519",
-                        "quantity7": "1",
-                        "identificationCode8": "1766",
-                        "quantity8": "1",
-                        "identificationCode9": "1812",
-                        "quantity9": "1"
-                      },
-                      {
-                        "unitOrBasisForMeasurementCode": "EA",
-                        "identificationCodeQualifier": "92",
-                        "identificationCode": "1873",
-                        "quantity": "1",
-                        "identificationCode1": "1983",
-                        "quantity1": "-1",
-                        "identificationCode2": "2051",
-                        "quantity2": "1",
-                        "identificationCode3": "2081",
-                        "quantity3": "1",
-                        "identificationCode4": "2187",
-                        "quantity4": "1"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "itemIdentification": [
-                  {
-                    "assignedIdentification": "51",
-                    "productServiceIDQualifier": "UP",
-                    "productServiceID": "810015151891",
-                    "productServiceIDQualifier1": "CB",
-                    "productServiceID1": "342039810",
-                    "productServiceIDQualifier2": "VA",
-                    "productServiceID2": "PATT422721"
-                  }
-                ],
-                "ZA_loop": [
-                  {
-                    "productActivityReporting": [
-                      {
-                        "activityCode": "QA"
-                      }
-                    ],
-                    "destinationQuantity": [
-                      {
-                        "unitOrBasisForMeasurementCode": "EA",
-                        "identificationCodeQualifier": "92",
-                        "identificationCode": "0854",
-                        "quantity": "2",
-                        "identificationCode1": "0866",
-                        "quantity1": "1",
-                        "identificationCode2": "1085",
-                        "quantity2": "5",
-                        "identificationCode3": "1187",
-                        "quantity3": "1",
-                        "identificationCode4": "1235",
-                        "quantity4": "2",
-                        "identificationCode5": "1430",
-                        "quantity5": "1",
-                        "identificationCode6": "1500",
-                        "quantity6": "1",
-                        "identificationCode7": "1777",
-                        "quantity7": "1",
-                        "identificationCode8": "1895",
-                        "quantity8": "2",
-                        "identificationCode9": "1969",
-                        "quantity9": "2"
-                      },
-                      {
-                        "unitOrBasisForMeasurementCode": "EA",
-                        "identificationCodeQualifier": "92",
-                        "identificationCode": "2048",
-                        "quantity": "3",
-                        "identificationCode1": "2300",
-                        "quantity1": "2",
-                        "identificationCode2": "2335",
-                        "quantity2": "1"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "transactionTotals": [
-              {
-                "numberOfLineItems": "51"
-              }
-            ],
-            "transactionSetTrailer": [
-              {
-                "numberOfIncludedSegments": "2646",
-                "transactionSetControlNumber": "320731793"
-              }
-            ]
-          }
-        ],
-        "href": "https://api.orderful.com/v3/transactions/280962314/message"
-      }
-    ],
-    "errors": [],
-    "_exportId": "65b2bc41ce7c721bafe20769",
-    "_connectionId": "605ce094fa7ccb141c449c92",
-    "_flowId": "65b2bc428b6b4f12c5fd69cd",
-    "_integrationId": "65b2bb300c9d282076026a68",
-    "pageIndex": 0,
-    "settings": {
-      "integration": {},
-      "flowGrouping": {},
-      "flow": {},
-      "export": {},
-      "connection": {}
-    },
-    "testMode": true
-  }
-preSavePage(options);
+                                                "identificationCode1": "2395",
+                                                "quantity1": "1",
+                                                "identificationCode2": "2409",
+                                                "quantity2": "1",
+                                                "identificationCode3": "2501",
+                                                "quantity3": "1",
+                                                "identificationCode4": "2572",
+                                                "quantity4": "1",
+                                                "identificationCode5": "2764",
+                                                "quantity5": "1",
+                                                "identificationCode6": "2881",
+                                                "quantity6": "1",
+                                                "identificationCode7": "2890",
+                                                "quantity7": "1",
+                                                "identificationCode8": "2893",
+                                                "quantity8": "2",
+                                                "identificationCode9": "2902",
+                                                "quantity9": "2"
+                                              },
+                                              {
+                                                "unitOrBasisForMeasurementCode": "EA",
+                                                "identificationCodeQualifier": "92",
+                                                "identificationCode": "2904",
+                                                "quantity": "2",
+                                                "identificationCode1": "3322",
+                                                "quantity1": "4",
+                                                "identificationCode2": "3447",
+                                                "quantity2": "2",
+                                                "identificationCode3": "3840",
+                                                "quantity3": "70",
+                                                "identificationCode4": "3841",
+                                                "quantity4": "78",
+                                                "identificationCode5": "3842",
+                                                "quantity5": "46"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "productActivityReporting": [
+                                              {
+                                                "activityCode": "QS"
+                                              }
+                                            ],
+                                            "destinationQuantity": [
+                                              {
+                                                "unitOrBasisForMeasurementCode": "EA",
+                                                "identificationCodeQualifier": "92",
+                                                "identificationCode": "0290",
+                                                "quantity": "1",
+                                                "identificationCode1": "0341",
+                                                "quantity1": "1",
+                                                "identificationCode2": "0896",
+                                                "quantity2": "1",
+                                                "identificationCode3": "1224",
+                                                "quantity3": "1",
+                                                "identificationCode4": "1280",
+                                                "quantity4": "1",
+                                                "identificationCode5": "1302",
+                                                "quantity5": "1",
+                                                "identificationCode6": "1515",
+                                                "quantity6": "1",
+                                                "identificationCode7": "1519",
+                                                "quantity7": "1",
+                                                "identificationCode8": "1766",
+                                                "quantity8": "1",
+                                                "identificationCode9": "1812",
+                                                "quantity9": "1"
+                                              },
+                                              {
+                                                "unitOrBasisForMeasurementCode": "EA",
+                                                "identificationCodeQualifier": "92",
+                                                "identificationCode": "1873",
+                                                "quantity": "1",
+                                                "identificationCode1": "1983",
+                                                "quantity1": "-1",
+                                                "identificationCode2": "2051",
+                                                "quantity2": "1",
+                                                "identificationCode3": "2081",
+                                                "quantity3": "1",
+                                                "identificationCode4": "2187",
+                                                "quantity4": "1"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "itemIdentification": [
+                                          {
+                                            "assignedIdentification": "51",
+                                            "productServiceIDQualifier": "UP",
+                                            "productServiceID": "810015151891",
+                                            "productServiceIDQualifier1": "CB",
+                                            "productServiceID1": "342039810",
+                                            "productServiceIDQualifier2": "VA",
+                                            "productServiceID2": "PATT422721"
+                                          }
+                                        ],
+                                        "ZA_loop": [
+                                          {
+                                            "productActivityReporting": [
+                                              {
+                                                "activityCode": "QA"
+                                              }
+                                            ],
+                                            "destinationQuantity": [
+                                              {
+                                                "unitOrBasisForMeasurementCode": "EA",
+                                                "identificationCodeQualifier": "92",
+                                                "identificationCode": "0854",
+                                                "quantity": "2",
+                                                "identificationCode1": "0866",
+                                                "quantity1": "1",
+                                                "identificationCode2": "1085",
+                                                "quantity2": "5",
+                                                "identificationCode3": "1187",
+                                                "quantity3": "1",
+                                                "identificationCode4": "1235",
+                                                "quantity4": "2",
+                                                "identificationCode5": "1430",
+                                                "quantity5": "1",
+                                                "identificationCode6": "1500",
+                                                "quantity6": "1",
+                                                "identificationCode7": "1777",
+                                                "quantity7": "1",
+                                                "identificationCode8": "1895",
+                                                "quantity8": "2",
+                                                "identificationCode9": "1969",
+                                                "quantity9": "2"
+                                              },
+                                              {
+                                                "unitOrBasisForMeasurementCode": "EA",
+                                                "identificationCodeQualifier": "92",
+                                                "identificationCode": "2048",
+                                                "quantity": "3",
+                                                "identificationCode1": "2300",
+                                                "quantity1": "2",
+                                                "identificationCode2": "2335",
+                                                "quantity2": "1"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "transactionTotals": [
+                                      {
+                                        "numberOfLineItems": "51"
+                                      }
+                                    ],
+                                    "transactionSetTrailer": [
+                                      {
+                                        "numberOfIncludedSegments": "2646",
+                                        "transactionSetControlNumber": "320731793"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "href": "https://api.orderful.com/v3/transactions/280962314/message"
+                              }
+                            ],
+                            "errors": [],
+                            "_exportId": "65b2bc41ce7c721bafe20769",
+                            "_connectionId": "605ce094fa7ccb141c449c92",
+                            "_flowId": "65b2bc428b6b4f12c5fd69cd",
+                            "_integrationId": "65b2bb300c9d282076026a68",
+                            "pageIndex": 0,
+                            "settings": {
+                              "integration": {},
+                              "flowGrouping": {},
+                              "flow": {},
+                              "export": {},
+                              "connection": {}
+                            },
+                            "testMode": true
+                          }
+                        preSavePage(options);
 
-//
+//////////////////////////////////////////////////////////////////////////////////////////
 /*
 
+Target 852 Processing
 
+Placing the provided 852 information into the appropriate POS Custom Record
+For use in the Analytic Features Built into NetSuite.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+2.5.2024 - Initial First Tests to Asses functionality
+2.6.2024 - Added loops written by Brian C to separate data within the loops
+2.7.2024 - Adding Arrays and Making Changes to the Custom Record to account for the
+           Addition of Data related to On Hand and On Order Data which is being
+           Sent in the Original 852.
 
 */
+//////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-//
-//
-
-//
 function preSavePage(options) {
-  // options.data now directly contains the relevant array
-  const data = options.data;
 
+  const data = options.data;
   // The object to hold the grouped data by productServiceID2
   let groupedData = {};
-
   data.forEach(record => {
     record.transactionSets.forEach(transactionSet => {
+      const reportingDate = convertDate(transactionSet.reportingDateAction[0].date);
       transactionSet.LIN_loop.forEach(item => {
         const productServiceID2 = item.itemIdentification.find(id => id.productServiceIDQualifier2 === "VA").productServiceID2;
+        const UPC = item.itemIdentification.find(id => id.productServiceIDQualifier === "UP").productServiceID;
         item.ZA_loop.forEach(za => {
           za.productActivityReporting.forEach(activity => {
+            // QA Loop End of Week Inventory in Units (Current Inventory)
             if (activity.activityCode === "QA") {
               if (!groupedData[productServiceID2]) {
                 groupedData[productServiceID2] = [];
+
               }
               za.destinationQuantity.forEach(quantity => {
                 // Loop through possible identification codes and quantities
@@ -59859,25 +59847,95 @@ function preSavePage(options) {
                   const identificationCode = quantity[identificationCodeKey];
                   const qty = quantity[quantityKey];
                   if (identificationCode !== undefined && qty !== undefined) {
-                    groupedData[productServiceID2].push({
-                      identificationCode,
-                      quantity: qty
-                    });
+                    if (!groupedData[productServiceID2][identificationCode]) {
+                      groupedData[productServiceID2][identificationCode] = [];
+                      var ImportData = {}
+                      var StoreCode = identificationCode;
+                      var CurrentQuantity = qty;
+                      ImportData.date = reportingDate;
+                      ImportData.StoreCode = StoreCode;
+                      ImportData.CurrentQuantity = CurrentQuantity;
+                      // groupedData[productServiceID2][identificationCode].push(ImportData);
+                      //groupedData[productServiceID2][identificationCode].Currentquantity = qty;
+                      }
+                      else {
+                      //groupedData[productServiceID2][identificationCode].Currentquantity = qty;
+                    }
                   }
                 }
               });
-            }
+            };
+            // QS Loop - Quantity Sold in Units
+            if (activity.activityCode === "QS") {
+                                      if (!groupedData[productServiceID2]) {
+                                        groupedData[productServiceID2] = [];
+                                      }
+                                      za.destinationQuantity.forEach(quantity => {
+                                        // Loop through possible identification codes and quantities
+                                        for (let i = 0; i <= 9; i++) {
+                                          const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
+                                          const quantityKey = `quantity${i !== 0 ? i : ''}`;
+                                          const identificationCode = quantity[identificationCodeKey];
+                                          const qty = quantity[quantityKey];
+                                          if (identificationCode !== undefined && qty !== undefined) {
+                                            if (!groupedData[productServiceID2][identificationCode]) {
+                                            //  groupedData[productServiceID2][identificationCode] = []
+                                            //  groupedData[productServiceID2][identificationCode].SoldQuantity = qty;
+                                            }
+                                            else {
+                                            //  groupedData[productServiceID2][identificationCode].SoldQuantity = qty;
+                                            }
+                                          }
+                                        }
+                                      });
+                                    };
+            // QP Loop - End of Week DC On-Order in Units (On-Order Quantity)
+            if (activity.activityCode === "QP") {
+                                      if (!groupedData[productServiceID2]) {
+                                        groupedData[productServiceID2] = [];
+                                      }
+                                      za.destinationQuantity.forEach(quantity => {
+                                        // Loop through possible identification codes and quantities
+                                        for (let i = 0; i <= 9; i++) {
+                                          const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
+                                          const quantityKey = `quantity${i !== 0 ? i : ''}`;
+                                          const identificationCode = quantity[identificationCodeKey];
+                                          const qty = quantity[quantityKey];
+                                          if (identificationCode !== undefined && qty !== undefined) {
+                                            if (!groupedData[productServiceID2][identificationCode]) {
+                                            // groupedData[productServiceID2][identificationCode] = [];
+                                            //  groupedData[productServiceID2][identificationCode].OnOrderQuantity = qty;   
+                                              } 
+                                              else {
+                                            //groupedData[productServiceID2][identificationCode].OnOrderQuantity = qty;
+                                              }
+                                            }
+                                          }
+                                       }
+                                       );
+                                    };
           });
         });
-      });
-    });
+      })
+    })
   });
+
   console.log(JSON.stringify(groupedData, null, 2));
-  // Updated function returns the grouped data
-  return {
-    data: groupedData, // Modified to return the new structured data
-    errors: options.errors,
-    abort: false,
-    newErrorsAndRetryData: []
+
+return {
+  data: [groupedData], // Modified to return the new structured data
+  errors: options.errors,
+  abort: false,
+  newErrorsAndRetryData: []
   };
 }
+
+
+// ADDITIONAL FUNCTIONS:
+// convertDate Funtion to change ANSI/EDIFACT Dates into NetSuite Importable Dates  
+function convertDate(date) {
+  var year = date.slice(0, 4);
+  var month = date.slice(4, 6);
+  var day = date.slice(6, 8);
+  return `${month}/${day}/${year}`;
+} 
