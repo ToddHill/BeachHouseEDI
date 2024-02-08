@@ -59805,7 +59805,6 @@ var options = {
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /*
-
 Target 852 Processing
 
 Placing the provided 852 information into the appropriate POS Custom Record
@@ -59816,126 +59815,83 @@ For use in the Analytic Features Built into NetSuite.
 2.7.2024 - Adding Arrays and Making Changes to the Custom Record to account for the
            Addition of Data related to On Hand and On Order Data which is being
            Sent in the Original 852.
-
+2.7.2024 - Initiated CHATGTP which shortended and completed the code. It was amazing
+           to have it debug and simply post the code.
+2.7.2024 - Added the convertDate function to change the ANSI/EDIFACT Dates into NetSuite Importable Dates
+2.7.2024 - Added the RetailerID to the ImportData Object
+2.7.2024 - Added the console.log to see the groupedData object
 */
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 function preSavePage(options) {
-
   const data = options.data;
-  // The object to hold the grouped data by productServiceID2
-  let groupedData = {};
+  const retailerID = "2276213"; // Set the RetailerID
+  let flattenedData = []; // The array to hold the flattened data
+
   data.forEach(record => {
     record.transactionSets.forEach(transactionSet => {
       const reportingDate = convertDate(transactionSet.reportingDateAction[0].date);
       transactionSet.LIN_loop.forEach(item => {
-        const productServiceID2 = item.itemIdentification.find(id => id.productServiceIDQualifier2 === "VA").productServiceID2;
-        const UPC = item.itemIdentification.find(id => id.productServiceIDQualifier === "UP").productServiceID;
+        const productServiceID2Object = item.itemIdentification.find(id => id.productServiceIDQualifier2 === "VA");
+        const productServiceID2 = productServiceID2Object ? productServiceID2Object.productServiceID2 : null;
+        const UPCObject = item.itemIdentification.find(id => id.productServiceIDQualifier === "UP");
+        const UPC = UPCObject ? UPCObject.productServiceID : null;
+
+        if (!productServiceID2) return; // Skip if productServiceID2 is not found
+
         item.ZA_loop.forEach(za => {
           za.productActivityReporting.forEach(activity => {
-            // QA Loop End of Week Inventory in Units (Current Inventory)
-            if (activity.activityCode === "QA") {
-              if (!groupedData[productServiceID2]) {
-                groupedData[productServiceID2] = [];
+            za.destinationQuantity.forEach(quantity => {
+              for (let i = 0; i <= 9; i++) {
+                const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
+                const quantityKey = `quantity${i !== 0 ? i : ''}`;
+                const identificationCode = quantity[identificationCodeKey];
+                const qty = quantity[quantityKey];
 
-              }
-              za.destinationQuantity.forEach(quantity => {
-                // Loop through possible identification codes and quantities
-                for (let i = 0; i <= 9; i++) {
-                  const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
-                  const quantityKey = `quantity${i !== 0 ? i : ''}`;
-                  const identificationCode = quantity[identificationCodeKey];
-                  const qty = quantity[quantityKey];
-                  if (identificationCode !== undefined && qty !== undefined) {
-                    if (!groupedData[productServiceID2][identificationCode]) {
-                      groupedData[productServiceID2][identificationCode] = [];
-                      var ImportData = {}
-                      var StoreCode = identificationCode;
-                      var CurrentQuantity = qty;
-                      ImportData.date = reportingDate;
-                      ImportData.StoreCode = StoreCode;
-                      ImportData.CurrentQuantity = CurrentQuantity;
-                      // groupedData[productServiceID2][identificationCode].push(ImportData);
-                      //groupedData[productServiceID2][identificationCode].Currentquantity = qty;
-                      }
-                      else {
-                      //groupedData[productServiceID2][identificationCode].Currentquantity = qty;
-                    }
+                if (identificationCode !== undefined && qty !== undefined) {
+                  const ImportData = {
+                    RetailerId: retailerID,
+                    date: reportingDate,
+                    item: productServiceID2,
+                    storeCode: identificationCode,
+                    currentQuantity: 0, // Initialize CurrentQuantity
+                    soldQuantity: 0, // Initialize SoldQuantity
+                    onOrderQuantity: 0 // Initialize OnOrderQuantity
+                  };
+
+                  // Handle different activity codes
+                  if (activity.activityCode === "QA") {
+                    ImportData.currentQuantity = qty;
+                  } else if (activity.activityCode === "QS") {
+                    ImportData.soldQuantity = qty;
+                  } else if (activity.activityCode === "QP") {
+                    ImportData.onOrderQuantity = qty;
                   }
+
+                  flattenedData.push(ImportData);
                 }
-              });
-            };
-            // QS Loop - Quantity Sold in Units
-            if (activity.activityCode === "QS") {
-                                      if (!groupedData[productServiceID2]) {
-                                        groupedData[productServiceID2] = [];
-                                      }
-                                      za.destinationQuantity.forEach(quantity => {
-                                        // Loop through possible identification codes and quantities
-                                        for (let i = 0; i <= 9; i++) {
-                                          const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
-                                          const quantityKey = `quantity${i !== 0 ? i : ''}`;
-                                          const identificationCode = quantity[identificationCodeKey];
-                                          const qty = quantity[quantityKey];
-                                          if (identificationCode !== undefined && qty !== undefined) {
-                                            if (!groupedData[productServiceID2][identificationCode]) {
-                                            //  groupedData[productServiceID2][identificationCode] = []
-                                            //  groupedData[productServiceID2][identificationCode].SoldQuantity = qty;
-                                            }
-                                            else {
-                                            //  groupedData[productServiceID2][identificationCode].SoldQuantity = qty;
-                                            }
-                                          }
-                                        }
-                                      });
-                                    };
-            // QP Loop - End of Week DC On-Order in Units (On-Order Quantity)
-            if (activity.activityCode === "QP") {
-                                      if (!groupedData[productServiceID2]) {
-                                        groupedData[productServiceID2] = [];
-                                      }
-                                      za.destinationQuantity.forEach(quantity => {
-                                        // Loop through possible identification codes and quantities
-                                        for (let i = 0; i <= 9; i++) {
-                                          const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
-                                          const quantityKey = `quantity${i !== 0 ? i : ''}`;
-                                          const identificationCode = quantity[identificationCodeKey];
-                                          const qty = quantity[quantityKey];
-                                          if (identificationCode !== undefined && qty !== undefined) {
-                                            if (!groupedData[productServiceID2][identificationCode]) {
-                                            // groupedData[productServiceID2][identificationCode] = [];
-                                            //  groupedData[productServiceID2][identificationCode].OnOrderQuantity = qty;   
-                                              } 
-                                              else {
-                                            //groupedData[productServiceID2][identificationCode].OnOrderQuantity = qty;
-                                              }
-                                            }
-                                          }
-                                       }
-                                       );
-                                    };
+              }
+            });
           });
         });
-      })
-    })
+      });
+    });
   });
 
-  console.log(JSON.stringify(groupedData, null, 2));
+  console.log(JSON.stringify(flattenedData, null, 2));
 
-return {
-  data: [groupedData], // Modified to return the new structured data
-  errors: options.errors,
-  abort: false,
-  newErrorsAndRetryData: []
+  return {
+    data: flattenedData, // Modified to return the flattened data
+    errors: options.errors,
+    abort: false,
+    newErrorsAndRetryData: []
   };
 }
 
-
-// ADDITIONAL FUNCTIONS:
-// convertDate Funtion to change ANSI/EDIFACT Dates into NetSuite Importable Dates  
+// convertDate Function to change ANSI/EDIFACT Dates into NetSuite Importable Dates
 function convertDate(date) {
   var year = date.slice(0, 4);
   var month = date.slice(4, 6);
   var day = date.slice(6, 8);
   return `${month}/${day}/${year}`;
-} 
+}

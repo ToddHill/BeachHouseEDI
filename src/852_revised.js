@@ -1,3 +1,5 @@
+preSavePage(options.data)
+
 function preSavePage(options) {
   const data = options.data;
   let groupedData = {}; // The object to hold the grouped data by productServiceID2
