@@ -504,20 +504,24 @@ Release History:
 1.0.3 - 2024-01-30 - placed total transaction lines in the correct location.
 1.0.4 - 2024-01-30 - removed the total transaction lines from the newObject.  they just won't hunt
 1.0.5 - 2024-01-30 - set shipping weight using toFixed(2) to eliminate extra decimals. Ended up with entirely new variable to do this.
+1.1.0 - 2024-02-08 - Added updaterec to the Response Object for updating the record in NetSuite.
 */
 
 
 function preSavePage(options) {
+  let UpdateRecordsArray = [];
   let newRecord = {};
   let newOptions = {};
   let oldRecord = options.data;
   let responseData = [];
   let totalLines = 0;
   let hierarchicalIDNumberCounter = 0;
+
+
   // Execute Combination of Records into Separate Documents
   // Based on Keys we've set.
 
-  combineByBol(oldRecord, newRecord, newOptions, hierarchicalIDNumberCounter);
+ UpdateRecordsArray = combineByBol(oldRecord, newRecord, newOptions, hierarchicalIDNumberCounter, UpdateRecordsArray);
 
   // now we take 'newRecord' and convert it
   // This loop is looping through our newly consolidated newRecord and
@@ -537,14 +541,20 @@ function preSavePage(options) {
     }
     newRecord[bolKey]["dcObj"] = undefined;
 
+
     
-    
-    responseData.push(newRecord[bolKey]);
+    // Add the "updaterec" field to the responseData object
+    responseData.push({
+      newRecord[bolKey],
+      updaterec: UpdateRecordsArray
+    });
+
+
   }
 
 // useful debug to see the entire object before it is sent.
  console.log(JSON.stringify(responseData, undefined, 2));
-//   
+  
   return {
     data: responseData,
     errors: options.errors,
@@ -555,20 +565,23 @@ function preSavePage(options) {
 // THIS IS WHERE THE LOOPS ARE BUILT
 
 function combineByBol(oldRecord, newRecord, newOptions) {
-
+  let UpdateRecordsArray = [];  
 // set up the newOptions object to hold the shipmentladingQuantity and shipmentWeight
   let shipmentladingQuantity = 0;
   let shipmentWeight = 0;
   let orderladingQuantity = 0;
   let orderWeight = 0;
   let totalLines = 0;
+
+  
   for (let i = 0; i < oldRecord.length; i++) {
     let bolKey = oldRecord[i].BSN02;
     let dcKey = oldRecord[i].N104[0];
     let poAndStoreKey = oldRecord[i].PRF01 + "-" + oldRecord[i].N104[1];
     let cartonKey = oldRecord[i].MAN02;
     let itemKey = oldRecord[i].LIN03;
-
+    UpdateRecordsArray.push(oldRecord[i].updaterec);
+    console.log("updaterec value:", oldRecord[i].updaterec);
     if (!newOptions[bolKey]) {
       newOptions[bolKey] = {
         shipmentladingQuantity: 0,
@@ -626,7 +639,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
         endObj: {},
       };
     }
-    
+
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -653,6 +666,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
 
   //Build the newRecord Object
     if (!newRecord[bolKey]) {
+
       hierarchicalIDNumberCounter = 1;
       // Transaction Set Headers
       var transactionSetHeader = [];
@@ -841,7 +855,8 @@ function combineByBol(oldRecord, newRecord, newOptions) {
         type: { name: oldRecord[i].typeName },
         stream: oldRecord[i].stream,
         dcObj: {},
-        message: { transactionSets: [] },
+        message: { transactionSets: [] }
+
       };
       newRecord[bolKey]["message"]["transactionSets"].push({
         transactionSetHeader,
@@ -918,11 +933,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
     }
 
 // CARTON LEVEL - This is where the Carton is built to be added to the HL_loop array.
-    if (
-      !newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey][
-        "cartonObj"
-      ][cartonKey]
-    ) {
+    if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]) {
       //
       hierarchicalParentIDNumberCounter = hierarchicalIDNumberCounter;
       hierarchicalIDNumberCounter++;
@@ -952,16 +963,10 @@ function combineByBol(oldRecord, newRecord, newOptions) {
     }
 
 // ITEM LEVEL - This is where the Item is built to be added to the HL_loop array.
-    if (
-      !newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey][
-        "cartonObj"
-      ][cartonKey]["itemObj"][itemKey]
-    ) {
+    if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]["itemObj"][itemKey]) {
       hierarchicalParentIDNumberCounter = hierarchicalIDNumberCounter;
       hierarchicalIDNumberCounter++;
-      newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey][
-        "cartonObj"
-      ][cartonKey]["itemObj"][itemKey] = {
+      newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]["itemObj"][itemKey] = {
         endObj: {},
       };
       itemline = {
@@ -989,13 +994,18 @@ function combineByBol(oldRecord, newRecord, newOptions) {
         ],
       };
     }
+//
+//
+// I need to include the UpdateRec in the newRecord Object so I can use it to update the records in NetSuite.
 
-//Mapping = This is where the data from the LOOPS is pushed into the newRecord Object
-//BOL Mapping
+
+//
+// Mapping = This is where the data from the LOOPS is pushed into the newRecord Object
+// BOL Mapping
     newRecord[bolKey]["dcObj"] = newRecord[bolKey]["dcObj"][dcKey];
 
-//combine by DC
-//DC mapping - pushing the Order Line
+// combine by DC
+// DC mapping - pushing the Order Line
     let bolWeight = String(
       (
         Number(newRecord[bolKey]["dcObj"].Package_weight) +
@@ -1009,7 +1019,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
     newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(
       orderline,
     );
-//Carton Mapping - pushing the Carton Line
+// Carton Mapping - pushing the Carton Line
     newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey] = {
       StoreCode: oldRecord[i].N104[1],
       DCCODE: oldRecord[i].N104[0],
@@ -1026,4 +1036,5 @@ function combineByBol(oldRecord, newRecord, newOptions) {
     );
 
   }
+  return UpdateRecordsArray;
 }
