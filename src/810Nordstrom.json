@@ -2,42 +2,75 @@
   "data": [
     [
       {
-        "id": "21288198",
+        "id": "33349631",
         "recordType": "invoice",
-        "ISA06": "BHGBEIST",
-        "ISA08": "2062336664",
-        "idType": "IsaId",
+        "ISA06": "BEACHHOUSEPTTN",
+        "ISA08": "007942915",
+        "idType": "isaId",
         "typeName": "810_INVOICE",
         "stream": "Test",
-        "BIG01": "20230830",
-        "BIG02": "INV24438058",
-        "BIG04": "12345678",
-        "REF01": ["DP", "IA", "IV"],
-        "REF02": ["0882", "5160199", "INV24438058"],
-        "N101": ["BY", "ST"],
-        "N102": ["CU-129923 NORDSTROM (Beis)", "CU-129923 NORDSTROM (Beis)"],
-        "N103": ["92", "92"],
-        "N104": ["0881", "0881"],
-        "ITD01": "01",
+        "BIG01": "20240214",
+        "BIG02": "INV247079166",
+        "BIG04": "01234567",
+        "REF01": [
+          "DP",
+          "IA",
+          "IV"
+        ],
+        "REF02": [
+          "0166",
+          "5191909",
+          "888888888"
+        ],
+        "N101": [
+          "BY",
+          "ST"
+        ],
+        "N103": [
+          "92",
+          "92"
+        ],
+        "N104": [
+          "0011",
+          "0089"
+        ],
+        "ITD01": "05",
         "ITD02": "3",
+        "ITD06": "20240315",
+        "ITD07": "30",
         "DTM01": "011",
-        "DTM02": "20230830",
+        "DTM02": "20240214",
         "IT101": "1",
-        "IT102": "2",
+        "IT102": "12",
         "IT103": "EA",
-        "IT104": "41.16",
+        "IT104": "12.74",
         "IT105": "PE",
         "IT106": "UP",
-        "IT107": "810012860260",
+        "IT107": "810015151211",
         "PID01": "F",
-        "PID05": "Beis The Weekender, Beige",
+        "PID05": "Curl Mousse 4 fl oz",
         "CAD01": "M",
-        "CAD04": "UPSN",
+        "CAD04": "Todd Truck",
         "CAD07": "BM",
-        "CAD08": "1Z16W9999999999999",
-        "TDS01": "82.32",
-        "CTT01": "2"
+        "CAD08": "08100151500030008",
+        "TDS01": "15288",
+        "CTT01": "12",
+        "dataURI": "https://4675206-sb1.app.netsuite.com/app/accounting/transactions/custinvc.nl?id=33349631&compid=4675206_SB1"
       }
     ]
-  ]
+  ],
+  "errors": [],
+  "_exportId": "65cbc6782dffe60f09791f0c",
+  "_connectionId": "63513d8e26e4db667eca7a36",
+  "_flowId": "65cbc618fcf6a519f99eaf6c",
+  "_integrationId": "64e8fc4b3ef68a4b642975d5",
+  "pageIndex": 0,
+  "settings": {
+    "integration": {},
+    "flowGrouping": {},
+    "flow": {},
+    "export": {},
+    "connection": {}
+  },
+  "testMode": false
 }

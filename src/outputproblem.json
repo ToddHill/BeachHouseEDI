@@ -1,0 +1,250 @@
+{
+    "sender": {
+      "isaId": "BEACHHOUSEPTTN"
+    },
+    "receiver": {
+      "isaId": "007942915"
+    },
+    "type": {
+      "name": "810_INVOICE"
+    },
+    "stream": "Test",
+    "message": {
+      "transactionSets": [
+        {
+          "transactionSetHeader": [
+            {
+              "transactionSetIdentifierCode": "810",
+              "transactionSetControlNumber": "0001"
+            }
+          ],
+          "beginningSegmentForInvoice": [
+            {
+              "date": "20240214",
+              "invoiceNumber": "INV247079166",
+              "purchaseOrderNumber": "01234567"
+            }
+          ],
+          "referenceInformation": [
+            {
+              "referenceIdentificationQualifier": "DP",
+              "referenceIdentification": "0166"
+            },
+            {
+              "referenceIdentificationQualifier": "IA",
+              "referenceIdentification": "5191909"
+            },
+            {
+              "referenceIdentificationQualifier": "IV",
+              "referenceIdentification": "888888888"
+            }
+          ],
+          "N1_loop": [
+            {
+              "partyIdentification": [
+                {
+                  "entityIdentifierCode": "BY",
+                  "identificationCodeQualifier": "92",
+                  "identificationCode": "0011"
+                }
+              ]
+            },
+            {
+              "partyIdentification": [
+                {
+                  "entityIdentifierCode": "ST",
+                  "identificationCodeQualifier": "92",
+                  "identificationCode": "0089"
+                }
+              ]
+            }
+          ],
+          "termsOfSaleDeferredTermsOfSale": [
+            {
+              "termsTypeCode": "05",
+              "termsBasisDateCode": "3"
+            }
+          ],
+          "dateTimeReference": [
+            {
+              "dateTimeQualifier": "011",
+              "dateTime": "20240214"
+            }
+          ],
+          "IT1_loop": [
+            {
+              "baselineItemDataInvoice": [
+                {
+                  "assignedIdentification": "1",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "12.74",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151211"
+                },
+                {
+                  "assignedIdentification": "1",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "5.67",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151457"
+                },
+                {
+                  "assignedIdentification": "1",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "6.32",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151228"
+                },
+                {
+                  "assignedIdentification": "1",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "12.74",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151211"
+                },
+                {
+                  "assignedIdentification": "1",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "12.74",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151211"
+                },
+                {
+                  "assignedIdentification": "8",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "6.32",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151228"
+                },
+                {
+                  "assignedIdentification": "15",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "5.67",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151457"
+                },
+                {
+                  "assignedIdentification": "1",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "12.74",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151211"
+                },
+                {
+                  "assignedIdentification": "1",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "12.74",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151211"
+                },
+                {
+                  "assignedIdentification": "1",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "12.74",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151211"
+                },
+                {
+                  "assignedIdentification": "8",
+                  "quantityInvoiced": "12",
+                  "unitOrBasisForMeasurementCode": "EA",
+                  "unitPrice": "5.67",
+                  "basisOfUnitPriceCode": "PE",
+                  "productServiceIDQualifier": "UP",
+                  "productServiceID": "810015151457"
+                }
+              ],
+              "PID_loop": [
+                {
+                  "productItemDescription": [
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Curl Mousse 4 fl oz"
+                    },
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Bristle Brush"
+                    },
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Curl Mousse 8 fl oz"
+                    },
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Curl Mousse 4 fl oz"
+                    },
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Curl Mousse 4 fl oz"
+                    },
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Curl Mousse 8 fl oz"
+                    },
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Bristle Brush"
+                    },
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Curl Mousse 4 fl oz"
+                    },
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Curl Mousse 4 fl oz"
+                    },
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Curl Mousse 4 fl oz"
+                    },
+                    {
+                      "itemDescriptionTypeCode": "F",
+                      "description": "Bristle Brush"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "totalMonetaryValueSummary": [
+            {
+              "amount": "15288"
+            }
+          ],
+          "carrierDetails": [
+            {
+              "transportationMethodTypeCode": "M",
+              "standardCarrierAlphaCode": "Todd Truck",
+              "referenceIdentificationQualifier": "BM",
+              "referenceIdentification": "08100151500030008"
+            }
+          ],
+          "transactionTotals": [
+            {
+              "numberOfLineItems": "12"
+            }
+          ]
+        }
+      ]
+    }
+  }
