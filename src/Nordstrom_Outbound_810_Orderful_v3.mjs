@@ -1,17 +1,45 @@
-
 import options from './810Nordstrom.json' assert { type: "json" };
 preSavePage(options);
-console.log(JSON.stringify(options.data, null, 2));
 
-// BEGIN CELIGO CODE
-// We get the first record so we can use it to modify the header data BEFORE
-// going into the detail level issues.
+
+////////////////////////////// BEGIN CELIGO CODE ///////////////////////////////////
+// This function gets the items.
+function getItems(node) {
+  return node.map(record => {
+    return {
+      baselineItemDataInvoice: [
+        {
+          assignedIdentification: record.IT101,
+          quantityInvoiced: record.IT102,
+          unitOrBasisForMeasurementCode: record.IT103,
+          unitPrice: record.IT104,
+          basisOfUnitPriceCode: record.IT105,
+          productServiceIDQualifier: record.IT106,
+          productServiceID: record.IT107
+        }
+      ],
+      PID_loop: [
+        {
+          productItemDescription: [
+            {
+              itemDescriptionTypeCode: record.PID01,
+              description: record.PID05
+            }
+          ]
+        }
+      ]
+    };
+  });
+};  
+// This function is the main function that will be called to build the data for the Orderful platform.
 function preSavePage(options) {
-  
+  const numberOfLineItems = options.data.reduce((count, innerArray) => {
+    return count + innerArray.length;
+  }, 0);
   const data = [];  
   options.data.forEach(mainBody => {
   const firstNode = mainBody[0];
-  console.log('firstnode',firstNode);
+
   //  We're going to load the addresses as the array is so many levels deep that
   //  Building it as a function is untenebale.
   //
@@ -20,7 +48,6 @@ function preSavePage(options) {
   const N1_loop = [];
   const addressInformation = [];
   
-  console.log('build addresses');
   for (let i=0; i < firstNode.N101.length; i++) {
   const addressInformationObject = {};
   const partyIdentificationObject ={};  
@@ -46,7 +73,7 @@ function preSavePage(options) {
     if (Array.isArray(node.REF01)) {
       node.REF01.forEach((ref01, index) => {
         // For each value in node.REF01, we're going to create a new... OBJECT
-        console.log('multiple reference array');
+
         const referenceInformationObject = {};
         referenceInformationObject.referenceIdentificationQualifier = ref01;
         if (node.REF02.length >= index) {
@@ -63,7 +90,7 @@ function preSavePage(options) {
         referenceInformation.push(referenceInformationObject);
       })
     } else {
-      console.log('single reference object');
+
       const referenceInformationObject = {};
       referenceInformationObject.referenceIdentificationQualifier = node.REF01;
       referenceInformationObject.referenceIdentification = node.REF02;
@@ -83,7 +110,7 @@ function preSavePage(options) {
       node.DTM01.forEach((DTM01, index) => {
         // For each value in node.DTM01, we're going to create a new... OBJECT
         const dateInformationObject = {};
-        console.log('multiple date array');
+
         dateInformationObject.dateTimeQualifier = DTM01;
         if (node.DTM02.length >= index) {
           // If there's a corresponding value in node.DTM02, we're going to add that data
@@ -99,7 +126,6 @@ function preSavePage(options) {
         dateInformation.push(dateInformationObject);
       })
     } else {
-      console.log('single date object');
       const dateInformationObject = {};
       dateInformationObject.dateTimeQualifier = node.DTM01;
       dateInformationObject.date = node.DTM02;
@@ -128,37 +154,8 @@ function preSavePage(options) {
       N1_loop
     };
   }
-  // This is where the items finally come in.  For this we bring in all the records.
-  // Looping through these requires returning to the full data feed
-  // itself and getting the products
-  //
-  //  ITEM LOOP
-  const getItems = node => {
-    const itemInformation =[];
-    var productItemDesc = {productItemDescription:[]};
-    node.forEach((record, index) => {
-      // create the objects to load the data into
-      const itemInformationObject = {};
-      const proddescobj ={};
-      // the item loop for the baseline Item Data Invoice
-      itemInformationObject.assignedIdentification = record.IT101;
-      itemInformationObject.quantityInvoiced = record.IT102;
-      itemInformationObject.unitOrBasisForMeasurementCode = record.IT103;
-      itemInformationObject.unitPrice = record.IT104; 
-      itemInformationObject.basisOfUnitPriceCode = record.IT105;
-      itemInformationObject.productServiceIDQualifier = record.IT106;
-      itemInformationObject.productServiceID= record.IT107;
-      itemInformation.push(itemInformationObject);
-      // the description loop for the baseline Item Description
-      proddescobj.itemDescriptionTypeCode = record.PID01;
-      proddescobj.description = record.PID05;
-      productItemDesc.productItemDescription.push(proddescobj)
-    })
-    return {
-      baselineItemDataInvoice: itemInformation, 
-      PID_loop: [productItemDesc]
-    };
-  }
+
+
   // Main Response, the content is built here.  This is what will be sent
   // to Orderful for processing.  All of the previous lines are functions
   // that inform this constant.
@@ -203,7 +200,7 @@ function preSavePage(options) {
                   }
                 ],
           dateTimeReference: getDateInformation(firstNode),
-          IT1_loop: [getItems(mainBody)],     
+          IT1_loop: getItems(mainBody).flat(),    
           totalMonetaryValueSummary: [
                   {
                     amount: firstNode.TDS01
@@ -219,7 +216,7 @@ function preSavePage(options) {
                 ],      
           transactionTotals: [
                   {
-                          numberOfLineItems: firstNode.CTT01
+                          numberOfLineItems: numberOfLineItems.toString()
                   }
                 ]
         }
@@ -228,6 +225,7 @@ function preSavePage(options) {
   }];
   response[0].updaterec = firstNode.id;
   data.push(response);
+  console.log(JSON.stringify(data, null, 2));
   });
   return {
     data: data,
@@ -237,8 +235,5 @@ function preSavePage(options) {
     
   };
 
-  }
-///////// END CELIGO CODE ///////////////////////////////////
-
-
-
+  };
+///////// END CELIGO CODE //////////////////////////////////////////////////////////

@@ -2,15 +2,15 @@
   "data": [
     [
       {
-        "id": "33349631",
+        "id": "33349638",
         "recordType": "invoice",
         "ISA06": "BEACHHOUSEPTTN",
         "ISA08": "007942915",
         "idType": "isaId",
         "typeName": "810_INVOICE",
         "stream": "Test",
-        "BIG01": "20240214",
-        "BIG02": "INV247079166",
+        "BIG01": "20240215",
+        "BIG02": "247079173",
         "BIG04": "01234567",
         "REF01": [
           "DP",
@@ -19,8 +19,8 @@
         ],
         "REF02": [
           "0166",
-          "5191909",
-          "888888888"
+          "0005191909",
+          "777777777"
         ],
         "N101": [
           "BY",
@@ -31,15 +31,15 @@
           "92"
         ],
         "N104": [
-          "0011",
+          "0015",
           "0089"
         ],
         "ITD01": "05",
         "ITD02": "3",
-        "ITD06": "20240315",
+        "ITD06": "20240316",
         "ITD07": "30",
         "DTM01": "011",
-        "DTM02": "20240214",
+        "DTM02": "20240215",
         "IT101": "1",
         "IT102": "12",
         "IT103": "EA",
@@ -50,12 +50,68 @@
         "PID01": "F",
         "PID05": "Curl Mousse 4 fl oz",
         "CAD01": "M",
-        "CAD04": "Todd Truck",
+        "CAD04": "DYXI",
         "CAD07": "BM",
         "CAD08": "08100151500030008",
-        "TDS01": "15288",
-        "CTT01": "12",
-        "dataURI": "https://4675206-sb1.app.netsuite.com/app/accounting/transactions/custinvc.nl?id=33349631&compid=4675206_SB1"
+        "TDS01": "22092",
+        "CTT01": "24",
+        "dataURI": "https://4675206-sb1.app.netsuite.com/app/accounting/transactions/custinvc.nl?id=33349638&compid=4675206_SB1"
+      },
+      {
+        "id": "33349638",
+        "recordType": "invoice",
+        "ISA06": "BEACHHOUSEPTTN",
+        "ISA08": "007942915",
+        "idType": "isaId",
+        "typeName": "810_INVOICE",
+        "stream": "Test",
+        "BIG01": "20240215",
+        "BIG02": "247079173",
+        "BIG04": "01234567",
+        "REF01": [
+          "DP",
+          "IA",
+          "IV"
+        ],
+        "REF02": [
+          "0166",
+          "0005191909",
+          "777777777"
+        ],
+        "N101": [
+          "BY",
+          "ST"
+        ],
+        "N103": [
+          "92",
+          "92"
+        ],
+        "N104": [
+          "0015",
+          "0089"
+        ],
+        "ITD01": "05",
+        "ITD02": "3",
+        "ITD06": "20240316",
+        "ITD07": "30",
+        "DTM01": "011",
+        "DTM02": "20240215",
+        "IT101": "8",
+        "IT102": "12",
+        "IT103": "EA",
+        "IT104": "5.67",
+        "IT105": "PE",
+        "IT106": "UP",
+        "IT107": "810015151457",
+        "PID01": "F",
+        "PID05": "Bristle Brush",
+        "CAD01": "M",
+        "CAD04": "DYXI",
+        "CAD07": "BM",
+        "CAD08": "08100151500030008",
+        "TDS01": "22092",
+        "CTT01": "24",
+        "dataURI": "/app/accounting/transactions/custinvc.nl?id=33349638&compid=4675206_SB1"
       }
     ]
   ],

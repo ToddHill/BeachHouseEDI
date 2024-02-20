@@ -8,10 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/src/Nordstrom_Outbound_810_Orderful_v3.mjs"
+            "runtimeArgs": ["--experimental-modules"],
+            "program": "${workspaceFolder}/src/Nordstrom_Outbound_856_Orderful_v3.mjs"
         }
     ]
 

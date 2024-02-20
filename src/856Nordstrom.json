@@ -1,0 +1,214 @@
+{
+    "sender": {
+      "isaId": "ISA06"
+    },
+    "receiver": {
+      "isaId": "ISA08"
+    },
+    "type": {
+      "name": ""
+    },
+    "stream": "",
+    "message": {
+      "transactionSets": [
+        {
+          "transactionSetHeader": [
+            {
+              "transactionSetIdentifierCode": "ST01",
+              "transactionSetControlNumber": "ST02"
+            }
+          ],
+          "beginningSegmentForShipNotice": [
+            {
+              "transactionSetPurposeCode": "BSN01",
+              "shipmentIdentification": "BSN02",
+              "date": "BSN03",
+              "time": "BSN04",
+              "hierarchicalStructureCode": "BSN05"
+            }
+          ],
+          "HL_loop": [
+            {
+              "hierarchicalLevel": [
+                {
+                  "hierarchicalIDNumber": "HL01",
+                  "hierarchicalParentIDNumber": "HL02",
+                  "hierarchicalLevelCode": "HL03"
+                }
+              ],
+              "carrierDetailsQuantityAndWeight": [
+                {
+                  "packagingCode": "TD101",
+                  "ladingQuantity": "TD102",
+                  "commodityCodeQualifier": "TD103",
+                  "commodityCode": "TD104",
+                  "ladingDescription": "TD105",
+                  "weightQualifier": "TD106",
+                  "weight": "TD107",
+                  "unitOrBasisForMeasurementCode": "TD108"
+                }
+              ],
+              "carrierDetailsRoutingSequenceTransitTime": [
+                {
+                  "routingSequenceCode": "TD501",
+                  "identificationCodeQualifier": "TD502",
+                  "identificationCode": "TD503",
+                  "transportationMethodTypeCode": "TD504",
+                  "routing": "TD505",
+                  "shipmentOrderStatusCode": "TD506",
+                  "locationQualifier": "TD507",
+                  "locationIdentifier": "TD508",
+                  "transitDirectionCode": "TD509",
+                  "transitTimeDirectionQualifier": "TD510",
+                  "transitTime": "TD511",
+                  "serviceLevelCode": "TD512"
+                }
+              ],
+              "referenceInformation": [
+                {
+                  "referenceIdentificationQualifier": "REF01",
+                  "referenceIdentification": "REF02"
+                }
+              ],
+              "administrativeCommunicationsContact": [
+                {
+                  "contactFunctionCode": "PER01",
+                  "name": "PER02",
+                  "communicationNumberQualifier": "PER03",
+                  "communicationNumber": "PER04"
+                }
+              ],
+              "dateTimeReference": [
+                {
+                  "dateTimeQualifier": "DTM01",
+                  "date": "DTM02",
+                  "time": "DTM03"
+                }
+              ],
+              "N1_loop": [
+                {
+                  "partyIdentification": [
+                    {
+                      "entityIdentifierCode": "N101",
+                      "name": "N102",
+                      "identificationCodeQualifier": "N103",
+                      "identificationCode": "N104"
+                    }
+                  ],
+                  "partyLocation": [
+                    {
+                      "addressInformation": "N301",
+                      "addressInformation1": "N302"
+                    }
+                  ],
+                  "geographicLocation": [
+                    {
+                      "cityName": "N401",
+                      "stateOrProvinceCode": "N402",
+                      "postalCode": "N403"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "hierarchicalLevel": [
+                {
+                  "hierarchicalIDNumber": "HL01",
+                  "hierarchicalParentIDNumber": "HL02",
+                  "hierarchicalLevelCode": "HL03"
+                }
+              ],
+              "itemIdentification": [
+                {
+                  "assignedIdentification": "LIN01",
+                  "productServiceIDQualifier": "LIN02",
+                  "productServiceID": "LIN03"
+                }
+              ],
+              "itemDetailShipment": [
+                {
+                  "assignedIdentification": "SN101",
+                  "numberOfUnitsShipped": "SN102",
+                  "unitOrBasisForMeasurementCode": "SN103"
+                }
+              ]
+            },
+            {
+              "hierarchicalLevel": [
+                {
+                  "hierarchicalIDNumber": "HL01",
+                  "hierarchicalParentIDNumber": "HL02",
+                  "hierarchicalLevelCode": "HL03"
+                }
+              ],
+              "marksAndNumbersInformation": [
+                {
+                  "marksAndNumbersQualifier": "MAN01",
+                  "marksAndNumbers": "MAN02"
+                }
+              ]
+            },
+            {
+              "hierarchicalLevel": [
+                {
+                  "hierarchicalIDNumber": "HL01",
+                  "hierarchicalParentIDNumber": "HL02",
+                  "hierarchicalLevelCode": "HL03"
+                }
+              ],
+              "purchaseOrderReference": [
+                {
+                  "purchaseOrderNumber": "PRF01",
+                  "releaseNumber": "PRF02",
+                  "changeOrderSequenceNumber": "PRF03",
+                  "date": "PRF04"
+                }
+              ],
+              "carrierDetailsQuantityAndWeight": [
+                {
+                  "packagingCode": "TD101",
+                  "ladingQuantity": "TD102",
+                  "commodityCodeQualifier": "TD103",
+                  "commodityCode": "TD104",
+                  "ladingDescription": "TD105",
+                  "weightQualifier": "TD106",
+                  "weight": "TD107",
+                  "unitOrBasisForMeasurementCode": "TD108"
+                }
+              ],
+              "referenceInformation": [
+                {
+                  "referenceIdentificationQualifier": "REF01",
+                  "referenceIdentification": "REF02"
+                }
+              ],
+              "N1_loop": [
+                {
+                  "partyIdentification": [
+                    {
+                      "entityIdentifierCode": "N101",
+                      "name": "N102",
+                      "identificationCodeQualifier": "N103",
+                      "identificationCode": "N104"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "transactionTotals": [
+            {
+              "numberOfLineItems": "CTT01"
+            }
+          ],
+          "transactionSetTrailer": [
+            {
+              "numberOfIncludedSegments": "SE01",
+              "transactionSetControlNumber": "SE02"
+            }
+          ]
+        }
+      ]
+    }
+  }
