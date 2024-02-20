@@ -1,0 +1,49 @@
+{
+  "data": [
+    [
+      {
+        "id": "21288197",
+        "recordType": "salesorder",
+        "ISA06": "BHGBEIST",
+        "ISA08": "007942915",
+        "stream": "Test",
+        "typeName": "855_PURCHASE_ORDER_ACKNOWLEDGMENT",
+        "BAK01": "00",
+        "BAK02": "AD",
+        "BAK03": "12345678",
+        "BAK04": "20230830",
+        "REF01": ["DP", "IA"],
+        "REF02": ["0881", "0005160199"],
+        "DTM01": ["001", "037"],
+        "DTM02": ["20230830", "20230904"],
+        "PO101": "",
+        "PO102": "2",
+        "PO103": "EA",
+        "PO104": "41.16",
+        "PO105": "PE",
+        "PO106": "UP",
+        "PO107": "810012860260",
+        "PO108": "VA",
+        "PO109": "BEIS019127",
+        "SDQ01": "EA",
+        "SDQ02": "92",
+        "SDQ03": "0001",
+        "SDQ04": "2",
+        "dataURI": "https://4675206-sb1.app.netsuite.com/app/accounting/transactions/salesord.nl?id=21288197&compid=4675206_SB1"
+      }
+    ]
+  ],
+  "errors": [],
+  "_exportId": "65009d60da20da7323e4bade",
+  "_connectionId": "63513d8e26e4db667eca7a36",
+  "_flowId": "65008f2cda20da7323e4b3de",
+  "_integrationId": "64e8fc4b3ef68a4b642975d5",
+  "pageIndex": 0,
+  "settings": {
+    "integration": {},
+    "flowGrouping": {},
+    "flow": {},
+    "export": {},
+    "connection": {}
+  }
+}
