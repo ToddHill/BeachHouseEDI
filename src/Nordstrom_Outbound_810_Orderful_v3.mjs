@@ -1,11 +1,15 @@
-import options from './810Nordstrom.json' assert { type: "json" };
+import options from './Nordstrom_810_data.json' assert { type: "json" };
 preSavePage(options);
 
 
 ////////////////////////////// BEGIN CELIGO CODE ///////////////////////////////////
+
 // This function gets the items.
-function getItems(node) {
-  return node.map(record => {
+function getItems(node, ValueTotal) {
+  let OrderTotal = 0;
+  const items = node.map(record => {
+    OrderTotal = record.IT102 * record.IT104;
+    ValueTotal += OrderTotal;
     return {
       baselineItemDataInvoice: [
         {
@@ -30,15 +34,20 @@ function getItems(node) {
       ]
     };
   });
-};  
+
+  return {
+    items,
+    ValueTotal
+  };
+}
 // This function is the main function that will be called to build the data for the Orderful platform.
 function preSavePage(options) {
-  const numberOfLineItems = options.data.reduce((count, innerArray) => {
-    return count + innerArray.length;
-  }, 0);
-  const data = [];  
-  options.data.forEach(mainBody => {
-  const firstNode = mainBody[0];
+  const numberOfLineItems = options.data.length;
+  const data = []; 
+  let ValueTotal = 0;
+  let OrderTotal = 0;
+  let mainBody = options.data[0]; 
+  const firstNode = mainBody;
 
   //  We're going to load the addresses as the array is so many levels deep that
   //  Building it as a function is untenebale.
@@ -47,16 +56,16 @@ function preSavePage(options) {
   addr.push(firstNode.N101);
   const N1_loop = [];
   const addressInformation = [];
-  
+
   for (let i=0; i < firstNode.N101.length; i++) {
-  const addressInformationObject = {};
-  const partyIdentificationObject ={};  
+    const addressInformationObject = {};
+    const partyIdentificationObject ={};  
       addressInformationObject.entityIdentifierCode = firstNode.N101[i];
       if (firstNode.N102 && firstNode.N102[i]) {
         addressInformationObject.name = firstNode.N102[i];
     }
       addressInformationObject.identificationCodeQualifier = firstNode.N103[i];
-      addressInformationObject.identificationCode = firstNode.N104[i];
+      addressInformationObject.identificationCode = firstNode.N104[1];
       addressInformation.push(addressInformationObject);
       partyIdentificationObject.partyIdentification = [addressInformationObject];
       N1_loop.push(partyIdentificationObject);
@@ -155,6 +164,13 @@ function preSavePage(options) {
     };
   }
 
+//
+const items = getItems(options.data, ValueTotal).items;
+ValueTotal = getItems(options.data, ValueTotal).ValueTotal;
+
+const totalMonetaryValueSummary = {
+  amount: ValueTotal.toFixed(2).replace('.', '')
+};
 
   // Main Response, the content is built here.  This is what will be sent
   // to Orderful for processing.  All of the previous lines are functions
@@ -183,7 +199,7 @@ function preSavePage(options) {
           beginningSegmentForInvoice: [
             {
               date: firstNode.BIG01,
-              invoiceNumber: firstNode.BIG02,
+              invoiceNumber: firstNode.id,
               date1: firstNode.BIG03,
               purchaseOrderNumber: firstNode.BIG04,
               releaseNumber: firstNode.BIG05,
@@ -200,12 +216,8 @@ function preSavePage(options) {
                   }
                 ],
           dateTimeReference: getDateInformation(firstNode),
-          IT1_loop: getItems(mainBody).flat(),    
-          totalMonetaryValueSummary: [
-                  {
-                    amount: firstNode.TDS01
-                  }
-                ],
+          IT1_loop: items,    
+          totalMonetaryValueSummary: [totalMonetaryValueSummary],
           carrierDetails: [
                   {
                     transportationMethodTypeCode: firstNode.CAD01,
@@ -226,7 +238,7 @@ function preSavePage(options) {
   response[0].updaterec = firstNode.id;
   data.push(response);
   console.log(JSON.stringify(data, null, 2));
-  });
+  
   return {
     data: data,
     errors: options.errors,
