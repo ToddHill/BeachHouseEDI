@@ -3,7 +3,7 @@ preSavePage(options);
 
 console.log(JSON.stringify(options.data, undefined, 2));
 
-
+///////////////////////////  CELIGO CODE  ///////////////////////////
 function preSavePage(options) {
     for (let i = 0; i < options.data.length; i++) {
       let salesorders = [];
@@ -38,24 +38,44 @@ function preSavePage(options) {
         for (let k = 0; k < record.dateTimeReference.length; k++) {
           if (record.dateTimeReference[k].dateTimeQualifier === '001') {
             record.cancelByDate = record.dateTimeReference[k].date;
-          } else if (record.dateTimeReference[k].dateTimeQualifier === '037') {
-            record.shipNotBefore = record.dateTimeReference[k].date;
+          } else if (record.dateTimeReference[k].dateTimeQualifier === '002') {
+            record.deliveryRequested = record.dateTimeReference[k].date;
+          } else if (record.dateTimeReference[k].dateTimeQualifier === '010') {
+            record.requestedShip = record.dateTimeReference[k].date;
           }
         }
   
         // grab sender from N1 loop if the sender is Scheels or REI because the information is not in the destinationQuantity (which doesn't exist)
         if (!record.PO1_loop[0].destinationQuantity) {
           // set header level fields for single sales order in sales order array
+           // grab sender and receiver from N1 loop
+        let senderIdentificationCode;
+        let receiverIdentificationCode;
+
+        for (let n1 of record.N1_loop) {
+            if (n1.partyIdentification[0].entityIdentifierCode === 'BY') {
+                senderIdentificationCode = n1.partyIdentification[0].identificationCode;
+            } else if (n1.partyIdentification[0].entityIdentifierCode === 'ST') {
+                receiverIdentificationCode = n1.partyIdentification[0].identificationCode;
+            }
+        }
+
+          // set identificationCode to senderIdentificationCode and dcCode to receiverIdentificationCode
+          record.identificationCode = senderIdentificationCode;
+          record.dcCode = receiverIdentificationCode;
+
           salesorders.push({
             purchaseOrderNumber: record.beginningSegmentForPurchaseOrder[0].purchaseOrderNumber,
             // senderNSID: sender,
-            identificationCode: identificationCode,
-            dcCode: identificationCode,
+            identificationCode: record.identificationCode,
+            dcCode: record.dcCode,
             departmentNumber: record.departmentNumber,
             internalVendorNum: record.internalVendorNum,
             orderType: record.orderType,
-            cancelByDate: record.cancelByDate,
-            shipNotBefore: record.shipNotBefore
+            cancelByDate: convertDate(record.cancelByDate),
+            deliveryRequested: convertDate(record.deliveryRequested),
+            requestedShip: convertDate(record.requestedShip),
+
           })
           salesorders[salesorders.length - 1].items = [];
         }
@@ -167,7 +187,8 @@ function preSavePage(options) {
                   internalVendorNum: record.internalVendorNum,
                   orderType: record.orderType,
                   cancelByDate: convertDate(record.cancelByDate),
-                  shipNotBefore: convertDate(record.shipNotBefore),
+                  deliveryRequested: convertDate(record.deliveryRequested),
+                  requestedShip: convertDate(record.requestedShip),
                   items: [{}]
                 });
   
