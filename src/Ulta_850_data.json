@@ -1,0 +1,392 @@
+{
+    "data": [
+      {
+        "id": "296667153",
+        "href": "https://api.orderful.com/v3/transactions/296667153?expand=message",
+        "version": "v3",
+        "sender": {
+          "isaId": "ULTABEAUTY",
+          "isaIdQualifier": "ZZ",
+          "testIsaId": "ULTABEAUTY",
+          "testIsaIdQualifier": "ZZ",
+          "name": "Ulta Test - By OpenText"
+        },
+        "receiver": {
+          "isaId": "BHGNOYZ",
+          "isaIdQualifier": "ZZ",
+          "testIsaId": "BHGNOYZTST",
+          "testIsaIdQualifier": "ZZ",
+          "name": "Noyz"
+        },
+        "type": {
+          "name": "850_PURCHASE_ORDER"
+        },
+        "stream": "TEST",
+        "businessNumber": "0010879947",
+        "referenceIdentifiers": [
+          {
+            "value": "1",
+            "type": "GROUP",
+            "owner": "SENDER"
+          },
+          {
+            "value": "000000001",
+            "type": "INTERCHANGE",
+            "owner": "SENDER"
+          },
+          {
+            "value": "0001",
+            "type": "TRANSACTION",
+            "owner": "SENDER"
+          }
+        ],
+        "message": {
+          "interchangeControlHeader": [
+            {
+              "authorizationInformationQualifier": "00",
+              "authorizationInformation": "          ",
+              "securityInformationQualifier": "00",
+              "securityInformation": "          ",
+              "interchangeIDQualifier": "ZZ",
+              "interchangeSenderID": "ULTABEAUTY     ",
+              "interchangeIDQualifier1": "ZZ",
+              "interchangeReceiverID": "BHGNOYZ        ",
+              "interchangeDate": "240229",
+              "interchangeTime": "1905",
+              "repetitionSeparator": "^",
+              "interchangeControlVersionNumberCode": "00403",
+              "interchangeControlNumber": "000000001",
+              "acknowledgmentRequestedCode": "0",
+              "interchangeUsageIndicatorCode": "T",
+              "componentElementSeparator": ">"
+            }
+          ],
+          "functionalGroupHeader": [
+            {
+              "functionalIdentifierCode": "PO",
+              "applicationSendersCode": "ULTABEAUTY",
+              "applicationReceiversCode": "BHGNOYZ",
+              "date": "20240229",
+              "time": "1905",
+              "groupControlNumber": "1",
+              "responsibleAgencyCode": "X",
+              "versionReleaseIndustryIdentifierCode": "004030"
+            }
+          ],
+          "transactionSets": [
+            {
+              "transactionSetHeader": [
+                {
+                  "transactionSetIdentifierCode": "850",
+                  "transactionSetControlNumber": "0001"
+                }
+              ],
+              "beginningSegmentForPurchaseOrder": [
+                {
+                  "transactionSetPurposeCode": "00",
+                  "purchaseOrderTypeCode": "SA",
+                  "purchaseOrderNumber": "0010879947",
+                  "date": "20240229"
+                }
+              ],
+              "currency": [
+                {
+                  "entityIdentifierCode": "BY",
+                  "currencyCode": "USD"
+                }
+              ],
+              "referenceInformation": [
+                {
+                  "referenceIdentificationQualifier": "IA",
+                  "referenceIdentification": "1000000088"
+                }
+              ],
+              "administrativeCommunicationsContact": [
+                {
+                  "contactFunctionCode": "BD",
+                  "name": "Buyer Name",
+                  "communicationNumberQualifier": "TE",
+                  "communicationNumber": "555-666-7777"
+                }
+              ],
+              "FOBRelatedInstructions": [
+                {
+                  "shipmentMethodOfPaymentCode": "CC"
+                }
+              ],
+              "termsOfSaleDeferredTermsOfSale": [
+                {
+                  "termsTypeCode": "52",
+                  "termsBasisDateCode": "3",
+                  "termsDiscountPercent": "2",
+                  "termsDiscountDaysDue": "30"
+                },
+                {
+                  "termsTypeCode": "05",
+                  "termsBasisDateCode": "3",
+                  "termsNetDays": "31"
+                }
+              ],
+              "dateTimeReference": [
+                {
+                  "dateTimeQualifier": "001",
+                  "date": "20240229"
+                },
+                {
+                  "dateTimeQualifier": "002",
+                  "date": "20240229"
+                },
+                {
+                  "dateTimeQualifier": "010",
+                  "date": "20240229"
+                }
+              ],
+              "N9_loop": [
+                {
+                  "extendedReferenceInformation": [
+                    {
+                      "referenceIdentificationQualifier": "L1",
+                      "freeFormDescription": "Order Notes"
+                    }
+                  ],
+                  "text": [
+                    {
+                      "noteReferenceCode": "ZZZ",
+                      "textualData": "Deliver at Dock 999 between 7:00 and 9:00"
+                    }
+                  ]
+                }
+              ],
+              "N1_loop": [
+                {
+                  "partyIdentification": [
+                    {
+                      "entityIdentifierCode": "BY",
+                      "name": "ULTA Inc.",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001"
+                    }
+                  ],
+                  "partyLocation": [
+                    {
+                      "addressInformation": "1000 Remington Blvd., Ste 120"
+                    }
+                  ],
+                  "geographicLocation": [
+                    {
+                      "cityName": "Bolingbrook",
+                      "stateOrProvinceCode": "IL",
+                      "postalCode": "60440",
+                      "countryCode": "US"
+                    }
+                  ]
+                },
+                {
+                  "partyIdentification": [
+                    {
+                      "entityIdentifierCode": "ST",
+                      "name": "ShipTo Name Inc.",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "9999"
+                    }
+                  ],
+                  "partyLocation": [
+                    {
+                      "addressInformation": "2000 Shipper Blvd.,"
+                    }
+                  ],
+                  "geographicLocation": [
+                    {
+                      "cityName": "Chicago",
+                      "stateOrProvinceCode": "IL",
+                      "postalCode": "60440",
+                      "countryCode": "US"
+                    }
+                  ]
+                },
+                {
+                  "partyIdentification": [
+                    {
+                      "entityIdentifierCode": "SU",
+                      "name": "Supplier Name",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001999999"
+                    }
+                  ],
+                  "partyLocation": [
+                    {
+                      "addressInformation": "3000 DC Blvd.,"
+                    }
+                  ],
+                  "geographicLocation": [
+                    {
+                      "cityName": "CHAMBERSBURG",
+                      "stateOrProvinceCode": "PA",
+                      "postalCode": "17202",
+                      "countryCode": "US"
+                    }
+                  ]
+                }
+              ],
+              "PO1_loop": [
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "00010",
+                      "quantity": "12",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "18.20",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "850057311013",
+                      "productServiceIDQualifier1": "VA",
+                      "productServiceID1": "8888888888",
+                      "productServiceIDQualifier2": "IN",
+                      "productServiceID2": "2624678"
+                    }
+                  ],
+                  "PID_loop": [
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "08",
+                          "description": "Item Description"
+                        }
+                      ]
+                    }
+                  ],
+                  "itemPhysicalDetails": [
+                    {
+                      "pack": "1"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "00020",
+                      "quantity": "12",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "44.20",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "850057311020",
+                      "productServiceIDQualifier1": "VA",
+                      "productServiceID1": "8888888888",
+                      "productServiceIDQualifier2": "IN",
+                      "productServiceID2": "2624677"
+                    }
+                  ],
+                  "PID_loop": [
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "08",
+                          "description": "Item Description"
+                        }
+                      ]
+                    }
+                  ],
+                  "itemPhysicalDetails": [
+                    {
+                      "pack": "1"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "00030",
+                      "quantity": "12",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "18.20",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "850057311051",
+                      "productServiceIDQualifier1": "VA",
+                      "productServiceID1": "8888888888",
+                      "productServiceIDQualifier2": "IN",
+                      "productServiceID2": "2624680"
+                    }
+                  ],
+                  "PID_loop": [
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "08",
+                          "description": "Item Description"
+                        }
+                      ]
+                    }
+                  ],
+                  "itemPhysicalDetails": [
+                    {
+                      "pack": "1"
+                    }
+                  ]
+                }
+              ],
+              "CTT_loop": [
+                {
+                  "transactionTotals": [
+                    {
+                      "numberOfLineItems": "3",
+                      "hashTotal": "12"
+                    }
+                  ],
+                  "monetaryAmountInformation": [
+                    {
+                      "amountQualifierCode": "TT",
+                      "monetaryAmount": "200.00"
+                    }
+                  ]
+                }
+              ],
+              "transactionSetTrailer": [
+                {
+                  "numberOfIncludedSegments": "34",
+                  "transactionSetControlNumber": "0001"
+                }
+              ]
+            }
+          ],
+          "href": "https://api.orderful.com/v3/transactions/296667153/message"
+        },
+        "validationStatus": "VALID",
+        "deliveryStatus": "SENT",
+        "acknowledgmentStatus": "ACCEPTED",
+        "createdAt": "2024-02-29T21:10:07.543Z",
+        "lastUpdatedAt": "2024-03-04T17:16:35.027Z",
+        "acknowledgment": {
+          "href": "https://api.orderful.com/v3/transactions/296667153/acknowledgment"
+        },
+        "delivery": {
+          "id": "871310db-e2f6-497f-8738-946181035ead",
+          "href": "https://api.orderful.com/v3/deliveries/871310db-e2f6-497f-8738-946181035ead",
+          "approve": {
+            "href": "https://api.orderful.com/v3/deliveries/871310db-e2f6-497f-8738-946181035ead/approve"
+          },
+          "fail": {
+            "href": "https://api.orderful.com/v3/deliveries/871310db-e2f6-497f-8738-946181035ead/fail"
+          }
+        }
+      }
+    ],
+    "errors": [],
+    "_exportId": "65e602034579398b59a80b21",
+    "_connectionId": "605ce094fa7ccb141c449c92",
+    "_flowId": "65e60203c1774f84e593c9f6",
+    "_integrationId": "6543d05206352449970c141b",
+    "pageIndex": 0,
+    "settings": {
+      "integration": {},
+      "flowGrouping": {},
+      "flow": {},
+      "export": {},
+      "connection": {}
+    },
+    "testMode": true
+  }

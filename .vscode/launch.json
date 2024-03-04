@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Program",
             "runtimeArgs": ["--experimental-modules"],
-            "program": "${workspaceFolder}/src/Nordstrom_Outbound_856_Orderful_v3.mjs"
+            "program": "${workspaceFolder}/src/Ulta_Inbound_850_Orderful_v3.mjs"
         }
     ]
 
