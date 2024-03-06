@@ -91,9 +91,9 @@ function getItems(node) {
             }];
             po1Object.PID_loop = [{
                 productItemDescription: [{
-                    itemDescriptionType: record.PID01,
-                    productProcessCharacteristicCode: record.PID02,
-                    description: record.PID05
+                  itemDescriptionTypeCode: record.PID01,
+                  productProcessCharacteristicCode: record.PID02,
+                  description: record.PID05
                 }]
             }];
             po1Object.ACK_loop = [{
@@ -139,6 +139,10 @@ const response = [{
                 purchaseOrderNumber: firstNode.BAK03,
                 date: firstNode.BAK04,
                 requestReferenceNumber: firstNode.BAK06,
+            }],
+            currency: [{
+                entityIdentifierCode: firstNode.CUR01,
+                currencyCode: firstNode.CUR02
             }],
             referenceInformation: getReferenceInformation(firstNode),
             dateTimeReference: getDateInformation(firstNode),

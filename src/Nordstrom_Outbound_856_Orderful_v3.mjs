@@ -43,6 +43,8 @@ function preSavePage(options) {
        newRecord[bolKey]["message"]["transactionSets"][0]["transactionTotals"] = [];
     newRecord[bolKey]["message"]["transactionSets"][0]["transactionTotals"].push(transactionTotalsCount);
     // Add the "updaterec" field to the responseData object
+
+
     responseData.push({
       record: newRecord[bolKey],
       updaterec: UpdateRecordsArray
@@ -77,7 +79,7 @@ function combineByBol(oldRecord, newRecord, newOptions, hierarchicalIDNumberCoun
     let poAndStoreKey = oldRecord[i].N104[2];
     let cartonKey = oldRecord[i].MAN02;
     let itemKey = oldRecord[i].LIN03;
-    UpdateRecordsArray.push(oldRecord[i].id);
+    UpdateRecordsArray.push({recordidtoupdate: oldRecord[i].SOId});
     if (!newOptions[bolKey]) {
       newOptions[bolKey] = {
         shipmentladingQuantity: 0,
