@@ -11,6 +11,7 @@ function preSavePage(options) {
   // UPDATE: 3.7.2024   - Added additional comments for clarity
   //                      Added additional error handling
   let hierarchicalIDCounter = 3;
+  const LINdata = [];
   const subarray = options.data;
   const data = [];
   if (subarray && subarray.length) {
