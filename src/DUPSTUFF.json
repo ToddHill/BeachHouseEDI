@@ -1,0 +1,864 @@
+{
+    "data": [
+      [
+        {
+          "sender": {
+            "isaId": "BEACHHOUSEPTTN"
+          },
+          "receiver": {
+            "isaId": "LCLPEDI"
+          },
+          "type": {
+            "name": "856_SHIP_NOTICE_MANIFEST"
+          },
+          "stream": "Live",
+          "message": {
+            "transactionSets": [
+              {
+                "transactionSetHeader": [
+                  {
+                    "transactionSetIdentifierCode": "856",
+                    "transactionSetControlNumber": "0001"
+                  }
+                ],
+                "beginningSegmentForShipNotice": [
+                  {
+                    "transactionSetPurposeCode": "00",
+                    "shipmentIdentification": "3214223",
+                    "date": "20240215",
+                    "time": "1202",
+                    "hierarchicalStructureCode": "0001"
+                  }
+                ],
+                "HL_loop": [
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "1",
+                        "hierarchicalLevelCode": "S"
+                      }
+                    ],
+                    "carrierDetailsQuantityAndWeight": [
+                      {
+                        "packagingCode": "CTN",
+                        "ladingQuantity": "1",
+                        "weightQualifier": "G",
+                        "weight": "1",
+                        "unitOrBasisForMeasurementCode": "KG"
+                      }
+                    ],
+                    "carrierDetailsRoutingSequenceTransitTime": [
+                      {
+                        "routingSequenceCode": "B",
+                        "identificationCodeQualifier": "2",
+                        "identificationCode": "CPU",
+                        "transportationMethodTypeCode": "M",
+                        "routing": "Soluship",
+                        "shipmentOrderStatusCode": "CC"
+                      }
+                    ],
+                    "carrierDetailsSpecialHandlingOrHazardousMaterialsOrBoth": [
+                      {
+                        "specialHandlingCode": "CC"
+                      }
+                    ],
+                    "referenceInformation": [
+                      {
+                        "referenceIdentificationQualifier": "BM",
+                        "referenceIdentification": "1Z48V9A92013575300"
+                      }
+                    ],
+                    "dateTimeReference": [
+                      {
+                        "dateTimeQualifier": "011",
+                        "date": "20240215",
+                        "time": "1202"
+                      },
+                      {
+                        "dateTimeQualifier": "017",
+                        "date": "20240215"
+                      }
+                    ],
+                    "N1_loop": [
+                      {
+                        "partyIdentification": [
+                          {
+                            "entityIdentifierCode": "ST",
+                            "name": "DC Cornwall",
+                            "identificationCodeQualifier": "9",
+                            "identificationCode": "2489580680020"
+                          }
+                        ],
+                        "partyLocation": [
+                          {
+                            "addressInformation": "1330 Optimum Dr"
+                          }
+                        ],
+                        "geographicLocation": [
+                          {
+                            "cityName": "Cornwall",
+                            "stateOrProvinceCode": "ON",
+                            "postalCode": "K6H 0B1",
+                            "countryCode": "CA"
+                          }
+                        ]
+                      },
+                      {
+                        "partyIdentification": [
+                          {
+                            "entityIdentifierCode": "SF",
+                            "name": "Pattern C/O North American Freight",
+                            "identificationCodeQualifier": "9",
+                            "identificationCode": "2471916380099"
+                          }
+                        ],
+                        "partyLocation": [
+                          {
+                            "addressInformation": "1515 Snow Blvd"
+                          }
+                        ],
+                        "geographicLocation": [
+                          {
+                            "cityName": "Concord",
+                            "stateOrProvinceCode": "ON",
+                            "postalCode": "L4K4N9",
+                            "countryCode": "CA"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "2",
+                        "hierarchicalLevelCode": "O"
+                      }
+                    ],
+                    "purchaseOrderReference": [
+                      {
+                        "purchaseOrderNumber": "0008570155"
+                      }
+                    ],
+                    "carrierDetailsQuantityAndWeight": [
+                      {
+                        "packagingCode": "CTN",
+                        "ladingQuantity": "1",
+                        "weightQualifier": "G",
+                        "weight": "1",
+                        "unitOrBasisForMeasurementCode": "KG"
+                      }
+                    ],
+                    "referenceInformation": [
+                      {
+                        "referenceIdentificationQualifier": "IT",
+                        "referenceIdentification": "2489580680020"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "3",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285716"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "4",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150764"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Curl Gel 9.8 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "5",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285730"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "6",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150764"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Curl Gel 9.8 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "7",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285709"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "8",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150764"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Curl Gel 9.8 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "9",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285723"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "10",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150764"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Curl Gel 9.8 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "11",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285747"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "12",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150764"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Curl Gel 9.8 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "13",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285709"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "14",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150788"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Styling Cream 15 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "15",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285723"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "16",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150788"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Styling Cream 15 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "17",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285716"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "18",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150788"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Styling Cream 15 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "19",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285730"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "20",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150788"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Styling Cream 15 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "21",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285747"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "22",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150788"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Styling Cream 15 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "23",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285747"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "24",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150801"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Cleansing Shampoo 7.8 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "25",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285723"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "26",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150801"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Cleansing Shampoo 7.8 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "27",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285716"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "28",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150801"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Cleansing Shampoo 7.8 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "29",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285730"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "30",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150801"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Cleansing Shampoo 7.8 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "31",
+                        "hierarchicalLevelCode": "T"
+                      }
+                    ],
+                    "marksAndNumbersInformation": [
+                      {
+                        "marksAndNumbersQualifier": "GM",
+                        "marksAndNumbers": "00008100151511285709"
+                      }
+                    ]
+                  },
+                  {
+                    "hierarchicalLevel": [
+                      {
+                        "hierarchicalIDNumber": "32",
+                        "hierarchicalLevelCode": "I"
+                      }
+                    ],
+                    "itemIdentification": [
+                      {
+                        "productServiceIDQualifier": "UK",
+                        "productServiceID": "00810015150801"
+                      }
+                    ],
+                    "itemDetailShipment": [
+                      {
+                        "numberOfUnitsShipped": "12",
+                        "unitOrBasisForMeasurementCode": "EA"
+                      }
+                    ],
+                    "productItemDescription": [
+                      {
+                        "itemDescriptionTypeCode": "F",
+                        "productProcessCharacteristicCode": "08",
+                        "description": "Cleansing Shampoo 7.8 fl oz"
+                      }
+                    ],
+                    "itemPhysicalDetails": [
+                      {
+                        "pack": "12"
+                      }
+                    ]
+                  }
+                ],
+                "transactionTotals": [
+                  {
+                    "numberOfLineItems": "15"
+                  }
+                ]
+              }
+            ]
+          },
+          "updaterec": "38014127"
+        }
+      ]
+    ],
+    "errors": [],
+    "abort": false
+  }

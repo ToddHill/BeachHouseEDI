@@ -4,6 +4,14 @@ preSavePage(options);
 ///////// BEGIN CELIGO CODE /////////////////////////////////
 function preSavePage(options) {
     const mainBody = options.data[0];
+    if (!mainBody || mainBody.length === 0) {
+      // If no records, return empty response
+      return {
+          data: []
+      };
+  }
+
+
     const firstNode = mainBody[0];
     const linecount = mainBody.length;
 
