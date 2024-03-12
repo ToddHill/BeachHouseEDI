@@ -580,9 +580,9 @@ function combineByBol(oldRecord, newRecord, newOptions) {
     let poAndStoreKey = oldRecord[i].PRF01 + "-" + oldRecord[i].N104[1];
     let cartonKey = oldRecord[i].MAN02;
     let itemKey = oldRecord[i].LIN03;
-    let SOId = oldRecord[i].SOId;
+    let SOId = oldRecord[i].updaterec;
     if (!seenSOIds.has(SOId)) {
-        UpdateRecordsArray.push({ recordidtoupdate: SOId });
+        UpdateRecordsArray.push({ updateid: SOId });
         seenSOIds.add(SOId);
     }
     if (!newOptions[bolKey]) {
@@ -804,7 +804,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       carrierDetailsQuantityAndWeightObject.ladingQuantity = newOptions[bolKey]["shipmentladingQuantity"].toString();
       carrierDetailsQuantityAndWeightObject.weightQualifier =
         oldRecord[i].TD106;
-      carrierDetailsQuantityAndWeightObject.weight = newOptions[bolKey]["shipmentWeight"].toString();
+      carrierDetailsQuantityAndWeightObject.weight = oldRecord[i].TD107;
       carrierDetailsQuantityAndWeightObject.unitOrBasisForMeasurementCode =
         oldRecord[i].TD108;
       carrierDetailsQuantityAndWeight.push({
@@ -933,6 +933,9 @@ function combineByBol(oldRecord, newRecord, newOptions) {
           },
         ],
       };
+      newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(
+        orderline,
+      );
     }
 
 // CARTON LEVEL - This is where the Carton is built to be added to the HL_loop array.
@@ -1019,9 +1022,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
       poAndStoreObj: newRecord[bolKey]["dcObj"]["poAndStoreObj"][poAndStoreKey],
       poAndStoreList: [],
     };
-    newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(
-      orderline,
-    );
+
 // Carton Mapping - pushing the Carton Line
     newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey] = {
       StoreCode: oldRecord[i].N104[1],
