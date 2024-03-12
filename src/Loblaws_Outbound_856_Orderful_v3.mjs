@@ -328,15 +328,4 @@ function preSavePage(options) {
             abort: false
         };
 }
-
-
-
-
-
-
-
-
-
-  
-  
-  
+//////// END CELIGO SCRIPT HEADER BLOCK //////////

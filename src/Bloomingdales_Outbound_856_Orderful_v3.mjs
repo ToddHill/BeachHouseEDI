@@ -505,6 +505,7 @@ Release History:
 1.0.4 - 2024-01-30 - removed the total transaction lines from the newObject.  they just won't hunt
 1.0.5 - 2024-01-30 - set shipping weight using toFixed(2) to eliminate extra decimals. Ended up with entirely new variable to do this.
 1.1.0 - 2024-02-08 - Added updaterec to the Response Object for updating the record in NetSuite.
+1.2.0 - 2024-03-08 - Added objects to the updaterec from the UpdateRecordsArray to be sent to NetSuite.
 */
 
 
@@ -545,10 +546,9 @@ function preSavePage(options) {
     
     // Add the "updaterec" field to the responseData object
     responseData.push({
-      newRecord[bolKey],
+      record: newRecord[bolKey],
       updaterec: UpdateRecordsArray
     });
-
 
   }
 
@@ -580,7 +580,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
     let poAndStoreKey = oldRecord[i].PRF01 + "-" + oldRecord[i].N104[1];
     let cartonKey = oldRecord[i].MAN02;
     let itemKey = oldRecord[i].LIN03;
-    UpdateRecordsArray.push(oldRecord[i].updaterec);
+    UpdateRecordsArray.push({updateid: oldRecord[i].updaterec});
     console.log("updaterec value:", oldRecord[i].updaterec);
     if (!newOptions[bolKey]) {
       newOptions[bolKey] = {
