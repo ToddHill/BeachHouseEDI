@@ -11,7 +11,7 @@ function preSavePage(options) {
       };
   }
 
-
+    const AcknowledgmentType = "AD"; // "AD" = Acknowledge with Detail, No Change | "AC" = Acknowledge with Detail and Change, "RD" = Reject with Detail
     const firstNode = mainBody[0];
     const linecount = mainBody.length;
 
@@ -106,7 +106,7 @@ function getItems(node) {
             }];
             po1Object.ACK_loop = [{
                 lineItemAcknowledgment: [{
-                    lineItemStatusCode: "IA",
+                    lineItemStatusCode: getLineItemStatus(record),
                     quantity: record.PO102,
                     unitOrBasisForMeasurementCode: record.PO103,
                     dateTimeQualifier: "068",
@@ -120,6 +120,26 @@ function getItems(node) {
             po1Loop.push(po1Object);
         });
         return po1Loop;
+    }
+
+    function getAcknowledgmentType(node) {
+        if (node.BAK02 === "AD") {
+            return "AD";
+        } else if (node.BAK02 === "AC") {
+            return "AC";
+        } else if (node.BAK02 === "RD") {
+            return "RD";
+        }
+    }
+
+    function getLineItemStatus(node) {
+        if (node.ACK01 === "IA") {
+            return "IA";
+        } else if (node.ACK01 === "IC") {
+            return "IC";
+        }else if (node.ACK01 === "IR") {
+          return "IR";
+      }
     }
     ///////// END CUSTOM FUNCTIONS ///////////////////////////////    
     
@@ -143,7 +163,7 @@ const response = [{
             }],
             beginningSegmentForPurchaseOrderAcknowledgment: [{
                 transactionSetPurposeCode: firstNode.BAK01,
-                acknowledgmentTypeCode: firstNode.BAK02,
+                acknowledgmentTypeCode: getAcknowledgmentType(firstNode),
                 purchaseOrderNumber: firstNode.BAK03,
                 date: firstNode.BAK04,
                 requestReferenceNumber: firstNode.BAK06,
@@ -168,6 +188,7 @@ const response = [{
     // Add the update record to the response
     response[0].updaterec = firstNode.id;
     // Return the response as data
+    console.log(JSON.stringify(response, null, 2));
     return {
         data: response
     };
