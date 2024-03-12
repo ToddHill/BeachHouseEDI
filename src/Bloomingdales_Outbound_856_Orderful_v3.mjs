@@ -572,7 +572,7 @@ function combineByBol(oldRecord, newRecord, newOptions) {
   let orderladingQuantity = 0;
   let orderWeight = 0;
   let totalLines = 0;
-
+  let seenSOIds = new Set();
   
   for (let i = 0; i < oldRecord.length; i++) {
     let bolKey = oldRecord[i].BSN02;
@@ -580,8 +580,11 @@ function combineByBol(oldRecord, newRecord, newOptions) {
     let poAndStoreKey = oldRecord[i].PRF01 + "-" + oldRecord[i].N104[1];
     let cartonKey = oldRecord[i].MAN02;
     let itemKey = oldRecord[i].LIN03;
-    UpdateRecordsArray.push({updateid: oldRecord[i].updaterec});
-    console.log("updaterec value:", oldRecord[i].updaterec);
+    let SOId = oldRecord[i].SOId;
+    if (!seenSOIds.has(SOId)) {
+        UpdateRecordsArray.push({ recordidtoupdate: SOId });
+        seenSOIds.add(SOId);
+    }
     if (!newOptions[bolKey]) {
       newOptions[bolKey] = {
         shipmentladingQuantity: 0,
