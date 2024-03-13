@@ -106,7 +106,7 @@ function getItems(node) {
             }];
             po1Object.ACK_loop = [{
                 lineItemAcknowledgment: [{
-                    lineItemStatusCode: getLineItemStatus(record),
+                    lineItemStatusCode: record.ACK01,
                     quantity: record.PO102,
                     unitOrBasisForMeasurementCode: record.PO103,
                     dateTimeQualifier: "068",
@@ -122,25 +122,21 @@ function getItems(node) {
         return po1Loop;
     }
 
-    function getAcknowledgmentType(node) {
-        if (node.BAK02 === "AD") {
-            return "AD";
-        } else if (node.BAK02 === "AC") {
-            return "AC";
-        } else if (node.BAK02 === "RD") {
-            return "RD";
-        }
-    }
-
-    function getLineItemStatus(node) {
-        if (node.ACK01 === "IA") {
-            return "IA";
-        } else if (node.ACK01 === "IC") {
-            return "IC";
-        }else if (node.ACK01 === "IR") {
-          return "IR";
+    function getAcknowledgmentType(nodes) {
+      // Iterate through all nodes
+      for (var i = 0; i < nodes.length; i++) {
+          var node = nodes[i];
+          // Check if any ACK01 is not equal to "IA"
+          if (node.ACK01 !== "IA") {
+              // If any ACK01 is not "IA", return "AC"
+              return "AC";
+          }
       }
-    }
+      // If all ACK01 are "IA", return "AD"
+      return "AD";
+  }
+
+
     ///////// END CUSTOM FUNCTIONS ///////////////////////////////    
     
 // MAIN RESPONSE OBJECT ///////////////////////////////
@@ -163,7 +159,7 @@ const response = [{
             }],
             beginningSegmentForPurchaseOrderAcknowledgment: [{
                 transactionSetPurposeCode: firstNode.BAK01,
-                acknowledgmentTypeCode: getAcknowledgmentType(firstNode),
+                acknowledgmentTypeCode: getAcknowledgmentType(mainBody),
                 purchaseOrderNumber: firstNode.BAK03,
                 date: firstNode.BAK04,
                 requestReferenceNumber: firstNode.BAK06,

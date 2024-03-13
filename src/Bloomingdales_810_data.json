@@ -1,0 +1,73 @@
+{
+    "data": [
+      [
+        {
+          "id": "33343455",
+          "recordType": "invoice",
+          "ISA06": "BHGBEIS",
+          "ISA08": "6113310072",
+          "idType": "isaId",
+          "typeName": "810_INVOICE",
+          "stream": "Test",
+          "BIG01": "20231221",
+          "BIG02": "247079153",
+          "BIG04": "5105203",
+          "REF01": "DP",
+          "REF02": "0752",
+          "N101": [
+            "BY",
+            "ST",
+            "RI"
+          ],
+          "N103": [
+            "92",
+            "92",
+            "1"
+          ],
+          "N104": [
+            "0001",
+            "SC",
+            "117648333"
+          ],
+          "ITD01": "05",
+          "ITD02": "3",
+          "ITD06": "20240219",
+          "ITD07": "60",
+          "DTM01": "011",
+          "DTM02": "20231221",
+          "IT101": "1",
+          "IT102": "1",
+          "IT103": "EA",
+          "IT104": "147.60",
+          "IT105": "PE",
+          "IT106": "UP",
+          "IT107": "810012865272",
+          "PID01": "F",
+          "PID05": "The Barbie 29\" Carry-On Roller",
+          "CAD01": "M",
+          "CAD04": "TODD",
+          "CAD05": "Todd Carrier",
+          "CAD07": "BM",
+          "CAD08": "0123456789-test",
+          "TDS01": "14760",
+          "ISS01": "1",
+          "ISS02": "EA",
+          "dataURI": "https://4675206-sb1.app.netsuite.com/app/accounting/transactions/custinvc.nl?id=33343455&compid=4675206_SB1"
+        }
+      ]
+    ],
+    "errors": [],
+    "_exportId": "6585edca301dc12205c241cf",
+    "_connectionId": "63513d8e26e4db667eca7a36",
+    "_flowId": "658069bf8a841f3181043ff3",
+    "_integrationId": "652fea4baf4e70522482c4c3",
+    "pageIndex": 0,
+    "settings": {
+      "integration": {},
+      "flowGrouping": {},
+      "flow": {},
+      "export": {},
+      "connection": {}
+    },
+    "testMode": false
+  }
