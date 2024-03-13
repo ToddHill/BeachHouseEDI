@@ -7,12 +7,11 @@ preSavePage(options);
 
 ////////////////////////////// BEGIN CELIGO CODE ///////////////////////////////////
 // ITEMS AND TOTAL VALUE FUNCTION
-  function getItems(node, ValueTotal) {
+  function getItems(node) {
     let OrderTotal = 0;
     let numberOfLineItems = 0;
     const items = node.map(record => {
       OrderTotal = record.IT102 * record.IT104;
-      ValueTotal += OrderTotal;
       numberOfLineItems++;
       return {
         baselineItemDataInvoice: [
@@ -41,7 +40,6 @@ preSavePage(options);
   
     return {
       items,
-      ValueTotal,
       numberOfLineItems
     };
   }
@@ -149,22 +147,16 @@ preSavePage(options);
         N1_loop
     };
 }
-
   // PRESAVE PAGE - where the work gets done.
   // it returns the main response that will be sent to Orderful for processing.
   function preSavePage(options) {
-    const data = []; 
-    const groupedItemsArray = options.data;
-    const ValueTotal = 0;
-    let totalMonetaryValueSummary = {};
-      const responses = [];
-      groupedItemsArray.forEach(item => {
-        let mainBody = item; // Use the current item here
-        // Get items
-        const { items, ValueTotal: updatedValueTotal } = getItems(groupedItemsArray, ValueTotal);
-  
-        // construct the response object  
-        const response = {
+    const FirstNode = options.data[0];
+    const mainBody = FirstNode[0];
+    const itemData = getItems(FirstNode);
+    const items = itemData.items;
+    const numberOfLineItems = itemData.numberOfLineItems;
+    const addressInformation = getAddressInformation(mainBody);
+    const response = {
           sender: {
             isaId: mainBody.ISA06
           },
@@ -186,32 +178,46 @@ preSavePage(options);
                 ],
                 beginningSegmentForInvoice: [
                   {
-                    date: mainBody.BIG01,
-                    invoiceNumber: mainBody.id,
-                    date1: mainBody.BIG03,
-                    purchaseOrderNumber: mainBody.BIG04,
-                    releaseNumber: mainBody.BIG05,
-                    changeOrderSequenceNumber: mainBody.BIG06,
-                    transactionTypeCode: mainBody.BIG07
+                    date: mainBody.BIG01, 
+                    invoiceNumber: mainBody.BIG02,
+                    purchaseOrderNumber: mainBody.BIG04
                   }
                 ],
                 referenceInformation: getReferenceInformation(mainBody),
-                N1_loop: getAddressInformation(mainBody), // Call getAddressInformation here
+                ...addressInformation, // Call getAddressInformation here
                 termsOfSaleDeferredTermsOfSale: [
                   {
                     termsTypeCode: mainBody.ITD01,
-                    termsBasisDateCode: mainBody.ITD02
+                    termsBasisDateCode: mainBody.ITD02,
+                    termsNetDueDate: mainBody.ITD06,
+                    termsNetDays: mainBody.ITD07
                   }
                 ],
                 dateTimeReference: getDateInformation(mainBody),
-                IT1_loop: items,
-                totalMonetaryValueSummary: [totalMonetaryValueSummary],
+                
+                IT1_loop: items, 
+                totalMonetaryValueSummary: [
+                   {
+                    amount: mainBody.TDS01
+                   }
+                ],
                 carrierDetails: [
                   {
                     transportationMethodTypeCode: mainBody.CAD01,
                     standardCarrierAlphaCode: mainBody.CAD04,
+                    routing: mainBody.CAD05,
                     referenceIdentificationQualifier: mainBody.CAD07,
                     referenceIdentification: mainBody.CAD08
+                  }
+                ],
+                ISS_loop: [
+                  {
+                    invoiceShipmentSummary: [
+                      {
+                        numberOfUnitsShipped: mainBody.ISS01,
+                        unitOrBasisForMeasurementCode: mainBody.ISS02
+                      }
+                    ]
                   }
                 ],
                 transactionTotals: [
@@ -223,26 +229,19 @@ preSavePage(options);
             ]
           }
         };
-    // Initialize an array to store IDs
-  
-  
-    // Initialize an array to store IDs
-  
-    // Assign the array of IDs to the updaterec field
-    response.updaterec = item.id;
+
+    response.updaterec = mainBody.id;
   
     // PUSH THE RESPONSE OBJECT INTO THE RESPONSES ARRAY 
-        responses.push(response);
-      });
-      data.push(responses);
-      console.log(JSON.stringify(data, null, 2));
-      return {
-        data: data,
-        errors: options.errors,
-        settings: options.settings,
-        testMode: options.testMode
-      };
 
-    } 
+        console.log(JSON.stringify(response, null, 2));
+        return {
+          data: [response],
+          errors: options.errors,
+          settings: options.settings,
+          testMode: options.testMode
+        };
+
+      };
   ////////////////////////////// END CELIGO CODE ////////////////////////////////////~
   
