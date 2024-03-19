@@ -118,14 +118,15 @@ function getItems(node, ValueTotal) {
   // PRESAVE PAGE - where the work gets done.
   function preSavePage(options) {
     // If there is no data, return an empty object
-    if (!options.data) {
-        return {
-            data: [],
-            errors: options.errors,
-            settings: options.settings,
-            testMode: options.testMode
-        };
-    }
+    if (options.data === undefined || options.data === null || options.data.length === 0) {
+      return {
+          data: [],
+          errors: options.errors,
+          settings: options.settings,
+          testMode: options.testMode
+      };
+  }
+  
     else
     // If there is data, get the first node and the main body   
     {
