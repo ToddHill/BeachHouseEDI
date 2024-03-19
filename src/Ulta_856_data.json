@@ -1,0 +1,246 @@
+{
+    "data": [
+      [
+        {
+          "id": "33356670",
+          "recordType": "itemfulfillment",
+          "updaterec": "33355357",
+          "ISA06": "BHGNOYZ",
+          "ISA08": "ULTABEAUTY",
+          "typeName": "856_SHIP_NOTICE_MANIFEST",
+          "stream": "Test",
+          "BSN01": "00",
+          "BSN02": "08500573110000020",
+          "BSN03": "20240315",
+          "BSN04": "020313",
+          "BSN05": "0001",
+          "TD101": "CTN25",
+          "TD102": "0",
+          "TD106": "G",
+          "TD107": "11.16",
+          "TD108": "LB",
+          "TD504": "M",
+          "TD503": "EXLA",
+          "TD506": "CC",
+          "REF01": "BM",
+          "REF02": "08500573110000020",
+          "DTM01": [
+            "011",
+            "067"
+          ],
+          "DTM02": [
+            "20240315",
+            "20240326"
+          ],
+          "FOB01": "CC",
+          "N101": [
+            "ST",
+            "BY",
+            "SF"
+          ],
+          "N102": [
+            "ULTA Bolingbrook - #9999",
+            "ULTA",
+            "Noyz, LLC"
+          ],
+          "N103": [
+            "92",
+            "92",
+            "92"
+          ],
+          "N104": [
+            "9999",
+            "0001",
+            "99999"
+          ],
+          "PRF01": "0010879947",
+          "PRF04": "20240306",
+          "SREF02": "1000000088",
+          "MAN01": "GM",
+          "MAN02": "00008500573114343277",
+          "PID01": "S",
+          "PID03": "VI",
+          "PID04": "FL",
+          "PID05": "NOYZ-15ml Love Club Eau de parfum",
+          "PO401": "24",
+          "PO414": "12",
+          "LIN01": "00010",
+          "LIN02": "UP",
+          "LIN03": "850057311013",
+          "LIN04": "VA",
+          "LIN05": "2624678",
+          "LIN06": "IN",
+          "LIN07": "NOYZ00010002",
+          "SN102": "6",
+          "SN103": "EA",
+          "Weight In Pounds": "1.14",
+          "dataURI": "https://4675206-sb1.app.netsuite.com/app/accounting/transactions/itemship.nl?id=33356670&compid=4675206_SB1"
+        },
+        {
+          "id": "33356670",
+          "recordType": "itemfulfillment",
+          "updaterec": "33355357",
+          "ISA06": "BHGNOYZ",
+          "ISA08": "ULTABEAUTY",
+          "typeName": "856_SHIP_NOTICE_MANIFEST",
+          "stream": "Test",
+          "BSN01": "00",
+          "BSN02": "08500573110000020",
+          "BSN03": "20240315",
+          "BSN04": "020313",
+          "BSN05": "0001",
+          "TD101": "CTN25",
+          "TD102": "0",
+          "TD106": "G",
+          "TD107": "11.16",
+          "TD108": "LB",
+          "TD504": "M",
+          "TD503": "EXLA",
+          "TD506": "CC",
+          "REF01": "BM",
+          "REF02": "08500573110000020",
+          "DTM01": [
+            "011",
+            "067"
+          ],
+          "DTM02": [
+            "20240315",
+            "20240326"
+          ],
+          "FOB01": "CC",
+          "N101": [
+            "ST",
+            "BY",
+            "SF"
+          ],
+          "N102": [
+            "ULTA Bolingbrook - #9999",
+            "ULTA",
+            "Noyz, LLC"
+          ],
+          "N103": [
+            "92",
+            "92",
+            "92"
+          ],
+          "N104": [
+            "9999",
+            "0001",
+            "99999"
+          ],
+          "PRF01": "0010879947",
+          "PRF04": "20240306",
+          "SREF02": "1000000088",
+          "MAN01": "GM",
+          "MAN02": "00008500573114343284",
+          "PID01": "S",
+          "PID03": "VI",
+          "PID04": "FL",
+          "PID05": "NOYZ-50ml Love Club Eau de parfum",
+          "PO401": "24",
+          "PO414": "12",
+          "LIN01": "00020",
+          "LIN02": "UP",
+          "LIN03": "850057311020",
+          "LIN04": "VA",
+          "LIN05": "2624677",
+          "LIN06": "IN",
+          "LIN07": "NOYZ00010003",
+          "SN102": "12",
+          "SN103": "EA",
+          "Weight In Pounds": "1.14",
+          "dataURI": "/app/accounting/transactions/itemship.nl?id=33356670&compid=4675206_SB1"
+        },
+        {
+          "id": "33356670",
+          "recordType": "itemfulfillment",
+          "updaterec": "33355357",
+          "ISA06": "BHGNOYZ",
+          "ISA08": "ULTABEAUTY",
+          "typeName": "856_SHIP_NOTICE_MANIFEST",
+          "stream": "Test",
+          "BSN01": "00",
+          "BSN02": "08500573110000020",
+          "BSN03": "20240315",
+          "BSN04": "020313",
+          "BSN05": "0001",
+          "TD101": "CTN25",
+          "TD102": "0",
+          "TD106": "G",
+          "TD107": "11.16",
+          "TD108": "LB",
+          "TD504": "M",
+          "TD503": "EXLA",
+          "TD506": "CC",
+          "REF01": "BM",
+          "REF02": "08500573110000020",
+          "DTM01": [
+            "011",
+            "067"
+          ],
+          "DTM02": [
+            "20240315",
+            "20240326"
+          ],
+          "FOB01": "CC",
+          "N101": [
+            "ST",
+            "BY",
+            "SF"
+          ],
+          "N102": [
+            "ULTA Bolingbrook - #9999",
+            "ULTA",
+            "Noyz, LLC"
+          ],
+          "N103": [
+            "92",
+            "92",
+            "92"
+          ],
+          "N104": [
+            "9999",
+            "0001",
+            "99999"
+          ],
+          "PRF01": "0010879947",
+          "PRF04": "20240306",
+          "SREF02": "1000000088",
+          "MAN01": "GM",
+          "MAN02": "00008500573114343307",
+          "PID01": "S",
+          "PID03": "VI",
+          "PID04": "FL",
+          "PID05": "NOYZ-15ml Unmute Eau de parfum",
+          "PO401": "24",
+          "PO414": "12",
+          "LIN01": "00030",
+          "LIN02": "UP",
+          "LIN03": "850057311051",
+          "LIN04": "VA",
+          "LIN05": "2624680",
+          "LIN06": "IN",
+          "LIN07": "NOYZ00010102",
+          "SN102": "12",
+          "SN103": "EA",
+          "Weight In Pounds": "1.14",
+          "dataURI": "/app/accounting/transactions/itemship.nl?id=33356670&compid=4675206_SB1"
+        }
+      ]
+    ],
+    "errors": [],
+    "_exportId": "65f9c7789dc1d0f6babd21f2",
+    "_connectionId": "63513d8e26e4db667eca7a36",
+    "_flowId": "65f9affe1e49332de09c31a6",
+    "_integrationId": "6543d05206352449970c141b",
+    "pageIndex": 0,
+    "settings": {
+      "integration": {},
+      "flowGrouping": {},
+      "flow": {},
+      "export": {},
+      "connection": {},
+      "iClient": {}
+    },
+    "testMode": true
+  }
