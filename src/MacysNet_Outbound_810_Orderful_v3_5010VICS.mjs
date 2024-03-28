@@ -198,7 +198,8 @@ preSavePage(options);
                 IT1_loop: items, 
                 totalMonetaryValueSummary: [
                    {
-                    amount: mainBody.TDS01
+                    amount: mainBody.TDS01,
+                    amount1: mainBody.TDS01,
                    }
                 ],
                 carrierDetails: [
