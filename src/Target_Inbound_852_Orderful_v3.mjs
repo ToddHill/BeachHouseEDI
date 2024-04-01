@@ -24,57 +24,69 @@ For use in the Analytic Features Built into NetSuite.
 
 function preSavePage(options) {
   const data = options.data;
-  const content = data[0].message.content
+  let headerdata = [];  
+  let headerobject = {};
+  const sender = data[0].sender.isaId;
+  const BHGID = data[0].receiver.isaId;
+  const OrderfulID = data[0].id;
+  headerobject.id = OrderfulID;
+  headerobject.sender = sender;
+  headerobject.receiver = BHGID;
+  headerdata.push(headerobject);
+  const content = data[0].message.content;
   const retailerID = "2276213"; // Set the RetailerID
+
   let flattenedData = []; // The array to hold the flattened data
 
   const transactionSet = content.transactionSets[0];
   const reportingDate = convertDate(transactionSet.reportingDateAction[0].date);
   for (const item of transactionSet.LIN_loop) {
-      const productServiceID2Object = item.itemIdentification.find(id => id.productServiceIDQualifier2 === "VA");
-      const productServiceID2 = productServiceID2Object ? productServiceID2Object.productServiceID2 : null;
-      const UPCObject = item.itemIdentification.find(id => id.productServiceIDQualifier === "UP");
-      const UPC = UPCObject ? UPCObject.productServiceID : null;
-      let currentQuantity = 0;
-      let soldQuantity = 0;
-      let onOrderQuantity = 0;
-      for (const za of item.ZA_loop) {
-        for (const activity of za.productActivityReporting) {
-          for (const quantity of za.destinationQuantity) {
-            for (let i = 0; i <= 9; i++) {
-              const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
-              const quantityKey = `quantity${i !== 0 ? i : ''}`;
-              const identificationCode = quantity[identificationCodeKey];
-              const qty = quantity[quantityKey];
+    const productServiceID2Object = item.itemIdentification.find(id => id.productServiceIDQualifier2 === "VA");
+    const productServiceID2 = productServiceID2Object ? productServiceID2Object.productServiceID2 : null;
+    const UPCObject = item.itemIdentification.find(id => id.productServiceIDQualifier === "UP");
+    const UPC = UPCObject ? UPCObject.productServiceID : null;
+    let currentQuantity = 0;
+    let soldQuantity = 0;
+    let onOrderQuantity = 0;
+    for (const za of item.ZA_loop) {
+      for (const activity of za.productActivityReporting) {
+        for (const quantity of za.destinationQuantity) {
+          for (let i = 0; i <= 9; i++) {
+            const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
+            const quantityKey = `quantity${i !== 0 ? i : ''}`;
+            const identificationCode = quantity[identificationCodeKey];
+            const qty = quantity[quantityKey];
 
-              if (identificationCode !== undefined && qty !== undefined) {
-                if (activity.activityCode === "QA") {
-                  currentQuantity += parseInt(qty);
-                } else if (activity.activityCode === "QS") {
-                  soldQuantity += parseInt(qty);
-                } else if (activity.activityCode === "QP") {
-                  onOrderQuantity += parseInt(qty);
-                }
+            if (identificationCode !== undefined && qty !== undefined) {
+              if (activity.activityCode === "QA") {
+                currentQuantity += parseInt(qty);
+              } else if (activity.activityCode === "QS") {
+                soldQuantity += parseInt(qty);
+              } else if (activity.activityCode === "QP") {
+                onOrderQuantity += parseInt(qty);
               }
             }
           }
+          const locationCode = quantity.identificationCode; // Extract location code
+          const ImportData = {
+            RetailerId: retailerID,
+            date: reportingDate,
+            item: productServiceID2,
+            storeCode: locationCode, // Set storeCode to location code
+            currentQuantity: currentQuantity,
+            soldQuantity: soldQuantity,
+            onOrderQuantity: onOrderQuantity
+          };
+          flattenedData.push(ImportData);
         }
       }
-      const ImportData = {
-        RetailerId: retailerID,
-        date: reportingDate,
-        item: productServiceID2,
-        storeCode: UPC,
-        currentQuantity: currentQuantity,
-        soldQuantity: soldQuantity,
-        onOrderQuantity: onOrderQuantity
-      };
-
-      flattenedData.push(ImportData);
+    }
   }
-  console.log(JSON.stringify(flattenedData, null, 2));
+
+  data[0].MainObject = flattenedData;
+  console.log(JSON.stringify(data, null, 2));
   return {
-    data: flattenedData,
+    data: data,
     errors: options.errors,
     abort: false,
     newErrorsAndRetryData: []
@@ -88,3 +100,4 @@ function convertDate(date) {
   var day = date.slice(6, 8);
   return `${month}/${day}/${year}`;
 }
+
