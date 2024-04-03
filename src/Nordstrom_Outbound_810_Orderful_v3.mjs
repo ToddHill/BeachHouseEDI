@@ -132,7 +132,7 @@ function getAddressInformation(node) {
     
     // Check if node.N104 is defined and has elements before accessing its elements
     if (node.N104 && node.N104[index]) {
-      addressInformationObject.identificationCode = node.N104[1];
+      addressInformationObject.identificationCode = node.N104[index];
     }
     addressInformation.push(addressInformationObject);
     partyIdentificationObject.partyIdentification = [addressInformationObject];
@@ -141,9 +141,7 @@ function getAddressInformation(node) {
 
   
   // Return the address information object
-  return {
-    N1_loop
-  };
+  return N1_loop;
 }
 // PRESAVE PAGE - where the work gets done.
 // it returns the main response that will be sent to Orderful for processing.
@@ -180,7 +178,7 @@ function preSavePage(options) {
       let mainBody = item; // Use the current item here
       // Get items
       const { items, ValueTotal: updatedValueTotal } = getItems(groupedItemsArray, ValueTotal);
-
+      const N1_loop = getAddressInformation(mainBody);
       // construct the response object  
       const response = {
         sender: {
@@ -214,7 +212,7 @@ function preSavePage(options) {
                 }
               ],
               referenceInformation: getReferenceInformation(mainBody),
-              N1_loop: getAddressInformation(mainBody), // Call getAddressInformation here
+              N1_loop, // Call getAddressInformation here
               termsOfSaleDeferredTermsOfSale: [
                 {
                   termsTypeCode: mainBody.ITD01,
@@ -245,7 +243,7 @@ function preSavePage(options) {
 
 
   // Initialize an array to store IDs
-  const allIds = groupedItemsArray.map(item => item.id);
+  const allIds = groupedItemsArray.map(item => ({ updateid: item.id }));
 
   // Assign the array of IDs to the updaterec field
   response.updaterec = allIds;

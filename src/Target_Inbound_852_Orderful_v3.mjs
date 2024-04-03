@@ -59,11 +59,11 @@ function preSavePage(options) {
 
             if (identificationCode !== undefined && qty !== undefined) {
               if (activity.activityCode === "QA") {
-                currentQuantity += parseInt(qty);
+                currentQuantity = parseInt(qty);
               } else if (activity.activityCode === "QS") {
-                soldQuantity += parseInt(qty);
+                soldQuantity = parseInt(qty);
               } else if (activity.activityCode === "QP") {
-                onOrderQuantity += parseInt(qty);
+                onOrderQuantity = parseInt(qty);
               }
             }
           }
