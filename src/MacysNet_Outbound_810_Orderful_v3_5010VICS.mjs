@@ -1,7 +1,7 @@
 ////////////////////////////// BEGIN DEVELOPMENT CODE //////////////////////////////
 // import options to the development environment
 // and execute the function that will build the data for the Orderful platform.
-import options from './Bloomingdales_810_data.json' assert { type: "json" };
+import options from './data/Bloomingdales_810_data.json' assert { type: "json" };
 preSavePage(options);
 ////////////////////////////// END DEVELOPMENT CODE ////////////////////////////////
 
@@ -146,10 +146,19 @@ preSavePage(options);
     return {
         N1_loop
     };
-}
+  }
   // PRESAVE PAGE - where the work gets done.
   // it returns the main response that will be sent to Orderful for processing.
   function preSavePage(options) {
+    if (!options.data || !options.data.length) {
+      return {
+        data: [],
+        errors: options.errors,
+        settings: options.settings,
+        testMode: options.testMode
+      };
+    }
+    else {
     const FirstNode = options.data[0];
     const mainBody = FirstNode[0];
     const itemData = getItems(FirstNode);
@@ -232,10 +241,8 @@ preSavePage(options);
         };
 
     response.updaterec = mainBody.id;
-  
     // PUSH THE RESPONSE OBJECT INTO THE RESPONSES ARRAY 
-
-        console.log(JSON.stringify(response, null, 2));
+//  console.log(JSON.stringify(response, null, 2));
         return {
           data: [response],
           errors: options.errors,
@@ -245,4 +252,5 @@ preSavePage(options);
 
       };
   ////////////////////////////// END CELIGO CODE ////////////////////////////////////~
-  
+  } 
+  ////////////////////////////// END CELIGO CODE //////////////////////////////

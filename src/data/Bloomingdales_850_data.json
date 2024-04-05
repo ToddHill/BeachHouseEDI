@@ -1,0 +1,1576 @@
+{
+    "data": [
+      {
+        "id": "292475765",
+        "href": "https://api.orderful.com/v3/transactions/292475765?expand=message",
+        "version": "v3",
+        "sender": {
+          "isaId": "6113310072",
+          "isaIdQualifier": "08",
+          "testIsaId": "6113310072",
+          "testIsaIdQualifier": "08",
+          "name": "Bloomingdale's Retail & DS"
+        },
+        "receiver": {
+          "isaId": "BHGBEIS",
+          "isaIdQualifier": "ZZ",
+          "testIsaId": "BHGBEIST",
+          "testIsaIdQualifier": "ZZ",
+          "name": "BEIS"
+        },
+        "type": {
+          "name": "850_PURCHASE_ORDER"
+        },
+        "stream": "LIVE",
+        "businessNumber": "7487561",
+        "referenceIdentifiers": [
+          {
+            "value": "25",
+            "type": "GROUP",
+            "owner": "SENDER"
+          },
+          {
+            "value": "000000005",
+            "type": "INTERCHANGE",
+            "owner": "SENDER"
+          },
+          {
+            "value": "0025",
+            "type": "TRANSACTION",
+            "owner": "SENDER"
+          }
+        ],
+        "message": {
+          "interchangeControlHeader": [
+            {
+              "authorizationInformationQualifier": "00",
+              "authorizationInformation": "",
+              "securityInformationQualifier": "00",
+              "securityInformation": "",
+              "interchangeIDQualifier": "08",
+              "interchangeSenderID": "6113310072",
+              "interchangeIDQualifier1": "ZZ",
+              "interchangeReceiverID": "BHGBEIS",
+              "interchangeDate": "240220",
+              "interchangeTime": "1534",
+              "repetitionSeparator": "U",
+              "interchangeControlVersionNumberCode": "00501",
+              "interchangeControlNumber": "000000005",
+              "acknowledgmentRequestedCode": "0",
+              "interchangeUsageIndicatorCode": "P",
+              "componentElementSeparator": ">"
+            }
+          ],
+          "functionalGroupHeader": [
+            {
+              "functionalIdentifierCode": "PO",
+              "applicationSendersCode": "6113310072",
+              "applicationReceiversCode": "BHGBEIS",
+              "date": "20240220",
+              "time": "1534",
+              "groupControlNumber": "25",
+              "responsibleAgencyCode": "X",
+              "versionReleaseIndustryIdentifierCode": "005010VICS"
+            }
+          ],
+          "transactionSets": [
+            {
+              "transactionSetHeader": [
+                {
+                  "transactionSetIdentifierCode": "850",
+                  "transactionSetControlNumber": "0025"
+                }
+              ],
+              "beginningSegmentForPurchaseOrder": [
+                {
+                  "transactionSetPurposeCode": "00",
+                  "purchaseOrderTypeCode": "SA",
+                  "purchaseOrderNumber": "7487561",
+                  "date": "20240220"
+                }
+              ],
+              "referenceInformation": [
+                {
+                  "referenceIdentificationQualifier": "BT",
+                  "referenceIdentification": "4779600017"
+                },
+                {
+                  "referenceIdentificationQualifier": "DP",
+                  "referenceIdentification": "0752"
+                },
+                {
+                  "referenceIdentificationQualifier": "PG",
+                  "referenceIdentification": "LUGGAGE"
+                }
+              ],
+              "FOBRelatedInstructions": [
+                {
+                  "shipmentMethodOfPaymentCode": "DF"
+                }
+              ],
+              "termsOfSaleDeferredTermsOfSale": [
+                {
+                  "termsTypeCode": "05",
+                  "termsBasisDateCode": "2",
+                  "termsNetDays": "60"
+                }
+              ],
+              "dateTimeReference": [
+                {
+                  "dateTimeQualifier": "001",
+                  "date": "20240307"
+                },
+                {
+                  "dateTimeQualifier": "064",
+                  "date": "20240222"
+                }
+              ],
+              "N9_loop": [
+                {
+                  "extendedReferenceInformation": [
+                    {
+                      "referenceIdentificationQualifier": "VW",
+                      "referenceIdentification": "MTX"
+                    }
+                  ],
+                  "text": [
+                    {
+                      "textualData": "Delivery of Goods constitutes agreement as defined by Master Purchasing"
+                    },
+                    {
+                      "textualData": "Agreement as posted on macysnet.com"
+                    }
+                  ]
+                }
+              ],
+              "PO1_loop": [
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "1",
+                      "quantity": "34",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "30.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012860284",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "54"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "68"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0003",
+                      "quantity1": "2",
+                      "identificationCode2": "0004",
+                      "quantity2": "2",
+                      "identificationCode3": "0005",
+                      "quantity3": "3",
+                      "identificationCode4": "0006",
+                      "quantity4": "2",
+                      "identificationCode5": "0008",
+                      "quantity5": "2",
+                      "identificationCode6": "0011",
+                      "quantity6": "2",
+                      "identificationCode7": "0012",
+                      "quantity7": "3",
+                      "identificationCode8": "0014",
+                      "quantity8": "3",
+                      "identificationCode9": "0027",
+                      "quantity9": "2"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "2",
+                      "identificationCode1": "0029",
+                      "quantity1": "2",
+                      "identificationCode2": "0034",
+                      "quantity2": "2",
+                      "identificationCode3": "0062",
+                      "quantity3": "3"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "2",
+                      "quantity": "34",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "30.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012860291",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "54"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "68"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0003",
+                      "quantity1": "2",
+                      "identificationCode2": "0004",
+                      "quantity2": "2",
+                      "identificationCode3": "0005",
+                      "quantity3": "3",
+                      "identificationCode4": "0006",
+                      "quantity4": "2",
+                      "identificationCode5": "0008",
+                      "quantity5": "2",
+                      "identificationCode6": "0011",
+                      "quantity6": "2",
+                      "identificationCode7": "0012",
+                      "quantity7": "3",
+                      "identificationCode8": "0014",
+                      "quantity8": "3",
+                      "identificationCode9": "0027",
+                      "quantity9": "2"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "2",
+                      "identificationCode1": "0029",
+                      "quantity1": "2",
+                      "identificationCode2": "0034",
+                      "quantity2": "2",
+                      "identificationCode3": "0062",
+                      "quantity3": "3"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "3",
+                      "quantity": "16",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "21.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012860338",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "54"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "48"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0005",
+                      "quantity1": "3",
+                      "identificationCode2": "0012",
+                      "quantity2": "3",
+                      "identificationCode3": "0014",
+                      "quantity3": "3",
+                      "identificationCode4": "0062",
+                      "quantity4": "3"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "4",
+                      "quantity": "16",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "21.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012860345",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "54"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "48"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0005",
+                      "quantity1": "3",
+                      "identificationCode2": "0012",
+                      "quantity2": "3",
+                      "identificationCode3": "0014",
+                      "quantity3": "3",
+                      "identificationCode4": "0062",
+                      "quantity4": "3"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "5",
+                      "quantity": "54",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "48.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012864015",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "53"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "108"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "6",
+                      "identificationCode1": "0003",
+                      "quantity1": "4",
+                      "identificationCode2": "0004",
+                      "quantity2": "3",
+                      "identificationCode3": "0005",
+                      "quantity3": "4",
+                      "identificationCode4": "0006",
+                      "quantity4": "3",
+                      "identificationCode5": "0008",
+                      "quantity5": "4",
+                      "identificationCode6": "0011",
+                      "quantity6": "3",
+                      "identificationCode7": "0012",
+                      "quantity7": "4",
+                      "identificationCode8": "0014",
+                      "quantity8": "4",
+                      "identificationCode9": "0027",
+                      "quantity9": "4"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "4",
+                      "identificationCode1": "0029",
+                      "quantity1": "3",
+                      "identificationCode2": "0034",
+                      "quantity2": "4",
+                      "identificationCode3": "0062",
+                      "quantity3": "4"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "6",
+                      "quantity": "54",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "48.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012864022",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "53"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "108"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "6",
+                      "identificationCode1": "0003",
+                      "quantity1": "4",
+                      "identificationCode2": "0004",
+                      "quantity2": "3",
+                      "identificationCode3": "0005",
+                      "quantity3": "4",
+                      "identificationCode4": "0006",
+                      "quantity4": "3",
+                      "identificationCode5": "0008",
+                      "quantity5": "4",
+                      "identificationCode6": "0011",
+                      "quantity6": "3",
+                      "identificationCode7": "0012",
+                      "quantity7": "4",
+                      "identificationCode8": "0014",
+                      "quantity8": "4",
+                      "identificationCode9": "0027",
+                      "quantity9": "4"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "4",
+                      "identificationCode1": "0029",
+                      "quantity1": "3",
+                      "identificationCode2": "0034",
+                      "quantity2": "4",
+                      "identificationCode3": "0062",
+                      "quantity3": "4"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "7",
+                      "quantity": "73",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "98.1",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012864183",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "34"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "218"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "8",
+                      "identificationCode1": "0003",
+                      "quantity1": "5",
+                      "identificationCode2": "0004",
+                      "quantity2": "4",
+                      "identificationCode3": "0005",
+                      "quantity3": "6",
+                      "identificationCode4": "0006",
+                      "quantity4": "4",
+                      "identificationCode5": "0008",
+                      "quantity5": "5",
+                      "identificationCode6": "0011",
+                      "quantity6": "4",
+                      "identificationCode7": "0012",
+                      "quantity7": "6",
+                      "identificationCode8": "0014",
+                      "quantity8": "6",
+                      "identificationCode9": "0027",
+                      "quantity9": "5"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "5",
+                      "identificationCode1": "0029",
+                      "quantity1": "4",
+                      "identificationCode2": "0034",
+                      "quantity2": "5",
+                      "identificationCode3": "0062",
+                      "quantity3": "6"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "8",
+                      "quantity": "73",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "98.1",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012864190",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "34"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "218"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "8",
+                      "identificationCode1": "0003",
+                      "quantity1": "5",
+                      "identificationCode2": "0004",
+                      "quantity2": "4",
+                      "identificationCode3": "0005",
+                      "quantity3": "6",
+                      "identificationCode4": "0006",
+                      "quantity4": "4",
+                      "identificationCode5": "0008",
+                      "quantity5": "5",
+                      "identificationCode6": "0011",
+                      "quantity6": "4",
+                      "identificationCode7": "0012",
+                      "quantity7": "6",
+                      "identificationCode8": "0014",
+                      "quantity8": "6",
+                      "identificationCode9": "0027",
+                      "quantity9": "5"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "5",
+                      "identificationCode1": "0029",
+                      "quantity1": "4",
+                      "identificationCode2": "0034",
+                      "quantity2": "5",
+                      "identificationCode3": "0062",
+                      "quantity3": "6"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "9",
+                      "quantity": "48",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "138.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012864220",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "35"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "308"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "5",
+                      "identificationCode1": "0003",
+                      "quantity1": "3",
+                      "identificationCode2": "0004",
+                      "quantity2": "3",
+                      "identificationCode3": "0005",
+                      "quantity3": "4",
+                      "identificationCode4": "0006",
+                      "quantity4": "3",
+                      "identificationCode5": "0008",
+                      "quantity5": "3",
+                      "identificationCode6": "0011",
+                      "quantity6": "3",
+                      "identificationCode7": "0012",
+                      "quantity7": "4",
+                      "identificationCode8": "0014",
+                      "quantity8": "4",
+                      "identificationCode9": "0027",
+                      "quantity9": "3"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "3",
+                      "identificationCode1": "0029",
+                      "quantity1": "3",
+                      "identificationCode2": "0034",
+                      "quantity2": "3",
+                      "identificationCode3": "0062",
+                      "quantity3": "4"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "10",
+                      "quantity": "48",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "138.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012864237",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "35"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "308"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "5",
+                      "identificationCode1": "0003",
+                      "quantity1": "3",
+                      "identificationCode2": "0004",
+                      "quantity2": "3",
+                      "identificationCode3": "0005",
+                      "quantity3": "4",
+                      "identificationCode4": "0006",
+                      "quantity4": "3",
+                      "identificationCode5": "0008",
+                      "quantity5": "3",
+                      "identificationCode6": "0011",
+                      "quantity6": "3",
+                      "identificationCode7": "0012",
+                      "quantity7": "4",
+                      "identificationCode8": "0014",
+                      "quantity8": "4",
+                      "identificationCode9": "0027",
+                      "quantity9": "3"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "3",
+                      "identificationCode1": "0029",
+                      "quantity1": "3",
+                      "identificationCode2": "0034",
+                      "quantity2": "3",
+                      "identificationCode3": "0062",
+                      "quantity3": "4"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "11",
+                      "quantity": "44",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "147.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012864268",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "36"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "328"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "5",
+                      "identificationCode1": "0003",
+                      "quantity1": "3",
+                      "identificationCode2": "0004",
+                      "quantity2": "2",
+                      "identificationCode3": "0005",
+                      "quantity3": "4",
+                      "identificationCode4": "0006",
+                      "quantity4": "2",
+                      "identificationCode5": "0008",
+                      "quantity5": "3",
+                      "identificationCode6": "0011",
+                      "quantity6": "2",
+                      "identificationCode7": "0012",
+                      "quantity7": "4",
+                      "identificationCode8": "0014",
+                      "quantity8": "4",
+                      "identificationCode9": "0027",
+                      "quantity9": "3"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "3",
+                      "identificationCode1": "0029",
+                      "quantity1": "2",
+                      "identificationCode2": "0034",
+                      "quantity2": "3",
+                      "identificationCode3": "0062",
+                      "quantity3": "4"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "12",
+                      "quantity": "44",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "147.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012864275",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "36"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "328"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "5",
+                      "identificationCode1": "0003",
+                      "quantity1": "3",
+                      "identificationCode2": "0004",
+                      "quantity2": "2",
+                      "identificationCode3": "0005",
+                      "quantity3": "4",
+                      "identificationCode4": "0006",
+                      "quantity4": "2",
+                      "identificationCode5": "0008",
+                      "quantity5": "3",
+                      "identificationCode6": "0011",
+                      "quantity6": "2",
+                      "identificationCode7": "0012",
+                      "quantity7": "4",
+                      "identificationCode8": "0014",
+                      "quantity8": "4",
+                      "identificationCode9": "0027",
+                      "quantity9": "3"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "3",
+                      "identificationCode1": "0029",
+                      "quantity1": "2",
+                      "identificationCode2": "0034",
+                      "quantity2": "3",
+                      "identificationCode3": "0062",
+                      "quantity3": "4"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "13",
+                      "quantity": "29",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "30.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012864466",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "54"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "68"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "3",
+                      "identificationCode1": "0003",
+                      "quantity1": "2",
+                      "identificationCode2": "0004",
+                      "quantity2": "2",
+                      "identificationCode3": "0005",
+                      "quantity3": "2",
+                      "identificationCode4": "0006",
+                      "quantity4": "2",
+                      "identificationCode5": "0008",
+                      "quantity5": "2",
+                      "identificationCode6": "0011",
+                      "quantity6": "2",
+                      "identificationCode7": "0012",
+                      "quantity7": "2",
+                      "identificationCode8": "0014",
+                      "quantity8": "2",
+                      "identificationCode9": "0027",
+                      "quantity9": "2"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "2",
+                      "identificationCode1": "0029",
+                      "quantity1": "2",
+                      "identificationCode2": "0034",
+                      "quantity2": "2",
+                      "identificationCode3": "0062",
+                      "quantity3": "2"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "14",
+                      "quantity": "16",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "48.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012863643",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "08"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "108"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0005",
+                      "quantity1": "3",
+                      "identificationCode2": "0012",
+                      "quantity2": "3",
+                      "identificationCode3": "0014",
+                      "quantity3": "3",
+                      "identificationCode4": "0062",
+                      "quantity4": "3"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "15",
+                      "quantity": "49",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "98.1",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012863940",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "34"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "218"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "6",
+                      "identificationCode1": "0003",
+                      "quantity1": "3",
+                      "identificationCode2": "0004",
+                      "quantity2": "3",
+                      "identificationCode3": "0005",
+                      "quantity3": "4",
+                      "identificationCode4": "0006",
+                      "quantity4": "3",
+                      "identificationCode5": "0008",
+                      "quantity5": "3",
+                      "identificationCode6": "0011",
+                      "quantity6": "3",
+                      "identificationCode7": "0012",
+                      "quantity7": "4",
+                      "identificationCode8": "0014",
+                      "quantity8": "4",
+                      "identificationCode9": "0027",
+                      "quantity9": "3"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "3",
+                      "identificationCode1": "0029",
+                      "quantity1": "3",
+                      "identificationCode2": "0034",
+                      "quantity2": "3",
+                      "identificationCode3": "0062",
+                      "quantity3": "4"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "16",
+                      "quantity": "33",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "138.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012863957",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "35"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "308"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "3",
+                      "identificationCode1": "0003",
+                      "quantity1": "2",
+                      "identificationCode2": "0004",
+                      "quantity2": "2",
+                      "identificationCode3": "0005",
+                      "quantity3": "3",
+                      "identificationCode4": "0006",
+                      "quantity4": "2",
+                      "identificationCode5": "0008",
+                      "quantity5": "2",
+                      "identificationCode6": "0011",
+                      "quantity6": "2",
+                      "identificationCode7": "0012",
+                      "quantity7": "3",
+                      "identificationCode8": "0014",
+                      "quantity8": "3",
+                      "identificationCode9": "0027",
+                      "quantity9": "2"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "2",
+                      "identificationCode1": "0029",
+                      "quantity1": "2",
+                      "identificationCode2": "0034",
+                      "quantity2": "2",
+                      "identificationCode3": "0062",
+                      "quantity3": "3"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "17",
+                      "quantity": "16",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "147.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012863964",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "36"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "328"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0005",
+                      "quantity1": "3",
+                      "identificationCode2": "0012",
+                      "quantity2": "3",
+                      "identificationCode3": "0014",
+                      "quantity3": "3",
+                      "identificationCode4": "0062",
+                      "quantity4": "3"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "18",
+                      "quantity": "30",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "48.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012863971",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "53"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "108"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0003",
+                      "quantity1": "2",
+                      "identificationCode2": "0004",
+                      "quantity2": "2",
+                      "identificationCode3": "0005",
+                      "quantity3": "2",
+                      "identificationCode4": "0006",
+                      "quantity4": "2",
+                      "identificationCode5": "0008",
+                      "quantity5": "2",
+                      "identificationCode6": "0011",
+                      "quantity6": "2",
+                      "identificationCode7": "0012",
+                      "quantity7": "2",
+                      "identificationCode8": "0014",
+                      "quantity8": "2",
+                      "identificationCode9": "0027",
+                      "quantity9": "2"
+                    },
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0028",
+                      "quantity": "2",
+                      "identificationCode1": "0029",
+                      "quantity1": "2",
+                      "identificationCode2": "0034",
+                      "quantity2": "2",
+                      "identificationCode3": "0062",
+                      "quantity3": "2"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "19",
+                      "quantity": "16",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "53.1",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012865364",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "08"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "118"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0005",
+                      "quantity1": "3",
+                      "identificationCode2": "0012",
+                      "quantity2": "3",
+                      "identificationCode3": "0014",
+                      "quantity3": "3",
+                      "identificationCode4": "0062",
+                      "quantity4": "3"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "20",
+                      "quantity": "21",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "44.1",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012865388",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "52"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "98"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "5",
+                      "identificationCode1": "0005",
+                      "quantity1": "4",
+                      "identificationCode2": "0012",
+                      "quantity2": "4",
+                      "identificationCode3": "0014",
+                      "quantity3": "4",
+                      "identificationCode4": "0062",
+                      "quantity4": "4"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "21",
+                      "quantity": "37",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "98.1",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012865630",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "34"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "218"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "6",
+                      "identificationCode1": "0003",
+                      "quantity1": "3",
+                      "identificationCode2": "0005",
+                      "quantity2": "4",
+                      "identificationCode3": "0008",
+                      "quantity3": "3",
+                      "identificationCode4": "0012",
+                      "quantity4": "4",
+                      "identificationCode5": "0014",
+                      "quantity5": "4",
+                      "identificationCode6": "0027",
+                      "quantity6": "3",
+                      "identificationCode7": "0028",
+                      "quantity7": "3",
+                      "identificationCode8": "0034",
+                      "quantity8": "3",
+                      "identificationCode9": "0062",
+                      "quantity9": "4"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "22",
+                      "quantity": "26",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "138.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012865647",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "35"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "308"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0003",
+                      "quantity1": "2",
+                      "identificationCode2": "0005",
+                      "quantity2": "3",
+                      "identificationCode3": "0008",
+                      "quantity3": "2",
+                      "identificationCode4": "0012",
+                      "quantity4": "3",
+                      "identificationCode5": "0014",
+                      "quantity5": "3",
+                      "identificationCode6": "0027",
+                      "quantity6": "2",
+                      "identificationCode7": "0028",
+                      "quantity7": "2",
+                      "identificationCode8": "0034",
+                      "quantity8": "2",
+                      "identificationCode9": "0062",
+                      "quantity9": "3"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "23",
+                      "quantity": "16",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "147.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012865654",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "36"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "328"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0005",
+                      "quantity1": "3",
+                      "identificationCode2": "0012",
+                      "quantity2": "3",
+                      "identificationCode3": "0014",
+                      "quantity3": "3",
+                      "identificationCode4": "0062",
+                      "quantity4": "3"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "24",
+                      "quantity": "21",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "30.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012865661",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "54"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "68"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "3",
+                      "identificationCode1": "0003",
+                      "quantity1": "2",
+                      "identificationCode2": "0005",
+                      "quantity2": "2",
+                      "identificationCode3": "0008",
+                      "quantity3": "2",
+                      "identificationCode4": "0012",
+                      "quantity4": "2",
+                      "identificationCode5": "0014",
+                      "quantity5": "2",
+                      "identificationCode6": "0027",
+                      "quantity6": "2",
+                      "identificationCode7": "0028",
+                      "quantity7": "2",
+                      "identificationCode8": "0034",
+                      "quantity8": "2",
+                      "identificationCode9": "0062",
+                      "quantity9": "2"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "25",
+                      "quantity": "22",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "48.6",
+                      "basisOfUnitPriceCode": "WE",
+                      "productServiceIDQualifier": "UP",
+                      "productServiceID": "810012865708",
+                      "productServiceIDQualifier1": "CG",
+                      "productServiceID1": "53"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "108"
+                        }
+                      ]
+                    }
+                  ],
+                  "destinationQuantity": [
+                    {
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "0001",
+                      "quantity": "4",
+                      "identificationCode1": "0003",
+                      "quantity1": "2",
+                      "identificationCode2": "0005",
+                      "quantity2": "2",
+                      "identificationCode3": "0008",
+                      "quantity3": "2",
+                      "identificationCode4": "0012",
+                      "quantity4": "2",
+                      "identificationCode5": "0014",
+                      "quantity5": "2",
+                      "identificationCode6": "0027",
+                      "quantity6": "2",
+                      "identificationCode7": "0028",
+                      "quantity7": "2",
+                      "identificationCode8": "0034",
+                      "quantity8": "2",
+                      "identificationCode9": "0062",
+                      "quantity9": "2"
+                    }
+                  ]
+                }
+              ],
+              "CTT_loop": [
+                {
+                  "transactionTotals": [
+                    {
+                      "numberOfLineItems": "25"
+                    }
+                  ]
+                }
+              ],
+              "transactionSetTrailer": [
+                {
+                  "numberOfIncludedSegments": "103",
+                  "transactionSetControlNumber": "0025"
+                }
+              ]
+            }
+          ],
+          "href": "https://api.orderful.com/v3/transactions/292475765/message"
+        },
+        "validationStatus": "VALID",
+        "deliveryStatus": "SENT",
+        "acknowledgmentStatus": "ACCEPTED",
+        "createdAt": "2024-02-20T20:52:01.184Z",
+        "lastUpdatedAt": "2024-02-20T22:02:56.358Z",
+        "acknowledgment": {
+          "href": "https://api.orderful.com/v3/transactions/292475765/acknowledgment"
+        },
+        "delivery": {
+          "id": "680d0246-5363-4682-95dc-104a57dddda4",
+          "href": "https://api.orderful.com/v3/deliveries/680d0246-5363-4682-95dc-104a57dddda4",
+          "approve": {
+            "href": "https://api.orderful.com/v3/deliveries/680d0246-5363-4682-95dc-104a57dddda4/approve"
+          },
+          "fail": {
+            "href": "https://api.orderful.com/v3/deliveries/680d0246-5363-4682-95dc-104a57dddda4/fail"
+          }
+        }
+      }
+    ],
+    "errors": [],
+    "_exportId": "65cfa668d1f59969a43133ff",
+    "_connectionId": "605ce0b6fa7ccb141c449cc1",
+    "_flowId": "65cfa669d1f59969a43134d3",
+    "_integrationId": "65cfa5048c134dfda497d53d",
+    "_parentJobId": "",
+    "pageIndex": 0,
+    "settings": {
+      "integration": {},
+      "flowGrouping": {},
+      "flow": {},
+      "export": {},
+      "connection": {},
+      "iClient": {}
+    },
+    "testMode": false
+  }
