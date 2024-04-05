@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Program",
             "runtimeArgs": ["--experimental-modules"],
-            "program": "${workspaceFolder}/src/Nordstrom_Outbound_810_Orderful_v3.mjs"
+            "program": "${workspaceFolder}/src/MacysNet_Outbound_810_Orderful_v3_5010VICS.mjs"
         }
     ]
 
