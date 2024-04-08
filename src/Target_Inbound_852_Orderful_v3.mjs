@@ -1,4 +1,4 @@
-import options  from "./Target_852_data.json" assert { type: "json"  };
+import options  from "./data/Target_852_data.json" assert { type: "json"  };
 preSavePage(options);
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -7,7 +7,6 @@ Target 852 Processing
 
 Placing the provided 852 information into the appropriate POS Custom Record
 For use in the Analytic Features Built into NetSuite.
-
 2.05.2024 - Initial First Tests to Asses functionality
 2.06.2024 - Added loops written by Brian C to separate data within the loops
 2.07.2024 - Adding Arrays and Making Changes to the Custom Record to account for the
@@ -19,71 +18,68 @@ For use in the Analytic Features Built into NetSuite.
 2.07.2024 - Added the RetailerID to the ImportData Object
 2.07.2024 - Added the console.log to see the groupedData object
 3.28.2024 - Complete rewrite of the code to account for the new JSON structure caused by the poller
+4.08.2024 - Discovered that all indentificationCode and quantity fields are not being read. Added a loop to account for this.
 */
-//////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// BEGIN CELIGO CODE /////////////////////////////////////////////////////////////
 
 function preSavePage(options) {
   const data = options.data;
-  let headerdata = [];  
-  let headerobject = {};
+  const flattenedData = [];
+
+  // Retrieve relevant data
   const sender = data[0].sender.isaId;
   const BHGID = data[0].receiver.isaId;
   const OrderfulID = data[0].id;
-  headerobject.id = OrderfulID;
-  headerobject.sender = sender;
-  headerobject.receiver = BHGID;
-  headerdata.push(headerobject);
-  const content = data[0].message.content;
   const retailerID = "2276213"; // Set the RetailerID
+  const interchangeDate = data[0].message.content.interchangeControlHeader[0].interchangeDate;
+  const interchangeTime = data[0].message.content.interchangeControlHeader[0].interchangeTime;
 
-  let flattenedData = []; // The array to hold the flattened data
+  // Process transaction sets
+  for (const transactionSet of data[0].message.content.transactionSets) {
+    const reportingDate = convertDate(transactionSet.reportingDateAction[0].date);
 
-  const transactionSet = content.transactionSets[0];
-  const reportingDate = convertDate(transactionSet.reportingDateAction[0].date);
-  for (const item of transactionSet.LIN_loop) {
-    const productServiceID2Object = item.itemIdentification.find(id => id.productServiceIDQualifier2 === "VA");
-    const productServiceID2 = productServiceID2Object ? productServiceID2Object.productServiceID2 : null;
-    const UPCObject = item.itemIdentification.find(id => id.productServiceIDQualifier === "UP");
-    const UPC = UPCObject ? UPCObject.productServiceID : null;
-    let currentQuantity = 0;
-    let soldQuantity = 0;
-    let onOrderQuantity = 0;
-    for (const za of item.ZA_loop) {
-      for (const activity of za.productActivityReporting) {
-        for (const quantity of za.destinationQuantity) {
-          for (let i = 0; i <= 9; i++) {
+    for (const LIN_loop_item of transactionSet.LIN_loop) {
+      const productServiceID2 = LIN_loop_item.itemIdentification[0].productServiceID2;
+
+      for (const ZA_loop_item of LIN_loop_item.ZA_loop) {
+        const activityCode = ZA_loop_item.productActivityReporting[0].activityCode;
+
+        for (const destinationQuantity of ZA_loop_item.destinationQuantity) {
+          // Extract identification codes and quantities dynamically
+          let i = 0;
+          while (true) {
             const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
             const quantityKey = `quantity${i !== 0 ? i : ''}`;
-            const identificationCode = quantity[identificationCodeKey];
-            const qty = quantity[quantityKey];
-
-            if (identificationCode !== undefined && qty !== undefined) {
-              if (activity.activityCode === "QA") {
-                currentQuantity = parseInt(qty);
-              } else if (activity.activityCode === "QS") {
-                soldQuantity = parseInt(qty);
-              } else if (activity.activityCode === "QP") {
-                onOrderQuantity = parseInt(qty);
-              }
+            const identificationCode = destinationQuantity[identificationCodeKey];
+            const quantity = destinationQuantity[quantityKey];
+            
+            if (identificationCode !== undefined && quantity !== undefined) {
+              // Push processed data to flattenedData array
+              flattenedData.push({
+                RetailerId: retailerID,
+                date: reportingDate,
+                time: interchangeTime,
+                item: productServiceID2,
+                storeCode: identificationCode,
+                quantity: quantity,
+                activityCode: activityCode
+              });
+            } else {
+              // Exit the loop if identificationCode or quantity is undefined
+              break;
             }
+            
+            // Increment counter for next key
+            i++;
           }
-          const locationCode = quantity.identificationCode; // Extract location code
-          const ImportData = {
-            RetailerId: retailerID,
-            date: reportingDate,
-            item: productServiceID2,
-            storeCode: locationCode, // Set storeCode to location code
-            currentQuantity: currentQuantity,
-            soldQuantity: soldQuantity,
-            onOrderQuantity: onOrderQuantity
-          };
-          flattenedData.push(ImportData);
         }
       }
     }
   }
 
+  // Assign flattenedData to MainObject
   data[0].MainObject = flattenedData;
+
   console.log(JSON.stringify(data, null, 2));
   return {
     data: data,
@@ -101,3 +97,4 @@ function convertDate(date) {
   return `${month}/${day}/${year}`;
 }
 
+///////////////////////////////// END CELIGO CODE /////////////////////////////////////////////////////////////
