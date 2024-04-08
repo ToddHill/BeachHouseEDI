@@ -1,0 +1,371 @@
+{
+    "data": [
+      {
+        "id": "309595166",
+        "sender": {
+          "isaId": "6111470100"
+        },
+        "receiver": {
+          "isaId": "BEACHHOUSEPTTN"
+        },
+        "type": {
+          "name": "852_PRODUCT_ACTIVITY_DATA"
+        },
+        "stream": "LIVE",
+        "referenceIdentifiers": [
+          {
+            "value": "80",
+            "type": "GROUP",
+            "owner": "SENDER"
+          },
+          {
+            "value": "000003845",
+            "type": "INTERCHANGE",
+            "owner": "SENDER"
+          },
+          {
+            "value": "329137575",
+            "type": "TRANSACTION",
+            "owner": "SENDER"
+          }
+        ],
+        "message": {
+          "content": {
+            "interchangeControlHeader": [
+              {
+                "authorizationInformationQualifier": "00",
+                "authorizationInformation": "0000000000",
+                "securityInformationQualifier": "00",
+                "securityInformation": "0000000000",
+                "interchangeIDQualifier": "08",
+                "interchangeSenderID": "6111470100     ",
+                "interchangeIDQualifier1": "ZZ",
+                "interchangeReceiverID": "BEACHHOUSEPTTN ",
+                "interchangeDate": "240328",
+                "interchangeTime": "0700",
+                "interchangeControlStandardsIdentifier": "U",
+                "interchangeControlVersionNumberCode": "00401",
+                "interchangeControlNumber": "000003845",
+                "acknowledgmentRequestedCode": "0",
+                "interchangeUsageIndicatorCode": "P",
+                "componentElementSeparator": ">"
+              }
+            ],
+            "functionalGroupHeader": [
+              {
+                "functionalIdentifierCode": "PD",
+                "applicationSendersCode": "6111470100",
+                "applicationReceiversCode": "BEACHHOUSEPTTN",
+                "date": "20240328",
+                "time": "0700",
+                "groupControlNumber": "80",
+                "responsibleAgencyCode": "X",
+                "versionReleaseIndustryIdentifierCode": "004010"
+              }
+            ],
+            "transactionSets": [
+              {
+                "transactionSetHeader": [
+                  {
+                    "transactionSetIdentifierCode": "852",
+                    "transactionSetControlNumber": "329137575"
+                  }
+                ],
+                "reportingDateAction": [
+                  {
+                    "transactionHandlingCode": "H",
+                    "date": "20240327",
+                    "date1": "20240327"
+                  }
+                ],
+                "extendedReferenceInformation": [
+                  {
+                    "referenceIdentificationQualifier": "DP",
+                    "referenceIdentification": "342"
+                  },
+                  {
+                    "referenceIdentificationQualifier": "IA",
+                    "referenceIdentification": "2000161"
+                  }
+                ],
+                "N1_loop": [
+                  {
+                    "partyIdentification": [
+                      {
+                        "entityIdentifierCode": "RL",
+                        "name": "TARGET"
+                      }
+                    ]
+                  }
+                ],
+                "LIN_loop": [
+                  {
+                    "itemIdentification": [
+                      {
+                        "assignedIdentification": "1",
+                        "productServiceIDQualifier": "UP",
+                        "productServiceID": "810015150214",
+                        "productServiceIDQualifier1": "CB",
+                        "productServiceID1": "342030017",
+                        "productServiceIDQualifier2": "VA",
+                        "productServiceID2": "PATT319123"
+                      }
+                    ],
+                    "ZA_loop": [
+                      {
+                        "productActivityReporting": [
+                          {
+                            "activityCode": "QA"
+                          }
+                        ],
+                        "destinationQuantity": [
+                          {
+                            "unitOrBasisForMeasurementCode": "EA",
+                            "identificationCodeQualifier": "92",
+                            "identificationCode": "0004",
+                            "quantity": "3",
+                            "identificationCode1": "0005",
+                            "quantity1": "2",
+                            "identificationCode2": "0026",
+                            "quantity2": "2",
+                            "identificationCode3": "0061",
+                            "quantity3": "12",
+                            "identificationCode4": "0064",
+                            "quantity4": "6",
+                            "identificationCode5": "0083",
+                            "quantity5": "2",
+                            "identificationCode6": "0146",
+                            "quantity6": "1",
+                            "identificationCode7": "0154",
+                            "quantity7": "2",
+                            "identificationCode8": "0192",
+                            "quantity8": "1",
+                            "identificationCode9": "0195",
+                            "quantity9": "12"
+                          },
+                          {
+                            "unitOrBasisForMeasurementCode": "EA",
+                            "identificationCodeQualifier": "92",
+                            "identificationCode": "0198",
+                            "quantity": "7",
+                            "identificationCode1": "0200",
+                            "quantity1": "5",
+                            "identificationCode2": "0201",
+                            "quantity2": "3",
+                            "identificationCode3": "0203",
+                            "quantity3": "1",
+                            "identificationCode4": "0220",
+                            "quantity4": "6",
+                            "identificationCode5": "0233",
+                            "quantity5": "1",
+                            "identificationCode6": "0271",
+                            "quantity6": "7",
+                            "identificationCode7": "0279",
+                            "quantity7": "1",
+                            "identificationCode8": "0293",
+                            "quantity8": "1",
+                            "identificationCode9": "0294",
+                            "quantity9": "1"
+                          }
+                           ]
+                      },
+                      {
+                        "productActivityReporting": [
+                          {
+                            "activityCode": "QS"
+                          }
+                        ],
+                        "destinationQuantity": [
+                          {
+                            "unitOrBasisForMeasurementCode": "EA",
+                            "identificationCodeQualifier": "92",
+                            "identificationCode": "0192",
+                            "quantity": "1",
+                            "identificationCode1": "0885",
+                            "quantity1": "1",
+                            "identificationCode2": "1146",
+                            "quantity2": "1",
+                            "identificationCode3": "1148",
+                            "quantity3": "1",
+                            "identificationCode4": "1241",
+                            "quantity4": "1",
+                            "identificationCode5": "1330",
+                            "quantity5": "1",
+                            "identificationCode6": "1351",
+                            "quantity6": "1",
+                            "identificationCode7": "1410",
+                            "quantity7": "1",
+                            "identificationCode8": "1416",
+                            "quantity8": "2",
+                            "identificationCode9": "1751",
+                            "quantity9": "1"
+                          },
+                          {
+                            "unitOrBasisForMeasurementCode": "EA",
+                            "identificationCodeQualifier": "92",
+                            "identificationCode": "1894",
+                            "quantity": "1",
+                            "identificationCode1": "2027",
+                            "quantity1": "1",
+                            "identificationCode2": "2069",
+                            "quantity2": "1",
+                            "identificationCode3": "2174",
+                            "quantity3": "-1",
+                            "identificationCode4": "2212",
+                            "quantity4": "1",
+                            "identificationCode5": "2372",
+                            "quantity5": "2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "itemIdentification": [
+                      {
+                        "assignedIdentification": "2",
+                        "productServiceIDQualifier": "UP",
+                        "productServiceID": "810015150689",
+                        "productServiceIDQualifier1": "CB",
+                        "productServiceID1": "342030018",
+                        "productServiceIDQualifier2": "VA",
+                        "productServiceID2": "PATT120261"
+                      }
+                    ],
+                    "ZA_loop": [
+                      {
+                        "productActivityReporting": [
+                          {
+                            "activityCode": "QA"
+                          }
+                        ],
+                        "destinationQuantity": [
+                          {
+                            "unitOrBasisForMeasurementCode": "EA",
+                            "identificationCodeQualifier": "92",
+                            "identificationCode": "0004",
+                            "quantity": "3",
+                            "identificationCode1": "0005",
+                            "quantity1": "2",
+                            "identificationCode2": "0026",
+                            "quantity2": "3",
+                            "identificationCode3": "0055",
+                            "quantity3": "3",
+                            "identificationCode4": "0061",
+                            "quantity4": "2",
+                            "identificationCode5": "0064",
+                            "quantity5": "2",
+                            "identificationCode6": "0083",
+                            "quantity6": "3",
+                            "identificationCode7": "0146",
+                            "quantity7": "3",
+                            "identificationCode8": "0154",
+                            "quantity8": "3",
+                            "identificationCode9": "0192",
+                            "quantity9": "4"
+                          },
+                          {
+                            "unitOrBasisForMeasurementCode": "EA",
+                            "identificationCodeQualifier": "92",
+                            "identificationCode": "3432",
+                            "quantity": "4",
+                            "identificationCode1": "3446",
+                            "quantity1": "3"
+                          }
+                        ]
+                      },
+                      {
+                        "productActivityReporting": [
+                          {
+                            "activityCode": "QP"
+                          }
+                        ],
+                        "destinationQuantity": [
+                          {
+                            "unitOrBasisForMeasurementCode": "EA",
+                            "identificationCodeQualifier": "92",
+                            "identificationCode": "1836",
+                            "quantity": "1",
+                            "identificationCode1": "3840",
+                            "quantity1": "30",
+                            "identificationCode2": "3841",
+                            "quantity2": "114",
+                            "identificationCode3": "3842",
+                            "quantity3": "12"
+                          }
+                        ]
+                      },
+                      {
+                        "productActivityReporting": [
+                          {
+                            "activityCode": "QS"
+                          }
+                        ],
+                        "destinationQuantity": [
+                          {
+                            "unitOrBasisForMeasurementCode": "EA",
+                            "identificationCodeQualifier": "92",
+                            "identificationCode": "0746",
+                            "quantity": "1",
+                            "identificationCode1": "1033",
+                            "quantity1": "1",
+                            "identificationCode2": "1383",
+                            "quantity2": "1",
+                            "identificationCode3": "1416",
+                            "quantity3": "1",
+                            "identificationCode4": "2073",
+                            "quantity4": "1",
+                            "identificationCode5": "2520",
+                            "quantity5": "2"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "transactionTotals": [
+                  {
+                    "numberOfLineItems": "51"
+                  }
+                ],
+                "transactionSetTrailer": [
+                  {
+                    "numberOfIncludedSegments": "2744",
+                    "transactionSetControlNumber": "329137575"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "createdAt": "2024-03-28T12:00:48.863Z",
+        "lastUpdatedAt": "2024-03-28T16:07:44.181Z",
+        "version": "2020-10-28",
+        "delivery": {
+          "id": "b0737e6f-b065-4d74-904d-ee9680dced27",
+          "href": "https://api.orderful.com/v3/deliveries/b0737e6f-b065-4d74-904d-ee9680dced27",
+          "approve": {
+            "href": "https://api.orderful.com/v3/deliveries/b0737e6f-b065-4d74-904d-ee9680dced27/approve"
+          },
+          "fail": {
+            "href": "https://api.orderful.com/v3/deliveries/b0737e6f-b065-4d74-904d-ee9680dced27/fail"
+          }
+        }
+      }
+    ],
+    "errors": [],
+    "_exportId": "65b2bc41ce7c721bafe20769",
+    "_connectionId": "605ce094fa7ccb141c449c92",
+    "_flowId": "65b2bc428b6b4f12c5fd69cd",
+    "_integrationId": "65b2bb300c9d282076026a68",
+    "pageIndex": 0,
+    "settings": {
+      "integration": {},
+      "flowGrouping": {},
+      "flow": {},
+      "export": {},
+      "connection": {},
+      "iClient": {}
+    },
+    "testMode": false
+  }
