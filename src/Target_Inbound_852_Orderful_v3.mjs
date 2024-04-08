@@ -1,4 +1,4 @@
-import options  from "./data/Target_852_data.json" assert { type: "json"  };
+import options  from "./data/Target_852_data_shortform.json" assert { type: "json"  };
 preSavePage(options);
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -27,12 +27,7 @@ function preSavePage(options) {
   const flattenedData = [];
 
   // Retrieve relevant data
-  const sender = data[0].sender.isaId;
-  const BHGID = data[0].receiver.isaId;
-  const OrderfulID = data[0].id;
   const retailerID = "2276213"; // Set the RetailerID
-  const interchangeDate = data[0].message.content.interchangeControlHeader[0].interchangeDate;
-  const interchangeTime = data[0].message.content.interchangeControlHeader[0].interchangeTime;
 
   // Process transaction sets
   for (const transactionSet of data[0].message.content.transactionSets) {
@@ -42,36 +37,35 @@ function preSavePage(options) {
       const productServiceID2 = LIN_loop_item.itemIdentification[0].productServiceID2;
 
       for (const ZA_loop_item of LIN_loop_item.ZA_loop) {
-        const activityCode = ZA_loop_item.productActivityReporting[0].activityCode;
+        let currentQuantity = 0;
+        let soldQuantity = 0;
+        let onOrderQuantity = 0;
+
+        for (const activity of ZA_loop_item.productActivityReporting) {
+          const qty = ZA_loop_item.destinationQuantity[0].quantity;
+
+          if (activity.activityCode === "QA") {
+            currentQuantity = parseInt(qty);
+          } else if (activity.activityCode === "QS") {
+            soldQuantity = parseInt(qty);
+          } else if (activity.activityCode === "QP") {
+            onOrderQuantity = parseInt(qty);
+          }
+        }
 
         for (const destinationQuantity of ZA_loop_item.destinationQuantity) {
-          // Extract identification codes and quantities dynamically
-          let i = 0;
-          while (true) {
-            const identificationCodeKey = `identificationCode${i !== 0 ? i : ''}`;
-            const quantityKey = `quantity${i !== 0 ? i : ''}`;
-            const identificationCode = destinationQuantity[identificationCodeKey];
-            const quantity = destinationQuantity[quantityKey];
-            
-            if (identificationCode !== undefined && quantity !== undefined) {
-              // Push processed data to flattenedData array
-              flattenedData.push({
-                RetailerId: retailerID,
-                date: reportingDate,
-                time: interchangeTime,
-                item: productServiceID2,
-                storeCode: identificationCode,
-                quantity: quantity,
-                activityCode: activityCode
-              });
-            } else {
-              // Exit the loop if identificationCode or quantity is undefined
-              break;
-            }
-            
-            // Increment counter for next key
-            i++;
-          }
+          const identificationCode = destinationQuantity.identificationCode;
+
+          // Push processed data to flattenedData array
+          flattenedData.push({
+            RetailerId: retailerID,
+            date: reportingDate,
+            item: productServiceID2,
+            storeCode: identificationCode,
+            currentQuantity: currentQuantity,
+            soldQuantity: soldQuantity,
+            onOrderQuantity: onOrderQuantity
+          });
         }
       }
     }
@@ -96,5 +90,6 @@ function convertDate(date) {
   var day = date.slice(6, 8);
   return `${month}/${day}/${year}`;
 }
+
 
 ///////////////////////////////// END CELIGO CODE /////////////////////////////////////////////////////////////
