@@ -1,8 +1,10 @@
 ////////////////////////////// BEGIN DEVELOPMENT CODE //////////////////////////////
 // import options to the development environment
 // and execute the function that will build the data for the Orderful platform.
-import options from './Nordstrom_810_data.json' assert { type: "json" };
+import options from './data/Nordstrom_810_data.json' assert { type: "json" };
 preSavePage(options);
+
+
 ////////////////////////////// END DEVELOPMENT CODE ////////////////////////////////
 
 ////////////////////////////// BEGIN CELIGO CODE ///////////////////////////////////
@@ -147,6 +149,9 @@ function getAddressInformation(node) {
 // it returns the main response that will be sent to Orderful for processing.
 function preSavePage(options) {
   const data = []; 
+  const Orderful = []; // Initialize array to store package objects
+  const updaterec = []; // Initialize array to store updateid objects
+
   // Group items by N104[1]
   const groupedItems = {};
   options.data.forEach(item => {
@@ -172,89 +177,72 @@ function preSavePage(options) {
     const totalMonetaryValueSummary = {
       amount: ValueTotal.toFixed(2).replace('.', '')
     };
+    
     // Iterate over grouped items array to create response objects 
-    const responses = [];
     groupedItemsArray.forEach(item => {
-      let mainBody = item; // Use the current item here
       // Get items
       const { items, ValueTotal: updatedValueTotal } = getItems(groupedItemsArray, ValueTotal);
-      const N1_loop = getAddressInformation(mainBody);
-      // construct the response object  
-      const response = {
-        sender: {
-          isaId: mainBody.ISA06
-        },
-        receiver: {
-          isaId: mainBody.ISA08
-        },
-        type: {
-          name: mainBody.typeName
-        },
-        stream: mainBody.stream,
+      const N1_loop = getAddressInformation(item);
+      
+      // Construct the package object  
+      const packageObject = {
+        sender: { isaId: item.ISA06 },
+        receiver: { isaId: item.ISA08 },
+        type: { name: item.typeName },
+        stream: item.stream,
         message: {
           transactionSets: [
             {
               transactionSetHeader: [
-                {
-                  transactionSetIdentifierCode: '810',
-                  transactionSetControlNumber: '0001'
-                }
+                { transactionSetIdentifierCode: '810', transactionSetControlNumber: '0001' }
               ],
               beginningSegmentForInvoice: [
                 {
-                  date: mainBody.BIG01,
-                  invoiceNumber: mainBody.id,
-                  date1: mainBody.BIG03,
-                  purchaseOrderNumber: mainBody.BIG04,
-                  releaseNumber: mainBody.BIG05,
-                  changeOrderSequenceNumber: mainBody.BIG06,
-                  transactionTypeCode: mainBody.BIG07
+                  date: item.BIG01,
+                  invoiceNumber: item.id,
+                  date1: item.BIG03,
+                  purchaseOrderNumber: item.BIG04,
+                  releaseNumber: item.BIG05,
+                  changeOrderSequenceNumber: item.BIG06,
+                  transactionTypeCode: item.BIG07
                 }
               ],
-              referenceInformation: getReferenceInformation(mainBody),
+              referenceInformation: getReferenceInformation(item),
               N1_loop, // Call getAddressInformation here
               termsOfSaleDeferredTermsOfSale: [
-                {
-                  termsTypeCode: mainBody.ITD01,
-                  termsBasisDateCode: mainBody.ITD02
-                }
+                { termsTypeCode: item.ITD01, termsBasisDateCode: item.ITD02 }
               ],
-              dateTimeReference: getDateInformation(mainBody),
+              dateTimeReference: getDateInformation(item),
               IT1_loop: items,
               totalMonetaryValueSummary: [totalMonetaryValueSummary],
               carrierDetails: [
                 {
-                  transportationMethodTypeCode: mainBody.CAD01,
-                  standardCarrierAlphaCode: mainBody.CAD04,
-                  referenceIdentificationQualifier: mainBody.CAD07,
-                  referenceIdentification: mainBody.CAD08
+                  transportationMethodTypeCode: item.CAD01,
+                  standardCarrierAlphaCode: item.CAD04,
+                  referenceIdentificationQualifier: item.CAD07,
+                  referenceIdentification: item.CAD08
                 }
               ],
-              transactionTotals: [
-                {
-                  numberOfLineItems: numberOfLineItems.toString()
-                }
-              ]
+              transactionTotals: [{ numberOfLineItems: numberOfLineItems.toString() }]
             }
           ]
         }
       };
-  // Initialize an array to store IDs
+      
+      // Push package object to Orderful array
+      Orderful.push({ package: packageObject });
 
-
-  // Initialize an array to store IDs
-  const allIds = groupedItemsArray.map(item => ({ updateid: item.id }));
-
-  // Assign the array of IDs to the updaterec field
-  response.updaterec = allIds;
-
-  // PUSH THE RESPONSE OBJECT INTO THE RESPONSES ARRAY 
-      responses.push(response);
+      // Push updateid objects to updaterec array
+      updaterec.push({ updateid: item.id });
     });
-    data.push(responses);
-    console.log(JSON.stringify(data, null, 2));
   } 
   
+  // Push Orderful and updaterec arrays into the data array
+  data.push(Orderful);
+  data.push(updaterec);
+  console.log(JSON.stringify(data, null, 2));
+  
+  // Return the final response
   return {
     data: data,
     errors: options.errors,
@@ -262,4 +250,5 @@ function preSavePage(options) {
     testMode: options.testMode
   };
 }
+
 ////////////////////////////// END CELIGO CODE ////////////////////////////////////~

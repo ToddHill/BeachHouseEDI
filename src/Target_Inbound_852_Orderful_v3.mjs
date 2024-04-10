@@ -122,5 +122,4 @@ function convertDate(date) {
   var day = date.slice(6, 8);
   return `${month}/${day}/${year}`;
 }
-
 ///////////////////////////////// END CELIGO CODE /////////////////////////////////////////////////////////////

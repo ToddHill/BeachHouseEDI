@@ -12,14 +12,9 @@ From Orderful.  This should be functional for ALL Nordstrom 810s.
 /////////////////////////////////// END DEVELOPMENT CODE ///////////////////////////////////
 /////////////////////////////////// BEGIN PRODUCTION CODE ///////////////////////////////////
 export function preMap(options) {
-    return options.data.map((nestedArray) => {
-        // Map over each object in the nested array
-        const newData = nestedArray.map((obj) => {
-            // Remove the "updaterec" property from the object
-            delete obj.updaterec;
-            return obj;
-        });
-        // Return the modified nested array
-        return newData;
+    return options.data.map((obj) => {
+        // Remove the "_PARENT" property from the object
+        delete obj._PARENT;
+        return obj;
     });
 }

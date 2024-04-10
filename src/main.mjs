@@ -1,454 +1,495 @@
-console.log("Built Development Environment");
-console.log('-----------------------------');
-const options = {
-    "data": [
-      {
-        "id": "33343249",
-        "recordType": "itemfulfillment",
-        "updaterec": "33342646",
-        "ISA06": "BHGBEIS",
-        "ISA08": "6113310072",
-        "typeName": "856_SHIP_NOTICE_MANIFEST",
-        "stream": "Test",
-        "BSN01": "00",
-        "BSN02": "0123456789-test",
-        "BSN03": "20231218",
-        "BSN04": "111211",
-        "TD101": "CTN25",
-        "TD102": "0",
-        "TD106": "G",
-        "TD107": "5",
-        "TD108": "LB",
-        "TD504": "M",
-        "TD505": "TODD",
-        "TD506": "CC",
-        "REF01": "BM",
-        "REF02": "0123456789-test",
-        "DTM01": [
-          "011",
-          "067"
-        ],
-        "DTM02": [
-          "20231218",
-          "20231220"
-        ],
-        "FOB01": "CC",
-        "N101": [
-          "ST",
-          "BY",
-          "SF"
-        ],
-        "N102": [
-          "Secaucus DC",
-          "Bloomingdales",
-          "Beis"
-        ],
-        "N103": [
-          "92",
-          "92",
-          "92"
-        ],
-        "N104": [
-          "SC",
-          "0001",
-          "99999"
-        ],
-        "PRF01": "5105203",
-        "PRF04": "20231215",
-        "N401": "El Segundo",
-        "N402": "CA",
-        "MAN01": "GM",
-        "MAN02": "00008100128601750001",
-        "PID01": "S",
-        "PID03": "VI",
-        "PID04": "FL",
-        "LIN02": "UP",
-        "LIN03": "810012865272",
-        "LIN04": "VA",
-        "LIN05": "BEIS223428",
-        "SN102": "1",
-        "SN103": "EA",
-        "dataURI": "https://4675206-sb1.app.netsuite.com/app/accounting/transactions/itemship.nl?id=33343249&compid=4675206_SB1"
-      }
-    ],
-    "errors": [],
-    "_exportId": "6581d91425f6472c1fffcecf",
-    "_connectionId": "63513d8e26e4db667eca7a36",
-    "_flowId": "6580698125f6472c1fff751c",
-    "_integrationId": "652fea4baf4e70522482c4c3",
-    "pageIndex": 0,
-    "settings": {
-      "integration": {},
-      "flowGrouping": {},
-      "flow": {},
-      "export": {},
-      "connection": {}
-    },
-    "testMode": true
-  };
-console.log(options.data[0].BSN02);
-console.log('We Have Data!');
 
-preSavePage(options);
+const data = [
+  {
+    "owner_id": 5730,
+    "name": "Target Poller(864)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 88,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Beach House Poller",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 73,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "AS2:PROD: BEACHHOUSEPTTN",
+    "configuration": {
+      "url": "https://as2bizlinkp11.tgms.gxs.com/ipnet/as2",
+      "as2Id": "GXS",
+      "fingerprints": {
+        "sha1": "20 FD 04 8F D8 5D 18 4F F6 A9 42 CA B5 39 1A 9A 14 2A B7 89",
+        "sha256": "79 85 E5 C8 25 81 BC 38 B7 D1 02 AB D1 3B 46 16 52 D6 C7 0C DE 70 8A B4 F7 AD F0 42 EE 18 3C 81"
+      },
+      "outputVersion": "2020-10-28",
+      "certificateUrl": "5730/2e41ef63-292b-4c75-8e10-899933bb97b0",
+      "guidelineFilter": true,
+      "destinationTypeName": "as2"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Target Pattern(850)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 78,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Keep In Orderful",
+    "configuration": {
+      "outputVersion": "2020-05-26",
+      "guidelineFilter": false,
+      "destinationTypeName": "nowhere"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Nordstrom Moon(850)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 233,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Ulta Pattern 850",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 270,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Ulta Moon 850",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 269,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Ulta Moon 860",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 271,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Ulta Pattern 860",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 272,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Nordstrom Moon(860)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 280,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Target Moon(860)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 121,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Target Moon(850)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 122,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "ULTA MOON 850-1",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 303,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Loblaws Pattern (850)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 4658,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Loblaws Pattern (830)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 4691,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Loblaws Pattern (812)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 4692,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Loblaws Pattern (820)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 4693,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Macys 820 test",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 3275,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Indigo - Beis 850",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 6310,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Indigo - Beis 860",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 6311,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Macys 850 live",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 3272,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Macys 850 test",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 3273,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Macys 820 live",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 3274,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Loblaws Pattern (864)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 4694,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Nordstrom Pattern (850)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 14824,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Bloomingdales Beis (850)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 11425,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Sephora Pattern (850)",
+    "configuration": {
+      "outputVersion": "2020-10-28",
+      "pollerBucketId": 84,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Todd's Channel Only",
+    "configuration": {
+      "host": "ftp.orderful.com",
+      "port": 22,
+      "credentialId": 7295,
+      "outputVersion": "v3",
+      "pollDirectory": "5730/to_orderful/1289665",
+      "guidelineFilter": false,
+      "destinationTypeName": "sftp-hosted"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Mecca - Moon (ORDERS)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 10998,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Nordstrom Beis (850)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 11002,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Nordstrom Beis (860)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 11003,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Nordstrom Beis (820)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 11004,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Ulta Noyz (850)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 14228,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "BHG 850 TESTING - INBOUND CHANNEL",
+    "configuration": {
+      "host": "ftp.orderful.com",
+      "port": 22,
+      "credentialId": 7295,
+      "outputVersion": "v3",
+      "pollDirectory": "5730/from_orderful/1293990",
+      "guidelineFilter": false,
+      "destinationTypeName": "sftp-hosted"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Ulta Noyz (860)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 15746,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Target (ALL 852s)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 89,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "MacysNet [Macy|Bloomingdales] (ALL 852s)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 16076,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Nordstrom (ALL 852s)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 14825,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Loblaws (ALL 852s)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 8684,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Sephora (ALL 852s)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 15944,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Ulta (ALL 852s)",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 10999,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "SHOULD BE DELETED",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 6721,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  },
+  {
+    "owner_id": 5730,
+    "name": "Bloomingdales Outlet Beis",
+    "configuration": {
+      "outputVersion": "v3",
+      "pollerBucketId": 16277,
+      "guidelineFilter": true,
+      "destinationTypeName": "poller"
+    }
+  }
+]
+// Function to create a table and populate it with the fetched data
+async function createTable() {
 
-function preSavePage (options) {
-    // Author Date: 11/2/2023
-    // Due to the use of arrays being sent, we now need to
-    // verify we even have an object, or Celigo will throw
-    // an error
-    // Update: 11/13/2023
-    // Add grouping to connect to IF structure to get each
-    // IF individually.
-    // Rewrite: 1/2/2024
-    // We now must UNGROUP the records and loop through all 
-    // of them, and additionally loop the BSN information to group 
-    // all records as they come in, to build a proper SHIPMENT loop
-    // for the EDI
-    //
-    if (options.data.length > 0) {
-    
-    console.log('BEGIN 856');
-    console.log('-------------------------------');
-    // Starting Variables
-    const mainBody = options.data;
-    const firstNode = mainBody;
-    const linecount = mainBody.length;
-    
-    var items = [];
-    var ladingqty = 0;
-    var holder = {};
-    var obj1 = {};
-    var obj2 = {};
-    // Report Starting Variables to LOG.
-    console.log('Number of Line Items : ' + linecount);
-    console.log('Processing PO Number : ' + firstNode.PRF01);
-    
-    
-    // REFERENCE INFORMATION FUNCTION
-    
-    // Processing reference information if multiples are required.
-    const getReferenceInformation = node => {
-        const referenceInformation = [];
-      // Make sure it is an array.  Then loop through it. If not
-      // write the single records and move on.
-        if (Array.isArray(node.REF01)) {
-            console.log('Reference Array Loop');
-          node.REF01.forEach((ref01, index) => {
-            // For each value in node.REF01, we're going to create a new... OBJECT
-            const referenceInformationObject = {};
-            referenceInformationObject.referenceIdentificationQualifier = ref01;
-            if (node.REF02.length >= index) {
-              // If there's a corresponding value in node.REF02, we're going to add that data
-              // to the OBJECT
-              referenceInformationObject.referenceIdentification = node.REF02[index];
-            }
-            if (node.REF03 && node.REF03.length >= index) {
-              // If there's a corresponding value in node.REF03, we're going to add that data
-              // to the OBJECT
-              referenceInformationObject.description = node.REF03[index];
-            }
-            // Then we're going to push the OBJECT onto the referenceInformation ARRAY
-            referenceInformation.push(referenceInformationObject);
-          })
-        } else {
-            console.log('Single Reference Object');
-          const referenceInformationObject = {};
-          referenceInformationObject.referenceIdentificationQualifier = node.REF01;
-          referenceInformationObject.referenceIdentification = node.REF02;
-          referenceInformationObject.description = node.REF03;
-          referenceInformation.push(referenceInformationObject);   
-        }
-        return referenceInformation;
-      }
-    // End Reference Information
-    
-    //  We're going to load the addresses as the array is so many levels deep that
-    //  Building it as a function is untenebale.
-    //
-    //  This builds, but does not USE the address loop, as it is actually used
-    //  elsewhere in the code than normal.
-    const addr = [];
-    addr.push(firstNode.N101);
-    const N1_loop = [];
-    const addressInformation = [];
-    const addressInformationObject = {};
-    const partyIdentificationObject ={};
-    console.log('-------------------------------');
-    console.log('Addresses:');
-    
-    for (let i=0; i < firstNode.N101.length; i++) {
-        addressInformationObject.entityIdentifierCode = firstNode.N101[i];
-        addressInformationObject.name = firstNode.N102[i];
-        addressInformationObject.identificationCodeQualifier = firstNode.N103[i];
-        addressInformationObject.identificationCode = firstNode.N104[i];
-        console.log(firstNode.N101[i],firstNode.N102[i],firstNode.N103[i] ,firstNode.N104[i]);
-        addressInformation.push(addressInformationObject);
-        partyIdentificationObject.partyIdentification = [addressInformationObject];
-        N1_loop.push(partyIdentificationObject);
-    
-      }
-    // End Address Information
-    //DATETIME INFORMATION FUNCTION
-    const getDateInformation = node => {
-      const dateInformation = [];
-    // Make sure it is an array.  Then loop through it. If not
-    // write the single records and move on.
-      if (Array.isArray(node.DTM01)) {
-        node.DTM01.forEach((DTM01, index) => {
-          // For each value in node.DTM01, we're going to create a new... OBJECT
-          const dateInformationObject = {};
-          console.log('multiple date array');
-          dateInformationObject.dateTimeQualifier = DTM01;
-          if (node.DTM02.length >= index) {
-            // If there's a corresponding value in node.DTM02, we're going to add that data
-            // to the OBJECT
-            dateInformationObject.date = node.DTM02[index];
-          }
-          if (node.DTM03 && node.DTM03.length >= index) {
-            // If there's a corresponding value in node.DTM03, we're going to add that data
-            // to the OBJECT
-            dateInformationObject.description = node.DTM03[index];
-          }
-          // Then we're going to push the OBJECT onto the dateInformation ARRAY
-          dateInformation.push(dateInformationObject);
-        })
-      } else {
-        console.log('single date object');
-        const dateInformationObject = {};
-        dateInformationObject.dateTimeQualifier = node.DTM01;
-        dateInformationObject.dateTime = node.DTM02;
-        dateInformationObject.description = node.DTM03;
-        dateInformation.push(dateInformationObject);   
-      }
-      return dateInformation;
-    }
-    //
-    // UPDATED ITEMLOOP
-    // 10.28.2023 itemloopcontent - designed to pre-load 
-    // the item loop from the data and manage the counting of the
-    // HL Loops, connecting the single order to all packs, and all
-    // items to the associated pack as a parent id
-    // 10.30.2023 Debugging Added to verify passing through loop.
-    // 12.01.2023 Redone to Resolve issue with looping index and 
-    //            index count not being sufficient causing
-    //            only half the records being output in the 
-    //            item loop due to dual objects being loaded.
-    //            two objects, not one, are loaded here.
-    //
-    for (let i = 0; i < mainBody.length; i++) {
-      console.log('-------------------------------');
-      console.log('   Carton: ' + mainBody[i].MAN02);
-      console.log('      UPC: ' + mainBody[i].LIN03);
-      console.log(' Quantity: ' + mainBody[i].SN102);
-      ladingqty = mainBody.length;
-        obj1 = { 
-            hierarchicalLevel: [
-            {
-              hierarchicalIDNumber: (((i + 1) * 2) + 1).toString(),
-              hierarchicalParentIDNumber: '2',
-              hierarchicalLevelCode: 'P',
-            },],
-            marksAndNumbersInformation: [
-            {
-              marksAndNumbersQualifier: mainBody[i].MAN01,
-              marksAndNumbers: mainBody[i].MAN02
-            }] 
-              };
-    
-      obj2 = {  
-            hierarchicalLevel: [
-            {
-               hierarchicalIDNumber: (((i + 1) * 2) + 2).toString(),
-               hierarchicalParentIDNumber: (((i + 1) * 2) + 1).toString(),
-               hierarchicalLevelCode: 'I',
-            },],
-            itemIdentification: [
-            {
-              productServiceIDQualifier: mainBody[i].LIN02,
-              productServiceID: mainBody[i].LIN03
-            }],
-            itemDetailShipment: [
-            {
-              numberOfUnitsShipped: mainBody[i].SN102,
-              unitOrBasisForMeasurementCode: mainBody[i].SN103
-            }]
-             }; 
-    
-      items.push(obj1,obj2);
-    }
-    var referenceInformation = getReferenceInformation(firstNode);
-    //
-    // Main Body of Response is provided below, this is what will be sent to Orderful
-    //if sucessfully executed, along with the NetSuite record to be updated.
-    //
-    const response = [{
-        sender: {
-          isaId: firstNode.ISA06
-        },
-        receiver: {
-          isaId: firstNode.ISA08
-        },
-        type: {
-          name: firstNode.typeName
-        },
-        stream: firstNode.stream,
-        message: {
-          transactionSets: [
-            {
-              transactionSetHeader: [
-                {
-                  transactionSetIdentifierCode: '856',
-                  transactionSetControlNumber: '0001'
-                }
-              ],
-              beginningSegmentForShipNotice: [
-                {
-                  transactionSetPurposeCode: '00',
-                  shipmentIdentification: firstNode.BSN02,
-                  date: firstNode.BSN03,
-                  time: firstNode.BSN04,
-                  hierarchicalStructureCode: '0001'
-                }
-              ],
-              HL_loop: [
-                {
-                  hierarchicalLevel: [
-                    {
-                      hierarchicalIDNumber: "1",
-                      hierarchicalLevelCode: "S"
-                    }
-                  ],
-                    carrierDetailsQuantityAndWeight: [
-                    {
-                      packagingCode: firstNode.TD101,
-                      ladingQuantity: ladingqty.toString(),
-                      weightQualifier: firstNode.TD106,
-                      weight: firstNode.TD107,
-                      unitOrBasisForMeasurementCode: firstNode.TD108
-                    }
-                  ],
-                  carrierDetailsRoutingSequenceTransitTime: [
-                    {
-                      identificationCodeQualifier: firstNode.TD502,
-                      identificationCode: firstNode.TD503,
-                      transportationMethodTypeCode: firstNode.TD504,
-                      routing: firstNode.TD505,
-                      shipmentOrderStatusCode: firstNode.TD506
-                    }
-                  ],
-                  referenceInformation,
-                  dateTimeReference: getDateInformation(firstNode),
-                  N1_loop: [
-                    {
-                      partyIdentification: [
-                        {
-                          entityIdentifierCode: firstNode.N101[0],
-                          name: firstNode.N102[0],
-                          identificationCodeQualifier: firstNode.N103[0],
-                          identificationCode: firstNode.N104[0]
-                        }
-                      ]
-                    },
-                    {
-                     partyIdentification: [
-                        {
-                          entityIdentifierCode: firstNode.N101[2],
-                          name: firstNode.N102[2],
-                          identificationCodeQualifier: firstNode.N103[2],
-                          identificationCode: firstNode.N104[2]
-                        }
-                      ],
-                     geographicLocation: [
-                    {
-                      cityName: firstNode.N401,
-                      stateOrProvinceCode: firstNode.N402
-                    }
-                  ]
-                    }
-                  ]
-                },
-                {
-                  hierarchicalLevel: [
-                    {
-                      hierarchicalIDNumber: "2",
-                      hierarchicalParentIDNumber: "1",
-                      hierarchicalLevelCode: "O"
-                    }
-                  ],
-                  purchaseOrderReference: [
-                    {
-                      purchaseOrderNumber: firstNode.PRF01,
-                      date: firstNode.PRF04
-                    }
-                  ],
-                  productItemDescription: [
-                  {
-                    itemDescriptionTypeCode: firstNode.PID01,
-                    agencyQualifierCode: firstNode.PID03,
-                    productDescriptionCode: firstNode.PID04
-                  }
-                  ],
-                  carrierDetailsQuantityAndWeight: [
-                    {
-                      packagingCode: firstNode.TD101,
-                      ladingQuantity: ladingqty.toString()
-                    }
-                  ],
-                  N1_loop: [
-                    {
-                      partyIdentification: [
-                        {
-                          entityIdentifierCode: firstNode.N101[1],
-                          name: firstNode.N102[1],
-                          identificationCodeQualifier: firstNode.N103[1],
-                          identificationCode: firstNode.N104[1]
-                        }
-                      ]
-                    }
-                  ]
-                },
-              ...items
-              ],
-              transactionTotals: [
-                      {
-                              numberOfLineItems: linecount.toString()
-                      }
-                    ]
-            }
-          ]
-        }
-      }];
-      response[0].updaterec = firstNode.updaterec;
-      console.log('Update Record Stored...');
-    
-     
-    return {
-        data: response,
-        errors: options.errors,
-        abort: false,
-        newErrorsAndRetryData: []
-      }
-    }
-      else {
-      var errorMessage = '';
-      console.log('No record to process');
-      if(options.data === null) {
-        errorMessage = 'No records to process';
-      }else if (options.data.length === 0) {
-        errorMessage = 'No data to process';
-      }
-     
-      var errorsArray = options.errors;
-      if (errorMessage.length > 0) {
-        const error = {code:'NetSuite Export', message: errorMessage, source:'NetSuite Record Not Present',ignored:true};
-        errorsArray.push(error);
-      }
-        
-       return {
-        data: options.data,
-        errors: errorsArray,
-        abort: false,
-        newErrorsAndRetryData: []
-      } 
-    }
-    }
+
+  const table = document.createElement('table');
+  const thead = document.createElement('thead');
+  const tbody = document.createElement('tbody');
+
+  // Create table headers
+  const headers = ['Name', 'Output Version', 'Poller Bucket ID', 'Guideline Filter', 'Destination Type Name'];
+  const headerRow = document.createElement('tr');
+  headers.forEach(headerText => {
+      const th = document.createElement('th');
+      th.textContent = headerText;
+      headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Populate table rows with data
+  data.forEach(item => {
+      const row = document.createElement('tr');
+      const { name, configuration } = item;
+      const { outputVersion, pollerBucketId, guidelineFilter, destinationTypeName } = configuration;
+      const rowData = [name, outputVersion, pollerBucketId, guidelineFilter, destinationTypeName];
+      rowData.forEach(cellData => {
+          const cell = document.createElement('td');
+          cell.textContent = cellData;
+          row.appendChild(cell);
+      });
+      tbody.appendChild(row);
+  });
+
+  table.appendChild(tbody);
+
+  // Append table to the body of the document
+  document.body.appendChild(table);
+}
+
+// Call the createTable function when the page is loaded
+window.onload = createTable;
