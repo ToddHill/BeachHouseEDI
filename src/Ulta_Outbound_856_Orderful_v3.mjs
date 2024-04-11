@@ -26,7 +26,7 @@ function preSavePage(options) {
                         {
                             hierarchicalIDNumber: hierarchicalIDCounter.toString(),
                             hierarchicalParentIDNumber: "2",
-                            hierarchicalLevelCode: "T"
+                            hierarchicalLevelCode: "P"
                         }
                     ],
                     measurements: [

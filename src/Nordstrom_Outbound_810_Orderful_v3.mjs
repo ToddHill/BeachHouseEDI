@@ -4,7 +4,6 @@
 import options from './data/Nordstrom_810_data.json' assert { type: "json" };
 preSavePage(options);
 
-
 ////////////////////////////// END DEVELOPMENT CODE ////////////////////////////////
 
 ////////////////////////////// BEGIN CELIGO CODE ///////////////////////////////////
@@ -44,9 +43,10 @@ function getItems(node, ValueTotal) {
     items,
     ValueTotal
   };
-}
+};
 
 // REFERENCE INFORMATION FUNCTION
+
 function getReferenceInformation(node) {
   const referenceInformation = [];
   if (Array.isArray(node.REF01)) {
@@ -70,9 +70,10 @@ function getReferenceInformation(node) {
     referenceInformation.push(referenceInformationObject);
   }
   return referenceInformation;
-}
+};
 
 // DATETIME INFORMATION FUNCTION
+
 function getDateInformation(node) {
   const dateInformation = [];
   if (Array.isArray(node.DTM01)) {
@@ -93,7 +94,7 @@ function getDateInformation(node) {
     dateInformation.push(dateInformationObject);
   }
   return dateInformation;
-}
+};
 
 // ADDRESS INFORMATION FUNCTION
 function getAddressInformation(node) {
@@ -108,9 +109,9 @@ function getAddressInformation(node) {
     N1_loop.push({ partyIdentification: [addressInformationObject] });
   });
   return N1_loop;
-}
+};
 
-// PRESAVE PAGE - where the work gets done.
+
 function preSavePage(options) {
   const data = {
     Orderful: [],
@@ -190,5 +191,4 @@ function preSavePage(options) {
     testMode: options.testMode
   };
 }
-
 ////////////////////////////// END CELIGO CODE ////////////////////////////////////~
