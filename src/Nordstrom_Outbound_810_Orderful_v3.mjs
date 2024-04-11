@@ -3,7 +3,7 @@
 // and execute the function that will build the data for the Orderful platform.
 import options from './data/Nordstrom_810_data.json' assert { type: "json" };
 preSavePage(options);
-console.log(JSON.stringify(options, null, 2));
+
 
 ////////////////////////////// END DEVELOPMENT CODE ////////////////////////////////
 
@@ -155,7 +155,7 @@ function preSavePage(options) {
           transactionSetHeader: [{ transactionSetIdentifierCode: '810', transactionSetControlNumber: '0001' }],
           beginningSegmentForInvoice: [{
             date: groupedItemsArray[0].BIG01,
-            invoiceNumber: groupedItemsArray[0].id,
+            invoiceNumber: groupedItemsArray[0].BIG02,
             date1: groupedItemsArray[0].BIG03,
             purchaseOrderNumber: groupedItemsArray[0].BIG04,
             releaseNumber: groupedItemsArray[0].BIG05,
@@ -182,7 +182,7 @@ function preSavePage(options) {
     data.Orderful.push(packageObject);
     data.updaterec.push({ updateid: groupedItemsArray[0].id });
   }
-
+  console.log(JSON.stringify(data, null, 2));
   return {
     data: [data],
     errors: options.errors,
