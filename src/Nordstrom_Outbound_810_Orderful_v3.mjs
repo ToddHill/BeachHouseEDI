@@ -1,6 +1,8 @@
 ////////////////////////////// BEGIN DEVELOPMENT CODE //////////////////////////////
 // import options to the development environment
 // and execute the function that will build the data for the Orderful platform.
+// revision 2
+// adding verbose logging to Celigo code
 import options from './data/Nordstrom_810_data.json' assert { type: "json" };
 preSavePage(options);
 
@@ -43,7 +45,7 @@ function getItems(node, ValueTotal) {
     items,
     ValueTotal
   };
-};
+}
 
 // REFERENCE INFORMATION FUNCTION
 
@@ -70,7 +72,7 @@ function getReferenceInformation(node) {
     referenceInformation.push(referenceInformationObject);
   }
   return referenceInformation;
-};
+}
 
 // DATETIME INFORMATION FUNCTION
 
@@ -94,7 +96,7 @@ function getDateInformation(node) {
     dateInformation.push(dateInformationObject);
   }
   return dateInformation;
-};
+}
 
 // ADDRESS INFORMATION FUNCTION
 function getAddressInformation(node) {
@@ -109,24 +111,27 @@ function getAddressInformation(node) {
     N1_loop.push({ partyIdentification: [addressInformationObject] });
   });
   return N1_loop;
-};
+}
 
 
 function preSavePage(options) {
   const data = {
     Orderful: [],
     updaterec: []
-  };
+  }
 
   // Group items by a composite key of BIG04 and N104[1]
   const groupedItems = {};
   options.data.forEach(item => {
     const key = item.BIG04 + '-' + item.N104[1]; // Composite key
+    console.debug('Initial key:', JSON.stringify(key, null, 2));
     if (!groupedItems[key]) {
       groupedItems[key] = [];
     }
     groupedItems[key].push(item);
-  });
+    console.debug('Current item:', JSON.stringify(item, null, 2));
+
+  })
 
   // Iterate over the grouped items
   for (const key in groupedItems) {
@@ -135,7 +140,7 @@ function preSavePage(options) {
     groupedItemsArray.forEach(record => {
       const OrderTotal = parseFloat(record.IT102) * parseFloat(record.IT104);
       ValueTotal += OrderTotal;
-    });
+    })
 
     const numberOfLineItems = groupedItemsArray.length;
     const totalMonetaryValueSummary = {
@@ -179,16 +184,17 @@ function preSavePage(options) {
         }]
       }
     };
-
+    console.debug('Package object:', JSON.stringify(packageObject, null, 2));
     data.Orderful.push(packageObject);
     data.updaterec.push({ updateid: groupedItemsArray[0].id });
+    console.debug('id sent:', JSON.stringify(groupedItemsArray[0].id, null, 2));
   }
-  console.log(JSON.stringify(data, null, 2));
+  //console.debug(JSON.stringify(data, null, 2));
   return {
     data: [data],
     errors: options.errors,
     settings: options.settings,
     testMode: options.testMode
-  };
+  }
 }
 ////////////////////////////// END CELIGO CODE ////////////////////////////////////~

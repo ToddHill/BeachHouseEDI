@@ -13,6 +13,7 @@ From Orderful.  This should be functional for ALL Nordstrom 810s.
 /////////////////////////////////// BEGIN PRODUCTION CODE ///////////////////////////////////
 export function preMap(options) {
     return options.data.map((obj) => {
+        console.debug('object deleting: ', JSON.stringify(obj._PARENT));
         // Remove the "_PARENT" property from the object
         delete obj._PARENT;
         return obj;
