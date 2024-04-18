@@ -1,0 +1,27 @@
+.header {
+    background-color: darkgray;
+    color: white;
+    padding: 10px;
+}
+
+.row {
+    display: flex;
+}
+
+.sidebar {
+    background-color: darkred;
+    color: white;
+    width: 15%;
+}
+
+.content {
+    background-color: white;
+    color: black;
+    width: 85%;
+    padding: 20px;
+}
+
+.footer {
+    background-color: lightgray;
+    height: 50px; /* Set the desired height */
+}
