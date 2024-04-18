@@ -493,3 +493,7 @@ async function createTable() {
 
 // Call the createTable function when the page is loaded
 window.onload = createTable;
+
+function displayText(element, change_to) {
+  document.getElementById(element).textContent = document.getElementById(change_to).value
+}

@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Poller Vortex</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <div class="header">
-        <h1>Welcome to my Webpage</h1>
+        <h1>Poller Vortex Orderful Dashboard</h1>
         <select>
-            <option value="content1">Content 1</option>
-            <option value="content2">Content 2</option>
-            <option value="content3">Content 3</option>
+            <option value="content1">Nordstrom</option>
+            <option value="content2">Ulta</option>
+            <option value="content3">Target</option>
         </select>
     </div>
 
     <div class="row">
         <div class="sidebar">
             <ul>
-                <li><a href="#">Navigation 1</a></li>
-                <li><a href="#">Navigation 2</a></li>
-                <li><a href="#">Navigation 3</a></li>
+                <li><a href="#">Clear Poller</a></li>
+                <li><a href="#">Fail transaction</a></li>
+                <li><a href="#">Find Transaction</a></li>
             </ul>
         </div>
         <div class="content">
             <p>This is the main content area.</p>
+            <p id="msg"></p>
+            <textarea id="enterMsg"></textarea>
+            <button id="sendButton" onclick="displayText('msg', 'enterMsg')">Send</button>
         </div>
     </div>
 
