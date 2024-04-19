@@ -10,7 +10,7 @@ preSavePage(options);
 
 ////////////////////////////// BEGIN CELIGO CODE ///////////////////////////////////
 
-// ITEMS AND TOTAL VALUE FUNCTION
+// Data Transformation Functions
 function getItems(node, ValueTotal) {
   let OrderTotal = 0;
   const items = node.map(record => {
@@ -40,41 +40,32 @@ function getItems(node, ValueTotal) {
       ]
     };
   });
-
   return {
     items,
     ValueTotal
   };
 }
 
-// REFERENCE INFORMATION FUNCTION
-
 function getReferenceInformation(node) {
   const referenceInformation = [];
   if (Array.isArray(node.REF01)) {
     node.REF01.forEach((ref01, index) => {
-      const referenceInformationObject = {};
-      referenceInformationObject.referenceIdentificationQualifier = ref01;
-      if (node.REF02 && node.REF02.length > index) {
-        referenceInformationObject.referenceIdentification = node.REF02[index];
-      }
-      if (node.REF03 && node.REF03.length > index) {
-        referenceInformationObject.description = node.REF03[index];
-      }
+      const referenceInformationObject = {
+        referenceIdentificationQualifier: ref01,
+        referenceIdentification: node.REF02 && node.REF02.length > index ? node.REF02[index] : undefined,
+        description: node.REF03 && node.REF03.length > index ? node.REF03[index] : undefined,
+      };
       referenceInformation.push(referenceInformationObject);
     });
   } else {
-    const referenceInformationObject = {
+    referenceInformation.push({
       referenceIdentificationQualifier: node.REF01,
       referenceIdentification: node.REF02,
       description: node.REF03
-    };
-    referenceInformation.push(referenceInformationObject);
+    });
   }
   return referenceInformation;
 }
-
-// DATETIME INFORMATION FUNCTION
 
 function getDateInformation(node) {
   const dateInformation = [];
@@ -88,17 +79,15 @@ function getDateInformation(node) {
       dateInformation.push(dateInformationObject);
     });
   } else {
-    const dateInformationObject = {
+    dateInformation.push({
       dateTimeQualifier: node.DTM01,
       date: node.DTM02,
       description: node.DTM03
-    };
-    dateInformation.push(dateInformationObject);
+    });
   }
   return dateInformation;
 }
 
-// ADDRESS INFORMATION FUNCTION
 function getAddressInformation(node) {
   const N1_loop = [];
   node.N101.forEach((n101, index) => {
@@ -106,51 +95,42 @@ function getAddressInformation(node) {
       entityIdentifierCode: n101,
       name: node.N102 && node.N102.length > index ? node.N102[index] : undefined,
       identificationCodeQualifier: node.N103 && node.N103.length > index ? node.N103[index] : undefined,
-      identificationCode: node.N104 && node.N104.length > index ? node.N104[1] : undefined,
+      identificationCode: node.N104 && node.N104.length > index ? node.N104[index] : undefined,
     };
     N1_loop.push({ partyIdentification: [addressInformationObject] });
   });
   return N1_loop;
 }
 
-
+// Main Execution Logic
 function preSavePage(options) {
+  console.debug('BEGIN RUN...');
+  console.debug('number of records:', options.data.length);
   const data = {
     Orderful: [],
     updaterec: []
   }
 
-  // Group items by a composite key of BIG04 and N104[1]
   const groupedItems = {};
   options.data.forEach(item => {
     const key = item.BIG04 + '-' + item.N104[1]; // Composite key
-    console.debug('Initial key:', JSON.stringify(key, null, 2));
+    data.updaterec.push({ updateid: item.id });
+    console.debug(key);
     if (!groupedItems[key]) {
       groupedItems[key] = [];
     }
     groupedItems[key].push(item);
-    console.debug('Current item:', JSON.stringify(item, null, 2));
+  });
 
-  })
-
-  // Iterate over the grouped items
-  for (const key in groupedItems) {
-    const groupedItemsArray = groupedItems[key];
+  Object.entries(groupedItems).forEach(([key, groupedItemsArray]) => {
     let ValueTotal = 0;
     groupedItemsArray.forEach(record => {
       const OrderTotal = parseFloat(record.IT102) * parseFloat(record.IT104);
       ValueTotal += OrderTotal;
-    })
+    });
 
-    const numberOfLineItems = groupedItemsArray.length;
-    const totalMonetaryValueSummary = {
-      amount: ValueTotal.toFixed(2).replace('.', '')
-    };
-
-    // For each group, create only one package object
     const { items } = getItems(groupedItemsArray, ValueTotal);
     const N1_loop = getAddressInformation(groupedItemsArray[0]);
-
     const packageObject = {
       sender: { isaId: groupedItemsArray[0].ISA06 },
       receiver: { isaId: groupedItemsArray[0].ISA08 },
@@ -173,23 +153,22 @@ function preSavePage(options) {
           termsOfSaleDeferredTermsOfSale: [{ termsTypeCode: groupedItemsArray[0].ITD01, termsBasisDateCode: groupedItemsArray[0].ITD02 }],
           dateTimeReference: getDateInformation(groupedItemsArray[0]),
           IT1_loop: items,
-          totalMonetaryValueSummary: [totalMonetaryValueSummary],
+          totalMonetaryValueSummary: [{ amount: ValueTotal.toFixed(2).replace('.', '') }],
           carrierDetails: [{
             transportationMethodTypeCode: groupedItemsArray[0].CAD01,
             standardCarrierAlphaCode: groupedItemsArray[0].CAD04,
             referenceIdentificationQualifier: groupedItemsArray[0].CAD07,
             referenceIdentification: groupedItemsArray[0].CAD08
           }],
-          transactionTotals: [{ numberOfLineItems: numberOfLineItems.toString() }]
+          transactionTotals: [{ numberOfLineItems: groupedItemsArray.length.toString() }]
         }]
       }
     };
-    console.debug('Package object:', JSON.stringify(packageObject, null, 2));
+    console.debug('invoice:',groupedItemsArray[0].BIG02);
     data.Orderful.push(packageObject);
-    data.updaterec.push({ updateid: groupedItemsArray[0].id });
-    console.debug('id sent:', JSON.stringify(groupedItemsArray[0].id, null, 2));
-  }
-  //console.debug(JSON.stringify(data, null, 2));
+    
+  });
+
   return {
     data: [data],
     errors: options.errors,
@@ -197,4 +176,4 @@ function preSavePage(options) {
     testMode: options.testMode
   }
 }
-////////////////////////////// END CELIGO CODE ////////////////////////////////////~
+////////////////////////////// END CELIGO CODE ////////////////////////////////////
