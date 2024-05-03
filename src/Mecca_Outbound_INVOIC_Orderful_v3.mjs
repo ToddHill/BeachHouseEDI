@@ -1,4 +1,4 @@
-import options from './data/Mecca_ORDRSP_data.json' assert { type: "json" };
+import options from './data/Mecca_INVOIC_data.json' assert { type: "json" };
 preSavePage(options);
 
 function preSavePage(options) {
@@ -22,7 +22,6 @@ function preSavePage(options) {
             return {
                 lineItem: {
                     lineItemId: record.e1082,
-                    actionCode: record.e1229,
                     itemNumberId_composite: {
                         itemId: record.e7140a,
                         itemTypeIdCode: "SRV"
@@ -114,8 +113,6 @@ function preSavePage(options) {
             };
         });
   
-        const messageFunctionCode = determineMessageFunctionCode(getItems);
-  
         const MainObject = [{
             sender: {
                 isaId: mainBody[0].ISA06
@@ -124,24 +121,25 @@ function preSavePage(options) {
                 isaId: mainBody[0].ISA08
             },
             type: {
-                name: 'ORDRSP_PURCHASE_ORDER_RESPONSE'
+                name: 'INVOIC_INVOICE'
             },
             stream: 'Test',
             message: {
                 beginningOfMessage: {
                     documentMessageName_composite: {
-                        documentNameCode: "231"
+                        documentNameCode: "388",
+                        documentName: "TAX INVOICE"
                     },
                     documentMessageId_composite: {
                         documentId: mainBody[0].e1004
                     },
-                    messageFunctionCode: messageFunctionCode
+                    messageFunctionCode: "9"
                 },
                 dateTimePeriod: [
                     {
                         dateTimePeriod_composite: {
                             dateOrTimeOrPeriodFunctionCodeQualifier: "10",
-                            dateOrTimeOrPeriodText: mainBody[0].e2380,
+                            dateOrTimeOrPeriodText: mainBody[0].e2380s,
                             dateOrTimeOrPeriodFormatCode: "102"
                         }
                     },
@@ -155,9 +153,9 @@ function preSavePage(options) {
                 ],
                 freeText: [
                     {
-                        textSubjectCodeQualifier: "PUR",
+                        textSubjectCodeQualifier: "AAI",
                         textLiteral_composite: {
-                            freeText: "We have received the following order: " + mainBody[0].e1154
+                            freeText: "Invoice for order: " + mainBody[0].e1154
                         }
                     }
                 ],
@@ -170,7 +168,7 @@ function preSavePage(options) {
                           }
                       }
                   }
-              ],
+                ],
                 nameAndAddress_group: [
                     {
                         nameAndAddress: {
@@ -180,18 +178,28 @@ function preSavePage(options) {
                                 codeListResponsibleAgencyCode: "9"
                             },
                             partyName_composite: {
-                                partyName: "MECCA BRANDS PTY LTD"
+                                partyName: "MECCA Brands Pty Ltd"
                             },
                             street_composite: {
                                 streetAndNumberOrPostOfficeBoxId: "34 Wangaratta St"
                             },
-                            cityName: "Richmond",
+                            cityName: "RICHMOND",
                             countrySubdivisionDetails_composite: {
                                 countrySubdivisionId: "VIC"
                             },
                             postalIdCode: "3121",
                             countryId: "AU"
+                    },
+                    reference_group: [
+                        {
+                            reference: {
+                                reference_composite: {
+                                    referenceCodeQualifier: "XA",
+                                    referenceId: "74010078010"
+                                }
+                            }
                         }
+                      ],
                     },
                     {
                         nameAndAddress: {
@@ -233,8 +241,18 @@ function preSavePage(options) {
                             },
                             postalIdCode: "90245",
                             countryId: "US"
+                    },
+                    reference_group: [
+                        {
+                            reference: {
+                                reference_composite: {
+                                    referenceCodeQualifier: "XA",
+                                    referenceId: mainBody[0].e1154duns
+                                }
+                            }
                         }
-                    }
+                      ]
+                    },
                 ],
                 currencies_group: [
                     {
@@ -247,6 +265,28 @@ function preSavePage(options) {
                         }
                     }
                 ],
+                paymentTerms_group: [
+                    {
+                      paymentTerms: {
+                        paymentTermsTypeCodeQualifier: "18",
+                        paymentTerms_composite: {
+                          paymentTermsDescriptionId: "7",
+                          codeListResponsibleAgencyCode: "ZZZ",
+                          paymentTermsDescription: "60D"
+                        }
+                      }
+                    }
+                  ],
+                transportInformation_group: [
+                    {
+                      transportInformation: {
+                        transportStageCodeQualifier: "20",
+                        modeOfTransport_composite: {
+                          transportModeName: "SEA"
+                        }
+                      }
+                    }
+                  ],
                 lineItem_group: getItems,
                 summary_group: {
                     monetaryAmount: [
@@ -268,10 +308,8 @@ function preSavePage(options) {
                 }
             }
     }];
-  
-        const updaterec = {
-            updateid: mainBody[0].id // Assuming 'id' exists in mainBody[0]
-        };
+        const updaterec = [];
+        updaterec.push({updateid: mainBody[0].id});
         var holder = {};
         holder.MainObject = MainObject;
         holder.updaterec = updaterec;
@@ -286,21 +324,7 @@ function preSavePage(options) {
     }
   }
   
-  function determineMessageFunctionCode(lineItems) {
-    const allActionCode5 = lineItems.every(item => item.lineItem.actionCode === '5');
-    const anyActionCode3 = lineItems.some(item => item.lineItem.actionCode === '3');
-    const allActionCode7 = lineItems.every(item => item.lineItem.actionCode === '7');
-  
-    if (anyActionCode3) {
-      return '4';
-    } else if (allActionCode5) {
-      return '29';
-    } else if (allActionCode7) {
-      return '27';
-    } else {
-      return '29'; // Default value if none of the specific conditions are met
-    }
-  }
+
   
 
 
