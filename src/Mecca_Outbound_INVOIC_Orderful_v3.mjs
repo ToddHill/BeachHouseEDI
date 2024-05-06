@@ -54,18 +54,20 @@ function preSavePage(options) {
                 quantity: [
                     {
                         quantityDetails_composite: {
-                            quantityTypeCodeQualifier: "113",
+                            quantityTypeCodeQualifier: "47",
                             quantity: record.e6060,
                             measurementUnitCode: "PCE"
                         }
                     }
                 ],
-                monetaryAmount: [
+                monetaryAmount_group: [
                     {
+                      monetaryAmount: {
                         monetaryAmount_composite: {
                             monetaryAmountTypeCodeQualifier: "128",
                             monetaryAmount: record.e5004
                         }
+                      }
                     }
                 ],
                 freeText: [
@@ -81,7 +83,8 @@ function preSavePage(options) {
                         priceDetails: {
                             priceInformation_composite: {
                                 priceCodeQualifier: "AAA",
-                                priceAmount: record.e5118
+                                priceAmount: record.e5118,
+                                priceSpecificationCode: "INV"
                             }
                         }
                     }
@@ -139,7 +142,7 @@ function preSavePage(options) {
                     {
                         dateTimePeriod_composite: {
                             dateOrTimeOrPeriodFunctionCodeQualifier: "10",
-                            dateOrTimeOrPeriodText: mainBody[0].e2380s,
+                            dateOrTimeOrPeriodText: mainBody[0].e2380,
                             dateOrTimeOrPeriodFormatCode: "102"
                         }
                     },
@@ -260,7 +263,7 @@ function preSavePage(options) {
                             currencyDetails_composite: {
                                 currencyUsageCodeQualifier: "2",
                                 currencyIdCode: "USD",
-                                currencyTypeCodeQualifier: "9"
+                                currencyTypeCodeQualifier: "4"
                             }
                         }
                     }
@@ -289,13 +292,15 @@ function preSavePage(options) {
                   ],
                 lineItem_group: getItems,
                 summary_group: {
-                    monetaryAmount: [
-                        {
+                    monetaryAmount_group: [
+                      {
+                        monetaryAmount: {
                             monetaryAmount_composite: {
                                 monetaryAmountTypeCodeQualifier: "128",
                                 monetaryAmount: totalMonetaryAmount.toString()
                             }
                         }
+                      }
                     ],
                     controlTotal: [
                         {
@@ -323,8 +328,3 @@ function preSavePage(options) {
         };
     }
   }
-  
-
-  
-
-
