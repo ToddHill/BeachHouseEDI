@@ -14,17 +14,21 @@ function preSavePage(options) {
         };
     } else {
     const mainBody = options.data[0];
+    let totalPackages = 0;
+    let LevelId = 1;
     const getItems = mainBody.map(record => {
+    totalPackages = totalPackages + parseInt(record.e6060);
+    LevelId = LevelId + 1;
     return {
                 consignmentPackingSequence: {
-                hierarchicalStructureLevelId: "2",
+                hierarchicalStructureLevelId: LevelId.toString(),
                 hierarchicalStructureParentId: "1",
                 packagingLevelCode: "3"
                 },
                 package_group: [
                   {
                     package: {
-                      packageQuantity: record.e7224,
+                      packageQuantity: record.e6060,
                       packageType_composite: {
                         packageTypeDescriptionCode: "CT"
                       }
@@ -61,14 +65,14 @@ function preSavePage(options) {
                         {
                         productIdCodeQualifier: "1",
                         itemNumberId_composite: {
-                            itemId: record.e7140c,
+                            itemId: record.e7140b,
                             itemTypeIdCode: "SA"
                             }
                         },
                         {
                             productIdCodeQualifier: "5",
                             itemNumberId_composite: {
-                            itemId: record.e7140b,
+                            itemId: record.e7140c,
                             itemTypeIdCode: "IN"
                             }
                         }
@@ -84,7 +88,7 @@ function preSavePage(options) {
                     quantity: [
                         {
                             quantityDetails_composite: {
-                                quantityTypeCodeQualifier: "113",
+                                quantityTypeCodeQualifier: "12",
                                 quantity: record.e6060,
                                 measurementUnitCode: "PCE"
                                 }
@@ -235,7 +239,7 @@ function preSavePage(options) {
                         package_group: [
                             {
                                 package: {
-                                    packageQuantity: record.e7224,
+                                    packageQuantity: totalPackages.toString(),
                                     packageType_composite: {
                                         packageTypeDescriptionCode: "CT"
                                     }
@@ -243,7 +247,7 @@ function preSavePage(options) {
                             }
                         ]
                     },    
-                    getItems],
+                    ...getItems],
                 summary_group: {
                     controlTotal: [
                         {
@@ -257,7 +261,7 @@ function preSavePage(options) {
             }
     }];
   
-    const updaterec = {updateid: mainBody[0].id};
+    const updaterec = [{updateid: mainBody[0].updaterec}];
     var holder = {};
     holder.MainObject = MainObject;
     holder.updaterec = updaterec;
@@ -271,8 +275,3 @@ function preSavePage(options) {
             };
     }
 }
-  
-
-  
-
-
