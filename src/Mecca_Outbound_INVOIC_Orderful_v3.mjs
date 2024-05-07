@@ -68,7 +68,15 @@ function preSavePage(options) {
                             monetaryAmount: record.e5004
                         }
                       }
-                    }
+                    },
+                    {
+                        monetaryAmount: {
+                          monetaryAmount_composite: {
+                              monetaryAmountTypeCodeQualifier: "369",
+                              monetaryAmount: "0.00"
+                          }
+                        }
+                      }
                 ],
                 freeText: [
                   {
@@ -108,7 +116,7 @@ function preSavePage(options) {
                                 dutyOrTaxOrFeeTypeNameCode: "GST"
                             },
                             dutyTaxFeeDetail_composite: {
-                                dutyOrTaxOrFeeRate: "0"
+                                dutyOrTaxOrFeeRate: "0.00"
                             }
                         }
                     }
@@ -296,8 +304,24 @@ function preSavePage(options) {
                       {
                         monetaryAmount: {
                             monetaryAmount_composite: {
+                                monetaryAmountTypeCodeQualifier: "39",
+                                monetaryAmount: totalMonetaryAmount.toString()
+                            }
+                        }
+                      },
+                      {
+                        monetaryAmount: {
+                            monetaryAmount_composite: {
                                 monetaryAmountTypeCodeQualifier: "128",
                                 monetaryAmount: totalMonetaryAmount.toString()
+                            }
+                        }
+                      },
+                      {
+                        monetaryAmount: {
+                            monetaryAmount_composite: {
+                                monetaryAmountTypeCodeQualifier: "369",
+                                monetaryAmount: "0.00"
                             }
                         }
                       }
