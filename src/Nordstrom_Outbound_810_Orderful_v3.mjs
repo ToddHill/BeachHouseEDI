@@ -104,18 +104,23 @@ function getAddressInformation(node) {
 
 // Main Execution Logic
 function preSavePage(options) {
-  console.debug('BEGIN RUN...');
-  console.debug('number of records:', options.data.length);
+      if (options.data === undefined || options.data.length === 0) {
+      return {
+        data: [],
+        errors: [],
+        abort: false
+      }
+    }
+    else {
   const data = {
     Orderful: [],
     updaterec: []
   }
-
+  
   const groupedItems = {};
   options.data.forEach(item => {
     const key = item.BIG04 + '-' + item.N104[1]; // Composite key
     data.updaterec.push({ updateid: item.id });
-    console.debug(key);
     if (!groupedItems[key]) {
       groupedItems[key] = [];
     }
@@ -164,7 +169,6 @@ function preSavePage(options) {
         }]
       }
     };
-    console.debug('invoice:',groupedItemsArray[0].BIG02);
     data.Orderful.push(packageObject);
     
   });
@@ -175,5 +179,6 @@ function preSavePage(options) {
     settings: options.settings,
     testMode: options.testMode
   }
+}
 }
 ////////////////////////////// END CELIGO CODE ////////////////////////////////////
