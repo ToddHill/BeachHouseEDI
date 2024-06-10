@@ -3,6 +3,9 @@
 <head>
     <title>Poller Vortex</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
@@ -23,20 +26,22 @@
             </ul>
         </div>
         <div class="content">
-            <div class="card">
-                <div class="card-header">Owner Name</div>
-                <div class="card-details">
-                    <p><strong>Owner ID:</strong> 5730</p>
-                    <p><strong>Name:</strong> Target Poller(864)</p>
-                    <p><strong>Output Version:</strong> 2020-10-28</p>
-                    <p><strong>Poller Bucket ID:</strong> 88</p>
-                    <p><strong>Guideline Filter:</strong> true</p>
-                    <p><strong>Destination Type Name:</strong> poller</p>
+
+                <div class="card-container" id="card-container">
+                    <div class="card-container">
+                        <div class="card-header">Owner Name</div>
+                        <div class="card-details">
+                            <p><strong>Owner ID:</strong> 5730</p>
+                            <p><strong>Name:</strong> Target Poller(864)</p>
+                            <p><strong>Output Version:</strong> 2020-10-28</p>
+                            <p><strong>Poller Bucket ID:</strong> 88</p>
+                            <p><strong>Guideline Filter:</strong> true</p>
+                            <p><strong>Destination Type Name:</strong> poller</p>
+                        </div> 
                 </div>
-                <div id="card-container"></div>
 
                 <script>
-                    fetch('./data/orderful_bhg_poller_4092024.json')
+                    fetch('data/orderful_bhg_poller_4092024.json',)
                       .then(response => response.json())
                       .then(dataArray => {
                         const cardContainer = document.getElementById('card-container');

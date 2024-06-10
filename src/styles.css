@@ -1,5 +1,8 @@
 .header {
-    background-color: darkgray;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgb(22, 1, 49);
     color: white;
     padding: 10px;
 }
@@ -9,15 +12,18 @@
 }
 
 .sidebar {
-    background-color: darkred;
+    font-family: "Anta", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    background-color: rgba(40, 1, 71, 0.555);
     color: white;
-    width: 15%;
+    width: 20%;
 }
 
 .content {
     background-color: white;
     color: black;
-    width: 85%;
+    width: 80%;
     padding: 20px;
 }
 
@@ -25,3 +31,33 @@
     background-color: lightgray;
     height: 50px; /* Set the desired height */
 }
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    background-color: #f9f9f9;
+}
+
+.card-header {
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #eaeaea;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.card-details {
+    padding: 10px 0;
+}
+.anta-regular {
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
