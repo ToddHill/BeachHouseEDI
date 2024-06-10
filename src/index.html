@@ -23,7 +23,60 @@
             </ul>
         </div>
         <div class="content">
-            <p>This is the main content area.</p>
+            <div class="card">
+                <div class="card-header">Owner Name</div>
+                <div class="card-details">
+                    <p><strong>Owner ID:</strong> 5730</p>
+                    <p><strong>Name:</strong> Target Poller(864)</p>
+                    <p><strong>Output Version:</strong> 2020-10-28</p>
+                    <p><strong>Poller Bucket ID:</strong> 88</p>
+                    <p><strong>Guideline Filter:</strong> true</p>
+                    <p><strong>Destination Type Name:</strong> poller</p>
+                </div>
+                <div id="card-container"></div>
+
+                <script>
+                    fetch('./data/orderful_bhg_poller_4092024.json')
+                      .then(response => response.json())
+                      .then(dataArray => {
+                        const cardContainer = document.getElementById('card-container');
+                        
+                        dataArray.forEach(obj => {
+                            const card = document.createElement('div');
+                            card.classList.add('card');
+                            
+                            const cardHeader = document.createElement('div');
+                            cardHeader.classList.add('card-header');
+                            cardHeader.textContent = obj.name;
+                            
+                            const cardDetails = document.createElement('div');
+                            cardDetails.classList.add('card-details');
+                            cardDetails.innerHTML = `
+                                <p><strong>Owner ID:</strong> ${obj.owner_id}</p>
+                                <p><strong>Name:</strong> ${obj.name}</p>
+                                <p><strong>Output Version:</strong> ${obj.configuration.outputVersion}</p>
+                                <p><strong>Poller Bucket ID:</strong> ${obj.configuration.pollerBucketId}</p>
+                                <p><strong>Guideline Filter:</strong> ${obj.configuration.guidelineFilter}</p>
+                                <p><strong>Destination Type Name:</strong> ${obj.configuration.destinationTypeName}</p>
+                            `;
+                            
+                            card.appendChild(cardHeader);
+                            card.appendChild(cardDetails);
+                            
+                            cardContainer.appendChild(card);
+                            
+                            cardHeader.addEventListener('click', () => {
+                                // Show detailed information - You can implement this logic here
+                                alert(JSON.stringify(obj));
+                            });
+                        });
+                      })
+                      .catch(error => {
+                        console.error('Error while fetching JSON: ', error);
+                      });
+                    </script>
+                    
+            </div>
             <p id="msg"></p>
             <textarea id="enterMsg"></textarea>
             <button id="sendButton" onclick="displayText('msg', 'enterMsg')">Send</button>
