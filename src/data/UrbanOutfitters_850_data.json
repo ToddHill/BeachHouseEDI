@@ -1,0 +1,516 @@
+{
+    "data": [
+      {
+        "id": "365092553",
+        "href": "https://api.orderful.com/v3/transactions/365092553?expand=message",
+        "version": "v3",
+        "sender": {
+          "isaId": "SPSURBANOUTFIT",
+          "isaIdQualifier": "ZZ",
+          "testIsaId": "TST1URBANOUTFIT",
+          "testIsaIdQualifier": "ZZ",
+          "name": "Anthropologie"
+        },
+        "receiver": {
+          "isaId": "BHGBEIS",
+          "isaIdQualifier": "ZZ",
+          "testIsaId": "BHGBEIST",
+          "testIsaIdQualifier": "ZZ",
+          "name": "BEIS"
+        },
+        "type": {
+          "name": "850_PURCHASE_ORDER"
+        },
+        "stream": "TEST",
+        "businessNumber": "0000011111",
+        "referenceIdentifiers": [
+          {
+            "value": "1000",
+            "type": "GROUP",
+            "owner": "SENDER"
+          },
+          {
+            "value": "100000000",
+            "type": "INTERCHANGE",
+            "owner": "SENDER"
+          },
+          {
+            "value": "1000",
+            "type": "TRANSACTION",
+            "owner": "SENDER"
+          }
+        ],
+        "message": {
+          "interchangeControlHeader": [
+            {
+              "authorizationInformationQualifier": "00",
+              "authorizationInformation": "",
+              "securityInformationQualifier": "00",
+              "securityInformation": "",
+              "interchangeIDQualifier": "ZZ",
+              "interchangeSenderID": "TST1URBANOUTFIT",
+              "interchangeIDQualifier1": "ZZ",
+              "interchangeReceiverID": "BHGBEIST",
+              "interchangeDate": "240708",
+              "interchangeTime": "1516",
+              "repetitionSeparator": "|",
+              "interchangeControlVersionNumberCode": "00403",
+              "interchangeControlNumber": "100000000",
+              "acknowledgmentRequestedCode": "0",
+              "interchangeUsageIndicatorCode": "P",
+              "componentElementSeparator": "}"
+            }
+          ],
+          "functionalGroupHeader": [
+            {
+              "functionalIdentifierCode": "PO",
+              "applicationSendersCode": "TST1URBANOUTFIT",
+              "applicationReceiversCode": "BHGBEIST",
+              "date": "20240708",
+              "time": "1516",
+              "groupControlNumber": "1000",
+              "responsibleAgencyCode": "X",
+              "versionReleaseIndustryIdentifierCode": "004030"
+            }
+          ],
+          "transactionSets": [
+            {
+              "transactionSetHeader": [
+                {
+                  "transactionSetIdentifierCode": "850",
+                  "transactionSetControlNumber": "1000"
+                }
+              ],
+              "beginningSegmentForPurchaseOrder": [
+                {
+                  "transactionSetPurposeCode": "00",
+                  "purchaseOrderTypeCode": "SA",
+                  "purchaseOrderNumber": "0000011111",
+                  "releaseNumber": "0",
+                  "date": "20240708",
+                  "contractNumber": "DOMESTIC"
+                }
+              ],
+              "currency": [
+                {
+                  "entityIdentifierCode": "BY",
+                  "currencyCode": "USD"
+                }
+              ],
+              "referenceInformation": [
+                {
+                  "referenceIdentificationQualifier": "IA",
+                  "referenceIdentification": "96524"
+                },
+                {
+                  "referenceIdentificationQualifier": "2P",
+                  "referenceIdentification": "URBAN OUTFITTERS"
+                },
+                {
+                  "referenceIdentificationQualifier": "6P",
+                  "referenceIdentification": "COLLECTION"
+                },
+                {
+                  "referenceIdentificationQualifier": "PG",
+                  "referenceIdentification": "MARKET"
+                },
+                {
+                  "referenceIdentificationQualifier": "ACD",
+                  "referenceIdentification": "0221"
+                },
+                {
+                  "referenceIdentificationQualifier": "ACI",
+                  "referenceIdentification": "Y"
+                },
+                {
+                  "referenceIdentificationQualifier": "PRT",
+                  "referenceIdentification": "APPAREL"
+                },
+                {
+                  "referenceIdentificationQualifier": "ZZ",
+                  "referenceIdentification": "RETAIL"
+                }
+              ],
+              "administrativeCommunicationsContact": [
+                {
+                  "contactFunctionCode": "BD",
+                  "name": "CARMONAD1"
+                }
+              ],
+              "FOBRelatedInstructions": [
+                {
+                  "shipmentMethodOfPaymentCode": "CC",
+                  "locationQualifier1": "CA",
+                  "description1": "US"
+                }
+              ],
+              "termsOfSaleDeferredTermsOfSale": [
+                {
+                  "description": "30"
+                }
+              ],
+              "dateTimeReference": [
+                {
+                  "dateTimeQualifier": "001",
+                  "date": "20240722"
+                },
+                {
+                  "dateTimeQualifier": "010",
+                  "date": "20240715"
+                }
+              ],
+              "carrierDetailsRoutingSequenceTransitTime": [
+                {
+                  "routing": "ROUTING GUIDE"
+                }
+              ],
+              "N9_loop": [
+                {
+                  "extendedReferenceInformation": [
+                    {
+                      "referenceIdentificationQualifier": "L1",
+                      "freeFormDescription": "VENDOR INSTRUCTIONS"
+                    }
+                  ]
+                }
+              ],
+              "N1_loop": [
+                {
+                  "partyIdentification": [
+                    {
+                      "entityIdentifierCode": "ST",
+                      "name": "SHIP TO NAME",
+                      "identificationCodeQualifier": "92",
+                      "identificationCode": "00188"
+                    }
+                  ],
+                  "partyLocation": [
+                    {
+                      "addressInformation": "Address1"
+                    }
+                  ],
+                  "geographicLocation": [
+                    {
+                      "cityName": "City",
+                      "stateOrProvinceCode": "ST",
+                      "postalCode": "55555",
+                      "countryCode": "USA"
+                    }
+                  ]
+                },
+                {
+                  "partyIdentification": [
+                    {
+                      "entityIdentifierCode": "VN",
+                      "name": "BEIS LLC"
+                    }
+                  ],
+                  "partyLocation": [
+                    {
+                      "addressInformation": "222 N Pacific Coast Hwy"
+                    }
+                  ],
+                  "geographicLocation": [
+                    {
+                      "cityName": "El Segundo",
+                      "stateOrProvinceCode": "CA",
+                      "postalCode": "90245",
+                      "countryCode": "US"
+                    }
+                  ]
+                }
+              ],
+              "PO1_loop": [
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "1",
+                      "quantity": "5",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "54",
+                      "productServiceIDQualifier": "IN",
+                      "productServiceID": "4159-96524-0001-001-0000",
+                      "productServiceIDQualifier1": "VA",
+                      "productServiceID1": "BEIS123361",
+                      "productServiceIDQualifier3": "SK",
+                      "productServiceID3": "0055555555",
+                      "productServiceIDQualifier4": "IT",
+                      "productServiceID4": "0221",
+                      "productServiceIDQualifier5": "C3",
+                      "productServiceID5": "0221",
+                      "productServiceIDQualifier6": "VE",
+                      "productServiceID6": "VE",
+                      "productServiceIDQualifier7": "IZ",
+                      "productServiceID7": "5000",
+                      "productServiceIDQualifier8": "UP",
+                      "productServiceID8": "810012864022"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "108"
+                        }
+                      ]
+                    }
+                  ],
+                  "PID_loop": [
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "08",
+                          "description": "The Weekender in Black"
+                        }
+                      ]
+                    },
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "GEN",
+                          "description": "LOOSE"
+                        }
+                      ]
+                    },
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "91",
+                          "description": "S"
+                        }
+                      ]
+                    },
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "73",
+                          "description": "Black"
+                        }
+                      ]
+                    }
+                  ],
+                  "itemPhysicalDetails": [
+                    {
+                      "pack": "1"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "2",
+                      "quantity": "5",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "54",
+                      "productServiceIDQualifier": "IN",
+                      "productServiceID": "4159-96524-0001-024-0000",
+                      "productServiceIDQualifier1": "VA",
+                      "productServiceID1": "BEIS123360",
+                      "productServiceIDQualifier3": "SK",
+                      "productServiceID3": "0066666666",
+                      "productServiceIDQualifier4": "IT",
+                      "productServiceID4": "0221",
+                      "productServiceIDQualifier5": "C3",
+                      "productServiceID5": "0221",
+                      "productServiceIDQualifier6": "VE",
+                      "productServiceID6": "VE",
+                      "productServiceIDQualifier7": "IZ",
+                      "productServiceID7": "6000",
+                      "productServiceIDQualifier8": "UP",
+                      "productServiceID8": "810012864015"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "108"
+                        }
+                      ]
+                    }
+                  ],
+                  "PID_loop": [
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "08",
+                          "description": "The Weekender in Beige"
+                        }
+                      ]
+                    },
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "GEN",
+                          "description": "LOOSE"
+                        }
+                      ]
+                    },
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "91",
+                          "description": "M"
+                        }
+                      ]
+                    },
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "73",
+                          "description": "Beige"
+                        }
+                      ]
+                    }
+                  ],
+                  "itemPhysicalDetails": [
+                    {
+                      "pack": "1"
+                    }
+                  ]
+                },
+                {
+                  "baselineItemData": [
+                    {
+                      "assignedIdentification": "3",
+                      "quantity": "4",
+                      "unitOrBasisForMeasurementCode": "EA",
+                      "unitPrice": "24",
+                      "productServiceIDQualifier": "IN",
+                      "productServiceID": "4159-96524-0006-001-0000",
+                      "productServiceIDQualifier1": "VA",
+                      "productServiceID1": "BEIS121045",
+                      "productServiceIDQualifier3": "SK",
+                      "productServiceID3": "0077777777",
+                      "productServiceIDQualifier4": "IT",
+                      "productServiceID4": "0221",
+                      "productServiceIDQualifier5": "C3",
+                      "productServiceID5": "0221",
+                      "productServiceIDQualifier6": "VE",
+                      "productServiceID6": "VE",
+                      "productServiceIDQualifier7": "IZ",
+                      "productServiceID7": "7000",
+                      "productServiceIDQualifier8": "UP",
+                      "productServiceID8": "810012862516"
+                    }
+                  ],
+                  "CTP_loop": [
+                    {
+                      "pricingInformation": [
+                        {
+                          "priceIdentifierCode": "RTL",
+                          "unitPrice": "48"
+                        }
+                      ]
+                    }
+                  ],
+                  "PID_loop": [
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "08",
+                          "description": "The Sport Pack in Black"
+                        }
+                      ]
+                    },
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "GEN",
+                          "description": "LOOSE"
+                        }
+                      ]
+                    },
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "91",
+                          "description": "M"
+                        }
+                      ]
+                    },
+                    {
+                      "productItemDescription": [
+                        {
+                          "itemDescriptionTypeCode": "F",
+                          "productProcessCharacteristicCode": "73",
+                          "description": "Black"
+                        }
+                      ]
+                    }
+                  ],
+                  "itemPhysicalDetails": [
+                    {
+                      "pack": "1"
+                    }
+                  ]
+                }
+              ],
+              "CTT_loop": [
+                {
+                  "transactionTotals": [
+                    {
+                      "numberOfLineItems": "3"
+                    }
+                  ]
+                }
+              ],
+              "transactionSetTrailer": [
+                {
+                  "numberOfIncludedSegments": "47",
+                  "transactionSetControlNumber": "1000"
+                }
+              ]
+            }
+          ],
+          "href": "https://api.orderful.com/v3/transactions/365092553/message"
+        },
+        "validationStatus": "VALID",
+        "deliveryStatus": "SENT",
+        "acknowledgmentStatus": "ACCEPTED",
+        "createdAt": "2024-07-08T20:17:51.370Z",
+        "lastUpdatedAt": "2024-07-08T20:35:58.277Z",
+        "acknowledgment": {
+          "href": "https://api.orderful.com/v3/transactions/365092553/acknowledgment"
+        },
+        "delivery": {
+          "id": "c49eeb0b-b4e7-4a84-85ea-6bf2ff7ccf63",
+          "href": "https://api.orderful.com/v3/deliveries/c49eeb0b-b4e7-4a84-85ea-6bf2ff7ccf63",
+          "approve": {
+            "href": "https://api.orderful.com/v3/deliveries/c49eeb0b-b4e7-4a84-85ea-6bf2ff7ccf63/approve"
+          },
+          "fail": {
+            "href": "https://api.orderful.com/v3/deliveries/c49eeb0b-b4e7-4a84-85ea-6bf2ff7ccf63/fail"
+          }
+        }
+      }
+    ],
+    "errors": [],
+    "_exportId": "668c4db910ee3d1a6684feb1",
+    "_connectionId": "605ce094fa7ccb141c449c92",
+    "_flowId": "668c4cb4a73fa1af21eb6520",
+    "_integrationId": "668c4a8b0d04e9803588a84f",
+    "pageIndex": 0,
+    "settings": {
+      "integration": {},
+      "flowGrouping": {},
+      "flow": {},
+      "export": {},
+      "connection": {},
+      "iClient": {}
+    },
+    "testMode": true
+  }

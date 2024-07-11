@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Program",
             "runtimeArgs": ["--experimental-modules"],
-            "program": "${workspaceFolder}/src/main.mjs"
+            "program": "${workspaceFolder}/src/UrbanOutfitters_Inbound_850_Orderful_v3.mjs"
         }
     ]
 
