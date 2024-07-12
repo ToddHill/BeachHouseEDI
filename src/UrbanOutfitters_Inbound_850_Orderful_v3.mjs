@@ -7,22 +7,10 @@ console.log(JSON.stringify(options.data, undefined, 2));
 function preSavePage(options) {
     for (let i = 0; i < options.data.length; i++) {
       let salesorders = [];
-      // let sender;
       let identificationCode;
-  
-      // set sender to netsuite internal Id for each vendor
-      // switch (options.data[i].from.id) {
-      //   case "": // sender ISA ID
-      //     sender = ""; // NS internal ID of customer
-      //     break;
-      //   default:
-      //     sender = "not mapped";
-      // }
-  
       // loop through transactionSets
       for (let j = 0; j < options.data[i].message.transactionSets.length; j++) {
         let record = options.data[i].message.transactionSets[j];
-  
         // parse out refenceIdentification section with qualifiers, specifically departmentNumber & internalVendorNumber
         for (let k = 0; k < record.referenceInformation.length; k++) {
           if (record.referenceInformation[k].referenceIdentificationQualifier === 'DP') {
@@ -33,25 +21,22 @@ function preSavePage(options) {
             record.orderType = record.referenceInformation[k].referenceIdentification;
           }
         }
-  
         // parse out dateTimeReference header segment for cancelByDate and shipNotBefore
         for (let k = 0; k < record.dateTimeReference.length; k++) {
           if (record.dateTimeReference[k].dateTimeQualifier === '001') {
-            record.cancelByDate = record.dateTimeReference[k].date;
+            record.cancelByDate = convertDate(record.dateTimeReference[k].date);
           } else if (record.dateTimeReference[k].dateTimeQualifier === '002') {
-            record.deliveryRequested = record.dateTimeReference[k].date;
+            record.deliveryRequested = convertDate(record.dateTimeReference[k].date);
           } else if (record.dateTimeReference[k].dateTimeQualifier === '010') {
-            record.requestedShip = record.dateTimeReference[k].date;
+            record.requestedShip = convertDate(record.dateTimeReference[k].date);
           }
         }
-  
         // grab sender from N1 loop if the sender is Scheels or REI because the information is not in the destinationQuantity (which doesn't exist)
         if (!record.PO1_loop[0].destinationQuantity) {
-          // set header level fields for single sales order in sales order array
-           // grab sender and receiver from N1 loop
+        // set header level fields for single sales order in sales order array
+        // grab sender and receiver from N1 loop
         let senderIdentificationCode;
         let receiverIdentificationCode;
-
         for (let n1 of record.N1_loop) {
             if (n1.partyIdentification[0].entityIdentifierCode === 'BY') {
                 senderIdentificationCode = n1.partyIdentification[0].identificationCode;
@@ -59,33 +44,28 @@ function preSavePage(options) {
                 receiverIdentificationCode = n1.partyIdentification[0].identificationCode;
             }
         }
+        // set identificationCode to senderIdentificationCode and dcCode to receiverIdentificationCode
+        record.identificationCode = senderIdentificationCode;
+        record.dcCode = receiverIdentificationCode;
 
-          // set identificationCode to senderIdentificationCode and dcCode to receiverIdentificationCode
-          record.identificationCode = senderIdentificationCode;
-          record.dcCode = receiverIdentificationCode;
-
-          salesorders.push({
+        salesorders.push({
             purchaseOrderNumber: record.beginningSegmentForPurchaseOrder[0].purchaseOrderNumber,
-            // senderNSID: sender,
             identificationCode: record.identificationCode,
             dcCode: record.dcCode,
             departmentNumber: record.departmentNumber,
             internalVendorNum: record.internalVendorNum,
             orderType: record.orderType,
-            cancelByDate: convertDate(record.cancelByDate),
-            deliveryRequested: convertDate(record.deliveryRequested),
-            requestedShip: convertDate(record.requestedShip),
-
+            cancelByDate: record.cancelByDate,
+            deliveryRequested: record.deliveryRequested,
+            requestedShip: record.requestedShip,
           })
           salesorders[salesorders.length - 1].items = [];
         }
-  
-        // loop through items loop
+         // loop through items loop
         for (let k = 0; k < record.PO1_loop.length; k++) {
           // create and assign holding item object
           let item = {};
           Object.assign(item, record.PO1_loop[k].baselineItemData[0]);
-  
           // pull out UPC data from productServiceIDs
           let b = 0;
           do {
@@ -186,9 +166,9 @@ function preSavePage(options) {
                   departmentNumber: record.departmentNumber,
                   internalVendorNum: record.internalVendorNum,
                   orderType: record.orderType,
-                  cancelByDate: convertDate(record.cancelByDate),
-                  deliveryRequested: convertDate(record.deliveryRequested),
-                  requestedShip: convertDate(record.requestedShip),
+                  cancelByDate: record.cancelByDate,
+                  deliveryRequested: record.deliveryRequested,
+                  requestedShip: record.requestedShip,
                   items: [{}]
                 });
   
@@ -203,12 +183,10 @@ function preSavePage(options) {
             } while (typeof record.PO1_loop[k].destinationQuantity[a]['identificationCode' + m] !== 'undefined'); // break loop when no more items in destinationQuantity remain to be parsed
   
           }
-        }
-  
+        }  
         // add salesorders array to data to be returned
         options.data[i].salesorders = salesorders;
       }
-  
     }
   function convertDate(date) {
     var year = date.slice(0, 4);
@@ -221,4 +199,4 @@ function preSavePage(options) {
       errors: options.errors,
       abort: false
     }
-  }
+}
