@@ -1,7 +1,7 @@
 ////////////////////////////// BEGIN DEVELOPMENT CODE //////////////////////////////
 // Designed for ULTA Retailer
 // This code is designed to be used in the Celigo Integration App.
-import options from './UrbanOutfitters_810_data.json' assert { type: "json" };
+import options from './data/UrbanOutfitters_810_data.json' assert { type: "json" };
 preSavePage(options);
 ////////////////////////////// END DEVELOPMENT CODE ////////////////////////////////
 
@@ -19,9 +19,12 @@ function getItems(node, ValueTotal) {
             quantityInvoiced: record.IT102,
             unitOrBasisForMeasurementCode: record.IT103,
             unitPrice: record.IT104,
-            basisOfUnitPriceCode: record.IT105,
             productServiceIDQualifier: record.IT106,
-            productServiceID: record.IT107
+            productServiceID: record.IT107,
+            productServiceIDQualifier1: record.IT108,
+            productServiceID1: record.IT109,
+            productServiceIDQualifier2: record.IT110,
+            productServiceID2: record.IT111
           }
         ],
         PID_loop: [
@@ -29,6 +32,7 @@ function getItems(node, ValueTotal) {
             productItemDescription: [
               {
                 itemDescriptionTypeCode: record.PID01,
+                productProcessCharacteristicCode: record.PID02,
                 description: record.PID05
               }
             ]
@@ -36,8 +40,11 @@ function getItems(node, ValueTotal) {
         ],
         itemPhysicalDetails: [
             {
-              pack: record.PO401,
-              innerPack: record.PO414
+              weightQualifier: "G",
+              grossWeightPerPack: record.PO406,
+              unitOrBasisForMeasurementCode1: "KG",
+              grossVolumePerPack: record.PO408,
+              unitOrBasisForMeasurementCode2: "CF"
             }
           ] 
       };
@@ -49,7 +56,7 @@ function getItems(node, ValueTotal) {
     };
   }
   // REFERENCE INFORMATION FUNCTION
-  function getReferenceInformation(node) {
+function getReferenceInformation(node) {
         const referenceInformation = [];
       // Make sure it is an array.  Then loop through it. If not
       // write the single records and move on.
@@ -83,7 +90,7 @@ function getItems(node, ValueTotal) {
         return referenceInformation;
   }
   //DATETIME INFORMATION FUNCTION
-  function getDateInformation(node) {
+function getDateInformation(node) {
         const dateInformation = [];
       // Make sure it is an array.  Then loop through it. If not
       // write the single records and move on.
@@ -116,7 +123,7 @@ function getItems(node, ValueTotal) {
         return dateInformation;
   }
   // PRESAVE PAGE - where the work gets done.
-  function preSavePage(options) {
+function preSavePage(options) {
     // If there is no data, return an empty object
     if (options.data === undefined || options.data === null || options.data.length === 0) {
       return {
@@ -175,10 +182,8 @@ function getItems(node, ValueTotal) {
                   {
                     partyIdentification: [
                       {
-                        entityIdentifierCode: 'RI',
-                        name: 'Beach House Group',
-                        identificationCodeQualifier: '92',
-                        identificationCode: 'code'
+                        entityIdentifierCode: 'VN',
+                        name: 'Beis Travel'
                       }
                     ],
                     partyLocation: [
@@ -196,15 +201,6 @@ function getItems(node, ValueTotal) {
                     ]
                   }
                 ],
-                termsOfSaleDeferredTermsOfSale: [
-                  {
-                    termsTypeCode: firstNode.ITD01,
-                    termsBasisDateCode: firstNode.ITD02,
-                    termsDiscountDaysDue: firstNode.ITD05,
-                    termsNetDays: firstNode.ITD07,
-                  }
-                ],
-                dateTimeReference: getDateInformation(firstNode),
                 IT1_loop: IT_loop.items,
                 totalMonetaryValueSummary: [
                     {
@@ -216,7 +212,7 @@ function getItems(node, ValueTotal) {
                       servicePromotionAllowanceOrChargeInformation: [
                         {
                           allowanceOrChargeIndicatorCode: 'C',
-                          servicePromotionAllowanceOrChargeCode: 'H850',
+                          servicePromotionAllowanceOrChargeCode: 'F050',
                           amount: '0',
                           description: 'TOTAL SALES TAX'
                         }
