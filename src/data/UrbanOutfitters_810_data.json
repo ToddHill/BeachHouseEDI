@@ -1,0 +1,258 @@
+{
+    "data": [
+      [
+        {
+          "id": "46597446",
+          "recordType": "invoice",
+          "ISA06": "BHGBEIST",
+          "ISA08": "TST1URBANOUTFIT",
+          "idType": "isaId",
+          "typeName": "810_INVOICE",
+          "stream": "Test",
+          "BIG01": "20240731",
+          "BIG02": "INV247415116",
+          "BIG03": "20240722",
+          "BIG04": "0000033333",
+          "NTE02": "Notation",
+          "CUR01": "BY",
+          "CUR02": "USD",
+          "REF01": [
+            "IA",
+            "SI"
+          ],
+          "REF02": [
+            "96524",
+            "1234567890"
+          ],
+          "ITD01": "05",
+          "ITD02": "3",
+          "ITD05": "0",
+          "ITD07": "60",
+          "DTM01": "011",
+          "DTM02": "20240731",
+          "IT101": "1",
+          "IT102": "5",
+          "IT103": "EA",
+          "IT104": "54.00",
+          "IT105": "PE",
+          "IT106": "VA",
+          "IT107": "BEIS123361",
+          "PID01": "F",
+          "PID05": "The Weekender in Black",
+          "PO401": "4",
+          "PO414": "1",
+          "CAD01": "M",
+          "CAD04": "UPSN",
+          "CAD07": "BM",
+          "CAD08": "1234567890",
+          "TDS01": "636.00",
+          "CTT01": "14",
+          "N101": [
+            "ST",
+            "VN"
+          ],
+          "N102": [
+            "SHIP TO NAME",
+            "Beis Travel"
+          ],
+          "N103": "92",
+          "N104": "00188",
+          "N301": [
+            "Address1",
+            "222 N Pacific Coast Highway"
+          ],
+          "N302": "10th Floor",
+          "N401": [
+            "City",
+            "El Segundo"
+          ],
+          "N402": [
+            "MN",
+            "CA"
+          ],
+          "N403": [
+            "55555",
+            "90245"
+          ],
+          "N404": [
+            "US",
+            "US"
+          ],
+          "dataURI": "https://4675206-sb1.app.netsuite.com/app/accounting/transactions/custinvc.nl?id=46597446&compid=4675206_SB1"
+        },
+        {
+          "id": "46597446",
+          "recordType": "invoice",
+          "ISA06": "BHGBEIST",
+          "ISA08": "TST1URBANOUTFIT",
+          "idType": "isaId",
+          "typeName": "810_INVOICE",
+          "stream": "Test",
+          "BIG01": "20240731",
+          "BIG02": "INV247415116",
+          "BIG03": "20240722",
+          "BIG04": "0000033333",
+          "NTE02": "Notation",
+          "CUR01": "BY",
+          "CUR02": "USD",
+          "REF01": [
+            "IA",
+            "SI"
+          ],
+          "REF02": [
+            "96524",
+            "1234567890"
+          ],
+          "ITD01": "05",
+          "ITD02": "3",
+          "ITD05": "0",
+          "ITD07": "60",
+          "DTM01": "011",
+          "DTM02": "20240731",
+          "IT101": "2",
+          "IT102": "5",
+          "IT103": "EA",
+          "IT104": "54.00",
+          "IT105": "PE",
+          "IT106": "VA",
+          "IT107": "BEIS123360",
+          "PID01": "F",
+          "PID05": "The Weekender in Beige",
+          "PO401": "4",
+          "PO414": "1",
+          "CAD01": "M",
+          "CAD04": "UPSN",
+          "CAD07": "BM",
+          "CAD08": "1234567890",
+          "TDS01": "636.00",
+          "CTT01": "14",
+          "N101": [
+            "ST",
+            "VN"
+          ],
+          "N102": [
+            "SHIP TO NAME",
+            "Beis Travel"
+          ],
+          "N103": "92",
+          "N104": "00188",
+          "N301": [
+            "Address1",
+            "222 N Pacific Coast Highway"
+          ],
+          "N302": "10th Floor",
+          "N401": [
+            "City",
+            "El Segundo"
+          ],
+          "N402": [
+            "MN",
+            "CA"
+          ],
+          "N403": [
+            "55555",
+            "90245"
+          ],
+          "N404": [
+            "US",
+            "US"
+          ],
+          "dataURI": "/app/accounting/transactions/custinvc.nl?id=46597446&compid=4675206_SB1"
+        },
+        {
+          "id": "46597446",
+          "recordType": "invoice",
+          "ISA06": "BHGBEIST",
+          "ISA08": "TST1URBANOUTFIT",
+          "idType": "isaId",
+          "typeName": "810_INVOICE",
+          "stream": "Test",
+          "BIG01": "20240731",
+          "BIG02": "INV247415116",
+          "BIG03": "20240722",
+          "BIG04": "0000033333",
+          "NTE02": "Notation",
+          "CUR01": "BY",
+          "CUR02": "USD",
+          "REF01": [
+            "IA",
+            "SI"
+          ],
+          "REF02": [
+            "96524",
+            "1234567890"
+          ],
+          "ITD01": "05",
+          "ITD02": "3",
+          "ITD05": "0",
+          "ITD07": "60",
+          "DTM01": "011",
+          "DTM02": "20240731",
+          "IT101": "3",
+          "IT102": "4",
+          "IT103": "EA",
+          "IT104": "24.00",
+          "IT105": "PE",
+          "IT106": "VA",
+          "IT107": "BEIS121045",
+          "PID01": "F",
+          "PID05": "The Sport Pack in Black",
+          "PO401": "12",
+          "PO414": "1",
+          "CAD01": "M",
+          "CAD04": "UPSN",
+          "CAD07": "BM",
+          "CAD08": "1234567890",
+          "TDS01": "636.00",
+          "CTT01": "14",
+          "N101": [
+            "ST",
+            "VN"
+          ],
+          "N102": [
+            "SHIP TO NAME",
+            "Beis Travel"
+          ],
+          "N103": "92",
+          "N104": "00188",
+          "N301": [
+            "Address1",
+            "222 N Pacific Coast Highway"
+          ],
+          "N302": "10th Floor",
+          "N401": [
+            "City",
+            "El Segundo"
+          ],
+          "N402": [
+            "MN",
+            "CA"
+          ],
+          "N403": [
+            "55555",
+            "90245"
+          ],
+          "N404": [
+            "US",
+            "US"
+          ],
+          "dataURI": "/app/accounting/transactions/custinvc.nl?id=46597446&compid=4675206_SB1"
+        }
+      ]
+    ],
+    "errors": [],
+    "_exportId": "66abccadb73fd0ea9d583323",
+    "_connectionId": "62f4c2661e6afc32f635f0fb",
+    "_flowId": "66aa5ff1e60f304ca72ef7c0",
+    "_integrationId": "668c4a8b0d04e9803588a84f",
+    "pageIndex": 0,
+    "settings": {
+      "integration": {},
+      "flowGrouping": {},
+      "flow": {},
+      "export": {},
+      "connection": {},
+      "iClient": {}
+    },
+    "testMode": true
+  }
