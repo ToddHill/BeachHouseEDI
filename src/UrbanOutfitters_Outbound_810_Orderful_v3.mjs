@@ -182,44 +182,44 @@ function preSavePage(options) {
                   {
                     partyIdentification: [
                       {
-                        entityIdentifierCode: firstNode.N101,
-                        name: firstNode.N102
+                        entityIdentifierCode: firstNode.N101[0],
+                        name: firstNode.N102[0],
+                        identificationCodeQualifier: firstNode.N103,
+                        identificationCode: firstNode.N104
                       }
                     ],
                     partyLocation: [
                       {
-                        addressInformation: firstNode.N301,
-                        addressInformation1: firstNode.N302
+                        addressInformation: firstNode.N301[0]
                       }
                     ],
                     geographicLocation: [
                       {
-                        cityName: firstNode.N401,
-                        stateOrProvinceCode: firstNode.N402,
-                        postalCode: firstNode.N403,
-                        countryCode: firstNode.N404
+                        cityName: firstNode.N401[0],
+                        stateOrProvinceCode: firstNode.N402[0],
+                        postalCode: firstNode.N403[0],
+                        countryCode: firstNode.N404[0]
                       }
                     ]
                   },
                   {
                     partyIdentification: [
                       {
-                        entityIdentifierCode: firstNode.N101,
-                        name: firstNode.N102
+                        entityIdentifierCode: firstNode.N101[1],
+                        name: firstNode.N102[1]
                       }
                     ],
                     partyLocation: [
                       {
-                        addressInformation: firstNode.N301,
-                        addressInformation1: firstNode.N302
+                        addressInformation: firstNode.N301[1]
                       }
                     ],
                     geographicLocation: [
                       {
-                        cityName: firstNode.N401,
-                        stateOrProvinceCode: firstNode.N402,
-                        postalCode: firstNode.N403,
-                        countryCode: firstNode.N404
+                        cityName: firstNode.N401[1],
+                        stateOrProvinceCode: firstNode.N402[1],
+                        postalCode: firstNode.N403[1],
+                        countryCode: firstNode.N404[1]
                       }
                     ]
                   }
