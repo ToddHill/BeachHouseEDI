@@ -182,21 +182,44 @@ function preSavePage(options) {
                   {
                     partyIdentification: [
                       {
-                        entityIdentifierCode: 'VN',
-                        name: 'Beis Travel'
+                        entityIdentifierCode: firstNode.N101,
+                        name: firstNode.N102
                       }
                     ],
                     partyLocation: [
                       {
-                        addressInformation: '222 Pacific Coast Highway 10th Floor'
+                        addressInformation: firstNode.N301,
+                        addressInformation1: firstNode.N302
                       }
                     ],
                     geographicLocation: [
                       {
-                        cityName: 'El Segundo',
-                        stateOrProvinceCode: 'CA',
-                        postalCode: '90245',
-                        countryCode: 'US'
+                        cityName: firstNode.N401,
+                        stateOrProvinceCode: firstNode.N402,
+                        postalCode: firstNode.N403,
+                        countryCode: firstNode.N404
+                      }
+                    ]
+                  },
+                  {
+                    partyIdentification: [
+                      {
+                        entityIdentifierCode: firstNode.N101,
+                        name: firstNode.N102
+                      }
+                    ],
+                    partyLocation: [
+                      {
+                        addressInformation: firstNode.N301,
+                        addressInformation1: firstNode.N302
+                      }
+                    ],
+                    geographicLocation: [
+                      {
+                        cityName: firstNode.N401,
+                        stateOrProvinceCode: firstNode.N402,
+                        postalCode: firstNode.N403,
+                        countryCode: firstNode.N404
                       }
                     ]
                   }
