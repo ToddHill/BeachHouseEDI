@@ -1,4 +1,4 @@
-import options from './Ulta_856_data.json' assert { type: "json" };
+import options from './Target_856_data.json' assert { type: "json" };
 preSavePage(options);
 
 //////// BEGIN CELIGO SCRIPT HEADER BLOCK ////////

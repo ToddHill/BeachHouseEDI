@@ -1,7 +1,7 @@
 ////////////////////////////// BEGIN DEVELOPMENT CODE //////////////////////////////
 // Designed for ULTA Retailer
 // This code is designed to be used in the Celigo Integration App.
-import options from './Ulta_810_data.json' assert { type: "json" };
+import options from './Target_810_data.json' assert { type: "json" };
 preSavePage(options);
 ////////////////////////////// END DEVELOPMENT CODE ////////////////////////////////
 

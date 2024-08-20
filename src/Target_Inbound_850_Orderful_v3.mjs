@@ -1,4 +1,4 @@
-import options from './data/UrbanOutfitters_850_data.json' assert { type: "json" };
+import options from './data/Target_850_data.json' assert { type: "json" };
 preSavePage(options);
 
 console.log(JSON.stringify(options.data, undefined, 2));
