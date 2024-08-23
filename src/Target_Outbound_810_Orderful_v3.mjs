@@ -1,17 +1,20 @@
 ////////////////////////////// BEGIN DEVELOPMENT CODE //////////////////////////////
 // Designed for ULTA Retailer
 // This code is designed to be used in the Celigo Integration App.
-import options from './Target_810_data.json' assert { type: "json" };
+import options from './data/Target_810_data.json' assert { type: "json" };
 preSavePage(options);
 ////////////////////////////// END DEVELOPMENT CODE ////////////////////////////////
 
 ////////////////////////////// BEGIN CELIGO CODE ///////////////////////////////////
 // ITEMS AND TOTAL VALUE FUNCTION
 function getItems(node, ValueTotal) {
+
     let OrderTotal = 0;
+
     const items = node.map(record => {
       OrderTotal = record.IT102 * record.IT104;
       ValueTotal += OrderTotal;
+
       return {
         baselineItemDataInvoice: [
           {
@@ -134,6 +137,8 @@ function getItems(node, ValueTotal) {
         const firstNode = mainBody[0];
         const IT_loop = getItems(mainBody);
         const numberOfLineItems = mainBody.length;
+        const totalUnitsShipped = mainBody.reduce((total, record) => total + record.IT102, 0);
+
         // construct the response object  
         const response = {
           sender: {
@@ -160,16 +165,9 @@ function getItems(node, ValueTotal) {
                     date: firstNode.BIG01,
                     invoiceNumber: firstNode.BIG02,
                     date1: firstNode.BIG03,
-                    purchaseOrderNumber: firstNode.BIG04,
-                    transactionTypeCode: firstNode.BIG07
+                    purchaseOrderNumber: firstNode.BIG04
                   }
-                ],
-                currency: [
-                  {
-                    entityIdentifierCode: 'BY',
-                    currencyCode: 'USD'
-                  }
-                ],              
+                ],         
                 referenceInformation: getReferenceInformation(firstNode),
                 N1_loop: [
                   {
@@ -229,6 +227,16 @@ function getItems(node, ValueTotal) {
                     standardCarrierAlphaCode: firstNode.CAD04,
                     referenceIdentificationQualifier: firstNode.CAD07,
                     referenceIdentification: firstNode.CAD08
+                  }
+                ],
+                ISS_loop: [
+                  {
+                    invoiceShipmentSummary: [
+                      {
+                        numberOfUnitsShipped: Number(totalUnitsShipped).toString(),
+                        unitOrBasisForMeasurementCode: 'EA'
+                      }
+                    ]
                   }
                 ],
                 transactionTotals: [
