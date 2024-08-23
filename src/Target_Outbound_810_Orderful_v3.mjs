@@ -5,7 +5,7 @@ import options from './data/Target_810_data.json' assert { type: "json" };
 preSavePage(options);
 ////////////////////////////// END DEVELOPMENT CODE ////////////////////////////////
 
-////////////////////////////// BEGIN CELIGO CODE ///////////////////////////////////
+////////////////////////////// BEGIN CELIGO CODE ////////////////////TARGET////////
 // ITEMS AND TOTAL VALUE FUNCTION
 function getItems(node, ValueTotal) {
 
@@ -173,10 +173,9 @@ function getItems(node, ValueTotal) {
                   {
                     partyIdentification: [
                       {
-                        entityIdentifierCode: 'RI',
-                        name: 'Beach House Group',
+                        entityIdentifierCode: 'BY',
                         identificationCodeQualifier: '92',
-                        identificationCode: 'code'
+                        identificationCode: firstNode.N104
                       }
                     ],
                     partyLocation: [
