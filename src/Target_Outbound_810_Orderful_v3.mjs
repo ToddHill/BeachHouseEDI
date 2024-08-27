@@ -137,7 +137,6 @@ function getItems(node, ValueTotal) {
         const firstNode = mainBody[0];
         const IT_loop = getItems(mainBody);
         const numberOfLineItems = mainBody.length;
-        const totalUnitsShipped = mainBody.reduce((total, record) => total + record.IT102, 0);
 
         // construct the response object  
         const response = {
@@ -232,7 +231,7 @@ function getItems(node, ValueTotal) {
                   {
                     invoiceShipmentSummary: [
                       {
-                        numberOfUnitsShipped: Number(totalUnitsShipped).toString(),
+                        numberOfUnitsShipped: firstNode.CTT01,
                         unitOrBasisForMeasurementCode: 'EA'
                       }
                     ]
