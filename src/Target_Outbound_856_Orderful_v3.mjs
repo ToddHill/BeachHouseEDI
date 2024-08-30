@@ -1,4 +1,4 @@
-import options from './Target_856_data.json' assert { type: "json" };
+import options from './data/Target_856_data.json' assert { type: "json" };
 preSavePage(options);
 
 //////// BEGIN CELIGO SCRIPT HEADER BLOCK ////////
@@ -29,13 +29,6 @@ function preSavePage(options) {
                             hierarchicalLevelCode: "P"
                         }
                     ],
-                    measurements: [
-                        {
-                          measurementQualifier: "WT",
-                          measurementValue: actual[0].TD107,
-                          unitOrBasisForMeasurementCode: "LB"
-                        }
-                      ],
                     marksAndNumbersInformation: [
                         {
                             marksAndNumbersQualifier: "GM",
@@ -73,20 +66,17 @@ function preSavePage(options) {
                         unitOrBasisForMeasurementCode: record.SN103
                     }
                 ],
+                purchaseOrderReference: [
+                    {
+                        purchaseOrderNumber: record.PID04
+                    }
+                ],
                 itemPhysicalDetails: [
                     {
                         pack: record.PO401,
                         innerPack: record.PO414
                     }
-                ],
-                productItemDescription: [
-                    {
-                        itemDescriptionTypeCode: 'F',
-                        productProcessCharacteristicCode: '08',
-                        description: record.PID05
-                    }
-                ],
-
+                ]
             };
 
             return {
@@ -169,8 +159,7 @@ function preSavePage(options) {
                                         routingSequenceCode: 'B',
                                         identificationCodeQualifier: '2',
                                         identificationCode: actual[0].TD503,
-                                        transportationMethodTypeCode: 'M',
-                                        shipmentOrderStatusCode: 'CC'
+                                        transportationMethodTypeCode: 'U'
                                     }
                                 ],
                                 referenceInformation: [
@@ -183,10 +172,6 @@ function preSavePage(options) {
                                     {
                                         dateTimeQualifier: actual[0].DTM01[0],
                                         date: actual[0].DTM02[0]
-                                    },
-                                    {
-                                        dateTimeQualifier: actual[0].DTM01[1],
-                                        date: actual[0].DTM02[1]
                                     }
                                 ],
                                 N1_loop: [
@@ -199,15 +184,20 @@ function preSavePage(options) {
                                                 identificationCode: actual[0].N104[0]
                                             }
                                         ],
-                                    },
-                                    {
-                                        partyIdentification: [
+                                        additionalNameInformation: [
                                             {
-                                                entityIdentifierCode: actual[0].N101[2],
-                                                name: actual[0].N102[2]
+                                              name: 2704 SUMMIT AVE
                                             }
                                         ],
-                                    }
+                                        geographicLocation: [
+                                            {
+                                              cityName: RIALTO,
+                                              stateOrProvinceCode: CA,
+                                              postalCode: 92377,
+                                              countryCode: US
+                                            }
+                                        ]
+                                    }                                    
                                 ]
                             },
                             {
@@ -220,16 +210,34 @@ function preSavePage(options) {
                                 ],
                                 purchaseOrderReference: [
                                     {
-                                        purchaseOrderNumber: actual[0].PRF01,
-                                        date: actual[0].PRF04
+                                        purchaseOrderNumber: actual[0].PRF01
                                     }
                                 ],
+                                carrierDetailsQuantityAndWeight: [
+                                    {
+                                      packagingCode: 'CTN',
+                                      ladingQuantity: 0,
+                                      weightQualifier: 'G',
+                                      weight: 12,
+                                      unitOrBasisForMeasurementCode: 'LB'
+                                    }
+                                  ],
                                 referenceInformation: [
                                     {
-                                        referenceIdentificationQualifier: 'IA',
                                         referenceIdentification: actual[0].SREF02
                                     }
                                 ],
+                                N1_loop: [
+                                    {
+                                      partyIdentification: [
+                                        {
+                                          identificationCode: 3840,
+                                          entityIdentifierCode: BY,
+                                          identificationCodeQualifier: 92
+                                        }
+                                      ]
+                                    }
+                                ]
                             },
                             //
                             // This is where we include the loop data, flatten it and place

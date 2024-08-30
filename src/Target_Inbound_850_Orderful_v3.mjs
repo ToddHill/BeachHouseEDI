@@ -23,11 +23,11 @@ function preSavePage(options) {
         }
         // parse out dateTimeReference header segment for cancelByDate and shipNotBefore
         for (let k = 0; k < record.dateTimeReference.length; k++) {
-          if (record.dateTimeReference[k].dateTimeQualifier === '001') {
+          if (record.dateTimeReference[k].dateTimeQualifier === '038') {
             record.cancelByDate = convertDate(record.dateTimeReference[k].date);
           } else if (record.dateTimeReference[k].dateTimeQualifier === '002') {
             record.deliveryRequested = convertDate(record.dateTimeReference[k].date);
-          } else if (record.dateTimeReference[k].dateTimeQualifier === '010') {
+          } else if (record.dateTimeReference[k].dateTimeQualifier === '037') {
             record.requestedShip = convertDate(record.dateTimeReference[k].date);
           }
         }
