@@ -11,7 +11,6 @@ function preSavePage(options) {
   let totalLines = 0;
   let hierarchicalIDNumberCounter = 0;
 
-
   // Call combineByBol function and capture returned values
   let result = combineByBol(oldRecord, newRecord, newOptions, hierarchicalIDNumberCounter, UpdateRecordsArray);
   UpdateRecordsArray = result.UpdateRecordsArray;
@@ -54,7 +53,7 @@ function preSavePage(options) {
   }
 
 // useful debug to see the entire object before it is sent.
- console.log(JSON.stringify(responseData, undefined, 2));
+// console.log(JSON.stringify(responseData, undefined, 2));
   
   return {
     data: responseData,
@@ -449,35 +448,42 @@ const getReferenceInformation = (node) => {
       newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(orderline);  
     }
 
-// CARTON LEVEL - This is where the Carton is built to be added to the HL_loop array.
-    if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]) {
-      //
-      hierarchicalParentIDNumberCounter = hierarchicalIDNumberCounter;
-      hierarchicalIDNumberCounter++;
-      cartonline = {};
-      newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey][
-        "cartonObj"
-      ][cartonKey] = {
-        itemObj: {},
-        itemList: [],
-      };
-      cartonline = {
-        hierarchicalLevel: [
-          {
-            hierarchicalIDNumber: hierarchicalIDNumberCounter.toString(),
-            hierarchicalLevelCode: "P",
-            hierarchicalParentIDNumber: hierarchicalIDOrderNumber.toString(),
-          },
-        ],
-        marksAndNumbersInformation: [
-          {
-            marksAndNumbersQualifier: oldRecord[i].MAN01,
-            marksAndNumbers: oldRecord[i].MAN02,
-          },
-        ],
-      };
-      newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(cartonline);
-    }
+// CARTON LEVEL - Modify to ensure unique marks and numbers per hierarchical parent ID.
+if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]) {
+  hierarchicalParentIDNumberCounter = hierarchicalIDNumberCounter;
+  hierarchicalIDNumberCounter++;
+  cartonline = {};
+
+  const cartonIdentifier = `${cartonKey}_${hierarchicalParentIDNumberCounter}`;
+  newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey] = {
+    itemObj: {},
+    itemList: [],
+  };
+
+  if (!marksAndNumbersAdded.has(cartonIdentifier)) {
+    cartonline = {
+      hierarchicalLevel: [
+        {
+          hierarchicalIDNumber: hierarchicalIDNumberCounter.toString(),
+          hierarchicalLevelCode: "P",
+          hierarchicalParentIDNumber: hierarchicalIDOrderNumber.toString(),
+        },
+      ],
+      marksAndNumbersInformation: [
+        {
+          marksAndNumbersQualifier: oldRecord[i].MAN01,
+          marksAndNumbers: oldRecord[i].MAN02,
+        },
+      ],
+    };
+    marksAndNumbersAdded.add(cartonIdentifier);  // Track that these marks and numbers have been added for this carton.
+  }
+
+  if (cartonline.marksAndNumbersInformation) {
+    newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(cartonline);
+  }
+}
+
 
 // ITEM LEVEL - This is where the Item is built to be added to the HL_loop array.
     if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]["itemObj"][itemKey]) {
