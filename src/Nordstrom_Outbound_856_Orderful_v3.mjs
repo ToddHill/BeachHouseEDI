@@ -1,4 +1,4 @@
-import options from './Nordstrom_856_data.json' assert { type: "json" };
+import options from './data/Nordstrom_856_data.json' assert { type: "json" };
 preSavePage(options);
 
 // CELIGO PORTIONS BELOW THIS LINE ////////////////
@@ -53,7 +53,7 @@ function preSavePage(options) {
   }
 
 // useful debug to see the entire object before it is sent.
-// console.log(JSON.stringify(responseData, undefined, 2));
+console.log(JSON.stringify(responseData, undefined, 2));
   
   return {
     data: responseData,
@@ -71,7 +71,8 @@ function combineByBol(oldRecord, newRecord, newOptions, hierarchicalIDNumberCoun
   let orderWeight = 0;
   let totalLines = 0;
   let seenSOIds = new Set();
-  
+  let itemsAdded = new Set();
+  let marksAndNumbersAdded = new Set();
   for (let i = 0; i < oldRecord.length; i++) {
     let bolKey = oldRecord[i].BSN02;
     let dcKey = oldRecord[i].N104[0];
@@ -114,6 +115,7 @@ function combineByBol(oldRecord, newRecord, newOptions, hierarchicalIDNumberCoun
         itemObj: {},
         itemList: [],
       };
+      newOptions[bolKey]["shipmentladingQuantity"] = newOptions[bolKey]["shipmentladingQuantity"] + 1;
     }
 
     if (!newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]["itemObj"][itemKey]) {
@@ -123,7 +125,7 @@ function combineByBol(oldRecord, newRecord, newOptions, hierarchicalIDNumberCoun
    
   // update the shipmentladingQuantity and shipmentWeight
   var shortWeight = parseFloat(oldRecord[i].TD107);
-  newOptions[bolKey]["shipmentladingQuantity"] = newOptions[bolKey]["shipmentladingQuantity"] + 1;
+
   newOptions[bolKey]["shipmentWeight"] = newOptions[bolKey]["shipmentWeight"] + shortWeight;
   // update the orderladingQuantity and orderWeight
   newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"] = newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"] + 1;
@@ -148,6 +150,8 @@ function combineByBol(oldRecord, newRecord, newOptions, hierarchicalIDNumberCoun
   let hierarchicalIDShipmentNumber = 0;
   // Initialize the Hierarchical ID Order Number
   let hierarchicalIDOrderNumber = 0;
+  // Initialize the Hierarchical ID Carton Counter
+  let hierarchicalIDCartonCounter = 0;
   // Loop through the oldRecord to combine records with the same BOL number
   for (let i = 0; i < oldRecord.length; i++) {
     let bolKey = oldRecord[i].BSN02;
@@ -448,79 +452,88 @@ const getReferenceInformation = (node) => {
       newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(orderline);  
     }
 
-// CARTON LEVEL - Modify to ensure unique marks and numbers per hierarchical parent ID.
-if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]) {
-  hierarchicalParentIDNumberCounter = hierarchicalIDNumberCounter;
-  hierarchicalIDNumberCounter++;
-  cartonline = {};
+    // CARTON LEVEL - This is where the Carton is built to be added to the HL_loop array.
+    if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]) {
 
-  const cartonIdentifier = `${cartonKey}_${hierarchicalParentIDNumberCounter}`;
-  newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey] = {
-    itemObj: {},
-    itemList: [],
-  };
+      // Create a unique identifier for the carton using all relevant keys
+      let cartonIdentifier = `${bolKey}_${dcKey}_${poAndStoreKey}_${cartonKey}`;
 
-  if (!marksAndNumbersAdded.has(cartonIdentifier)) {
-    cartonline = {
-      hierarchicalLevel: [
-        {
-          hierarchicalIDNumber: hierarchicalIDNumberCounter.toString(),
-          hierarchicalLevelCode: "P",
-          hierarchicalParentIDNumber: hierarchicalIDOrderNumber.toString(),
-        },
-      ],
-      marksAndNumbersInformation: [
-        {
-          marksAndNumbersQualifier: oldRecord[i].MAN01,
-          marksAndNumbers: oldRecord[i].MAN02,
-        },
-      ],
-    };
-    marksAndNumbersAdded.add(cartonIdentifier);  // Track that these marks and numbers have been added for this carton.
-  }
+      newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey] = {
+        itemObj: {},
+        itemList: [],
+      };
 
-  if (cartonline.marksAndNumbersInformation) {
-    newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(cartonline);
-  }
-}
+      // Check if the marksAndNumbers for this carton have already been added
+      if (!marksAndNumbersAdded.has(cartonIdentifier)) {
+        hierarchicalIDNumberCounter++;
+        hierarchicalIDCartonCounter = hierarchicalIDNumberCounter;
+        let cartonline = {
+          hierarchicalLevel: [
+            {
+              hierarchicalIDNumber: hierarchicalIDNumberCounter.toString(),
+              hierarchicalLevelCode: "P",
+              hierarchicalParentIDNumber: hierarchicalIDOrderNumber.toString(),
+            }
+          ],
+          marksAndNumbersInformation: [
+            {
+              marksAndNumbersQualifier: oldRecord[i].MAN01,
+              marksAndNumbers: oldRecord[i].MAN02,
+            }
+          ],
+        };
+        newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(cartonline);
+
+        // Track this carton to prevent duplicate marks and numbers
+        marksAndNumbersAdded.add(cartonIdentifier);
+      }
+    }
+
 
 
 // ITEM LEVEL - This is where the Item is built to be added to the HL_loop array.
-    if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]["itemObj"][itemKey]) {
-      hierarchicalParentIDNumberCounter = hierarchicalIDNumberCounter;
-      hierarchicalIDNumberCounter++;
-      itemline = {};
-      newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]["itemObj"][itemKey] = {
-        endObj: {},
-      };
-      itemline = {
-        hierarchicalLevel: [
-          {
-            hierarchicalIDNumber: hierarchicalIDNumberCounter.toString(),
-            hierarchicalLevelCode: "I",
-            hierarchicalParentIDNumber:
-              hierarchicalParentIDNumberCounter.toString(),
-          },
-        ],
-        itemIdentification: [
-          {
-            productServiceIDQualifier: oldRecord[i].LIN02,
-            productServiceID: oldRecord[i].LIN03,
-            productServiceIDQualifier1: oldRecord[i].LIN04,
-            productServiceID1: oldRecord[i].LIN05,
-          },
-        ],
-        itemDetailShipment: [
-          {
-            unitOrBasisForMeasurementCode: oldRecord[i].SN103,
-            numberOfUnitsShipped: oldRecord[i].SN102,
-          },
-        ],
-      };
-      newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(
-        itemline,
-      );
-    }
+// Construct a unique item identifier for comprehensive tracking
+let uniqueItemIdentifier = `${bolKey}_${dcKey}_${poAndStoreKey}_${cartonKey}_${itemKey}`;
+
+// Check if item has been added to prevent duplication
+if (!itemsAdded.has(uniqueItemIdentifier)) {
+  itemsAdded.add(uniqueItemIdentifier);
+  // Logic to initialize and add items, increment counters as necessary
+
+  // Item addition logic here...
+  if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]["itemObj"][itemKey]) {
+    hierarchicalIDNumberCounter++;
+    newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonObj"][cartonKey]["itemObj"][itemKey] = { endObj: {} };
+
+    let itemline = {
+      hierarchicalLevel: [
+        {
+          hierarchicalIDNumber: hierarchicalIDNumberCounter.toString(),
+          hierarchicalLevelCode: "I",
+          hierarchicalParentIDNumber: hierarchicalIDCartonCounter.toString(),
+        }
+      ],
+      itemIdentification: [
+        {
+          productServiceIDQualifier: oldRecord[i].LIN02,
+          productServiceID: oldRecord[i].LIN03,
+          productServiceIDQualifier1: oldRecord[i].LIN04,
+          productServiceID1: oldRecord[i].LIN05,
+        }
+      ],
+      itemDetailShipment: [
+        {
+          unitOrBasisForMeasurementCode: oldRecord[i].SN103,
+          numberOfUnitsShipped: oldRecord[i].SN102,
+        }
+      ],
+    };
+
+    // Only add item line if it hasn't been added
+    newRecord[bolKey]["message"]["transactionSets"][0]["HL_loop"].push(itemline);
+  }
+}
+
 //
 // Mapping = This is where the data from the LOOPS is pushed into the newRecord Object
 // BOL Mapping
@@ -548,7 +561,6 @@ if (!newRecord[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["cartonOb
       cartonObj: {},
       cartonList: [],
     };
-
 
 
   }
