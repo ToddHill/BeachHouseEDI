@@ -95,7 +95,7 @@ function getAddressInformation(node) {
       entityIdentifierCode: n101,
       name: node.N102 && node.N102.length > index ? node.N102[index] : undefined,
       identificationCodeQualifier: node.N103 && node.N103.length > index ? node.N103[index] : undefined,
-      identificationCode: node.N104 && node.N104.length > index ? node.N104[index] : undefined,
+      identificationCode: node.N104[1]
     };
     N1_loop.push({ partyIdentification: [addressInformationObject] });
   });
@@ -182,3 +182,4 @@ function preSavePage(options) {
 }
 }
 ////////////////////////////// END CELIGO CODE ////////////////////////////////////
+
