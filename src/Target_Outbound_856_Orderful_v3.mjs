@@ -29,6 +29,13 @@ function preSavePage(options) {
                             hierarchicalLevelCode: "P"
                         }
                     ],
+                    measurements: [
+                        {
+                          measurementQualifier: "WT",
+                          measurementValue: record.PO406,
+                          unitOrBasisForMeasurementCode: "LB"
+                        }
+                      ],
                     marksAndNumbersInformation: [
                         {
                             marksAndNumbersQualifier: "GM",
@@ -52,12 +59,12 @@ function preSavePage(options) {
                 itemIdentification: [
                     {
                       assignedIdentification: record.LIN01,
-                      productServiceIDQualifier: record.LIN02,
-                      productServiceID: record.LIN03,
-                      productServiceIDQualifier1: record.LIN04,
-                      productServiceID1: record.LIN05,
-                      productServiceIDQualifier2: record.LIN06,
-                      productServiceID2: record.LIN07
+                      productServiceIDQualifier1: record.LIN02,
+                      productServiceID1: record.LIN03,
+                      productServiceIDQualifier2: record.LIN04,
+                      productServiceID2: record.LIN05,
+                      productServiceIDQualifier: record.LIN06,
+                      productServiceID: record.LIN07
                     }
                   ],
                 itemDetailShipment: [
@@ -68,15 +75,23 @@ function preSavePage(options) {
                 ],
                 purchaseOrderReference: [
                     {
-                        purchaseOrderNumber: record.PID04
-                    }
+                        purchaseOrderNumber: actual[0].PRF01
+                    }               
                 ],
                 itemPhysicalDetails: [
                     {
                         pack: record.PO401,
                         innerPack: record.PO414
                     }
-                ]
+                ],
+                productItemDescription: [
+                    {
+                        itemDescriptionTypeCode: 'F',
+                        productProcessCharacteristicCode: '08',
+                        description: record.PID05
+                    }
+                ],
+
             };
 
             return {
@@ -148,7 +163,7 @@ function preSavePage(options) {
                                 carrierDetailsQuantityAndWeight: [
                                     {
                                         packagingCode: actual[0].TD101,
-                                        ladingQuantity: actual[0].TD102,
+                                        ladingQuantity: totalitems.toString(),
                                         weightQualifier: actual[0].TD106,
                                         weight: actual[0].TD107,
                                         unitOrBasisForMeasurementCode: actual[0].TD108
@@ -159,7 +174,8 @@ function preSavePage(options) {
                                         routingSequenceCode: 'B',
                                         identificationCodeQualifier: '2',
                                         identificationCode: actual[0].TD503,
-                                        transportationMethodTypeCode: 'U'
+                                        transportationMethodTypeCode: 'M',
+                                        shipmentOrderStatusCode: 'CC'
                                     }
                                 ],
                                 referenceInformation: [
@@ -178,26 +194,26 @@ function preSavePage(options) {
                                     {
                                         partyIdentification: [
                                             {
-                                                entityIdentifierCode: actual[0].N101[0],
-                                                name: actual[0].N102[0],
-                                                identificationCodeQualifier: actual[0].N103[0],
-                                                identificationCode: actual[0].N104[0]
+                                                entityIdentifierCode: actual[0].N101,
+                                                name: actual[0].N102,
+                                                identificationCodeQualifier: actual[0].N103,
+                                                identificationCode: actual[0].N104
                                             }
                                         ],
                                         additionalNameInformation: [
                                             {
-                                              name: 2704 SUMMIT AVE
+                                                name: actual[0].N301
                                             }
                                         ],
                                         geographicLocation: [
-                                            {
-                                              cityName: RIALTO,
-                                              stateOrProvinceCode: CA,
-                                              postalCode: 92377,
-                                              countryCode: US
-                                            }
+                                          {
+                                                cityName: actual[0].N401,
+                                                stateOrProvinceCode: actual[0].N402,
+                                                postalCode: actual[0].N403,
+                                                countryCode: actual[0].N404
+                                          }
                                         ]
-                                    }                                    
+                                    }
                                 ]
                             },
                             {
@@ -215,28 +231,28 @@ function preSavePage(options) {
                                 ],
                                 carrierDetailsQuantityAndWeight: [
                                     {
-                                      packagingCode: 'CTN',
-                                      ladingQuantity: 0,
-                                      weightQualifier: 'G',
-                                      weight: 12,
-                                      unitOrBasisForMeasurementCode: 'LB'
+                                        packagingCode: actual[0].TD101,
+                                        ladingQuantity: actual[0].TD102,
+                                        weightQualifier: actual[0].TD106,
+                                        weight: actual[0].TD107,
+                                        unitOrBasisForMeasurementCode: actual[0].TD108
                                     }
-                                  ],
+                                ],
                                 referenceInformation: [
                                     {
-                                        referenceIdentification: actual[0].SREF02
+                                        referenceIdentification: actual[0].BSN02
                                     }
                                 ],
                                 N1_loop: [
+                                  {
+                                    partyIdentification: [
                                     {
-                                      partyIdentification: [
-                                        {
-                                          identificationCode: 3840,
-                                          entityIdentifierCode: BY,
-                                          identificationCodeQualifier: 92
-                                        }
-                                      ]
-                                    }
+                                       entityIdentifierCode: 'BY',
+                                       identificationCodeQualifier: actual[0].N103,
+                                       identificationCode: actual[0].N104
+                                    }  
+                                    ]
+                                  }  
                                 ]
                             },
                             //
@@ -259,7 +275,8 @@ function preSavePage(options) {
         //
         // Return the transformed data along with the errors
         // as a ready-made Orderful JSON for 856 data.
-        console.log(JSON.stringify(finalTransformedData, null, 2));
+        // following line is commented for debugging
+        // console.log(JSON.stringify(finalTransformedData, null, 2));
         return {
             data,
             errors: options.errors,
