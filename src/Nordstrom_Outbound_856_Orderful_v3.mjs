@@ -173,10 +173,8 @@ function combineByBol(oldRecord, newRecord, newOptions, hierarchicalIDNumberCoun
       // Beginning Segment for Ship Notice
       var beginningSegmentForShipNotice = [];
       var beginningSegmentForShipNoticeObject = {};
-      beginningSegmentForShipNoticeObject.transactionSetPurposeCode =
-        oldRecord[i].BSN01;
-      beginningSegmentForShipNoticeObject.shipmentIdentification =
-        oldRecord[i].BSN02;
+      beginningSegmentForShipNoticeObject.transactionSetPurposeCode = "00";
+      beginningSegmentForShipNoticeObject.shipmentIdentification = oldRecord[i].BSN02;
       beginningSegmentForShipNoticeObject.date = oldRecord[i].BSN03;
       beginningSegmentForShipNoticeObject.time = oldRecord[i].BSN04;
       beginningSegmentForShipNoticeObject.hierarchicalStructureCode = "0001";
@@ -315,13 +313,11 @@ const getReferenceInformation = (node) => {
       // Build the Carrier Details
       var carrierDetailsQuantityAndWeight = [];
       var carrierDetailsQuantityAndWeightObject = {};
-      carrierDetailsQuantityAndWeightObject.packagingCode = oldRecord[i].TD101;
+      carrierDetailsQuantityAndWeightObject.packagingCode = "CTN";
       carrierDetailsQuantityAndWeightObject.ladingQuantity = newOptions[bolKey]["shipmentladingQuantity"].toString();
-      carrierDetailsQuantityAndWeightObject.weightQualifier =
-        oldRecord[i].TD106;
-        carrierDetailsQuantityAndWeightObject.weight = Number(newOptions[bolKey]["shipmentWeight"]).toFixed(2);
-        carrierDetailsQuantityAndWeightObject.unitOrBasisForMeasurementCode =
-        oldRecord[i].TD108;
+      carrierDetailsQuantityAndWeightObject.weightQualifier = "G";
+      carrierDetailsQuantityAndWeightObject.weight = Number(newOptions[bolKey]["shipmentWeight"]).toFixed(2);
+      carrierDetailsQuantityAndWeightObject.unitOrBasisForMeasurementCode = "LB";
       carrierDetailsQuantityAndWeight.push({
         carrierDetailsQuantityAndWeightObject,
       });
@@ -329,10 +325,10 @@ const getReferenceInformation = (node) => {
       var carrierDetailsRoutingSequenceTransitTime = [];
       var carrierDetailsRoutingSequenceTransitTimeObject = {};
 
-      carrierDetailsRoutingSequenceTransitTimeObject.routingSequenceCode = oldRecord[i].TD501;
-      carrierDetailsRoutingSequenceTransitTimeObject.identificationCodeQualifier = oldRecord[i].TD502;
+      carrierDetailsRoutingSequenceTransitTimeObject.routingSequenceCode = "B";
+      carrierDetailsRoutingSequenceTransitTimeObject.identificationCodeQualifier = "2";
       carrierDetailsRoutingSequenceTransitTimeObject.identificationCode = oldRecord[i].TD503;
-      carrierDetailsRoutingSequenceTransitTimeObject.transportationMethodTypeCode = oldRecord[i].TD504;
+      carrierDetailsRoutingSequenceTransitTimeObject.transportationMethodTypeCode = "U";
       carrierDetailsRoutingSequenceTransitTime.push({
         carrierDetailsRoutingSequenceTransitTimeObject,
       });
@@ -369,7 +365,7 @@ const getReferenceInformation = (node) => {
       newRecord[bolKey] = {
         sender: { isaId: oldRecord[i].ISA06 },
         receiver: { isaId: oldRecord[i].ISA08 },
-        type: { name: oldRecord[i].typeName },
+        type: { name: '856_SHIP_NOTICE_MANIFEST' },
         stream: oldRecord[i].stream,
         dcObj: {},
         message: { transactionSets: [] }
@@ -430,11 +426,11 @@ const getReferenceInformation = (node) => {
         ],        
         carrierDetailsQuantityAndWeight: [
           {
-            packagingCode: oldRecord[i].TD101,
+            packagingCode: "CTN",
             ladingQuantity: newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderladingQuantity"].toString(),
-            weightQualifier: oldRecord[i].TD106,
+            weightQualifier: "G",
             weight: newOptions[bolKey]["dcObj"][dcKey]["poAndStoreObj"][poAndStoreKey]["orderWeight"].toString(),
-            unitOrBasisForMeasurementCode: oldRecord[i].TD108,
+            unitOrBasisForMeasurementCode: "LB",
           },
         ],
         N1_loop: [
@@ -477,7 +473,7 @@ const getReferenceInformation = (node) => {
           ],
           marksAndNumbersInformation: [
             {
-              marksAndNumbersQualifier: oldRecord[i].MAN01,
+              marksAndNumbersQualifier: "GM",
               marksAndNumbers: oldRecord[i].MAN02,
             }
           ],
@@ -515,16 +511,14 @@ if (!itemsAdded.has(uniqueItemIdentifier)) {
       ],
       itemIdentification: [
         {
-          productServiceIDQualifier: oldRecord[i].LIN02,
-          productServiceID: oldRecord[i].LIN03,
-          productServiceIDQualifier1: oldRecord[i].LIN04,
-          productServiceID1: oldRecord[i].LIN05,
+          productServiceIDQualifier: "UP",
+          productServiceID: oldRecord[i].LIN03
         }
       ],
       itemDetailShipment: [
         {
-          unitOrBasisForMeasurementCode: oldRecord[i].SN103,
-          numberOfUnitsShipped: oldRecord[i].SN102,
+           numberOfUnitsShipped: oldRecord[i].SN102,
+           unitOrBasisForMeasurementCode: "EA"
         }
       ],
     };
