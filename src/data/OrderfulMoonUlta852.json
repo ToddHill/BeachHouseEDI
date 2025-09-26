@@ -1,4 +1,5 @@
 {
+  "data": [{
   "interchangeControlHeader": [
     {
       "authorizationInformationQualifier": "00",
@@ -52145,4 +52146,5 @@
       ]
     }
   ]
+}]
 }
