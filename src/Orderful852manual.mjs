@@ -117,6 +117,8 @@ function ZBpreSavePage(options) {
   console.log('---- Approval -------------------------');
 
   console.log('---- DATA ------- if applicable -------');
+  console.log(JSON.stringify(flattenedData, null, 2));
+  console.log('---------------------------------------');
   //console.log(JSON.stringify(data, null, 2));
 
   return {
