@@ -1,7 +1,11 @@
 /////////////////////////////////// BEGIN DEVELOPMENT CODE ///////////////////////////////////
-import options from './data/OrderfulMoonUlta852.json' assert { type: "json" };
-preSavePage(options);
-console.log(JSON.stringify(options, null, 2));
+import options from './data/DownloadedOrderful852.json' assert { type: "json" };
+ZBpreSavePage(options);
+
+console.log(JSON.stringify(options.data, undefined, 2));
+
+ZBpreSavePage(options);
+
 // convertDate Function to change ANSI/EDIFACT Dates into NetSuite Importable Dates
 function convertDate(date) {
   var year = date.slice(0, 4);
@@ -29,11 +33,11 @@ function ZBpreSavePage(options) {
     // Add more mappings here as needed, for example:
     // "ANOTHERCODE": "ANOTHERID",
   };
-  const applicationReceiversCode = data[0].message.functionalGroupHeader[0].applicationReceiversCode;
+  const applicationReceiversCode = data[0].functionalGroupHeader[0].applicationReceiversCode;
   const retailerID = applicationReceiversCodeToRetailerID[applicationReceiversCode] || "test"; // Fallback to a default ID if not found
 
   // Process transaction sets
-  for (const transactionSet of data[0].message.transactionSets) {
+  for (const transactionSet of data[0].transactionSets) {
     const reportingDate = convertDate(transactionSet.reportingDateAction[0].date);
     const reportingDate1 = convertDate(transactionSet.reportingDateAction[0].date1);
 
