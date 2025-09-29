@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orderful 852 Data Processor and CSV Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+        }
+    </style>
+</head>
+<body class="p-8">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-2xl">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">Orderful 852 EDI Data to CSV Converter</h1>
+        <p class="text-sm text-gray-600 mb-4">Must use Orderful Download Package, will not work with API package</p>
+            <ol>
+                <li>1. Locate the transaction in Orderful and Download the JSON File to your desktop</li>
+                <li>2. Select "Choose file" to upload your EDI JSON file.</li>
+                <li>3. Click 'Process and Download' to generate the CSV file for Excel.</li>
+            </ol>
+        
+        <br />
+        <!-- File Input Element -->
+        <div class="mb-6">
+            <label for="jsonFile" class="block text-sm font-medium text-gray-700 mb-2">Select JSON Data File</label>
+            <input type="file" id="jsonFile" accept=".json" 
+                   class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 p-2.5 
+                          file:mr-4 file:py-2 file:px-4
+                          file:rounded-full file:border-0
+                          file:text-sm file:font-semibold
+                          file:bg-indigo-50 file:text-indigo-700
+                          hover:file:bg-indigo-100"/>
+        </div>
+
+        <button id="processAndDownload"
+                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transition duration-200 ease-in-out transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50">
+            Process Data and Download CSV
+        </button>
+
+        <div id="outputContainer" class="mt-8 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+            <h2 class="text-lg font-semibold text-gray-800 mb-2">Processing Status:</h2>
+            <p id="statusMessage" class="text-gray-700">Select a JSON file to begin.</p>
+        </div>
+        
+    </div>
+
+    <script>
+        /**
+         * Converts ANSI/EDIFACT Dates (YYYYMMDD) into NetSuite Importable Dates (MM/DD/YYYY)
+         * @param {string} date - The date string in YYYYMMDD format.
+         * @returns {string} The date string in MM/DD/YYYY format.
+         */
+        function convertDate(date) {
+            if (!date || date.length !== 8) return 'N/A';
+            const year = date.slice(0, 4);
+            const month = date.slice(4, 6);
+            const day = date.slice(6, 8);
+            return `${month}/${day}/${year}`;
+        }
+
+        /**
+         * Converts the processed data array into a CSV string.
+         * @param {Array<Object>} data - The flattened data array.
+         * @returns {string} The CSV formatted string.
+         */
+        function arrayToCSV(data) {
+            if (!data || data.length === 0) return '';
+
+            // Extract headers from the keys of the first object (ignoring 'delivery')
+            const headers = Object.keys(data[0]).filter(key => key !== 'delivery');
+
+            // 1. Create the header row
+            let csv = headers.join(',') + '\n';
+
+            // 2. Create the data rows
+            data.forEach(row => {
+                const values = headers.map(header => {
+                    // Get the value and ensure it's properly quoted if it contains commas or newlines
+                    const value = row[header] !== undefined ? row[header].toString() : '';
+                    return value.includes(',') || value.includes('\n') || value.includes('"')
+                        ? `"${value.replace(/"/g, '""')}"` // Handle quotes within value
+                        : value;
+                });
+                csv += values.join(',') + '\n';
+            });
+
+            return csv;
+        }
+
+        /**
+         * Main function to process the data and group quantities.
+         * @param {Object} options - The input data object parsed from the JSON file.
+         * @returns {Object} The processed data object.
+         */
+        function ZBpreSavePage(options) {
+            const statusMessage = document.getElementById('statusMessage');
+
+            if (!options || !options.transactionSets || options.transactionSets.length === 0) {
+                statusMessage.textContent = "Error: Input file has no items.";
+                console.error('blank file');
+                return { output: "this has no items", errors: "EMPTY FILE" };
+            }
+
+            const data = options;
+            const groupedData = {};
+            const applicationReceiversCodeToRetailerID = {
+                "BEACHHOUSEPTTN": "849509",
+                "BEACHHOUSEMOON": "339086",
+                "BHGNOYZ": "2319103",
+            };
+            
+            const applicationReceiversCode = data.functionalGroupHeader?.[0]?.applicationReceiversCode;
+            const retailerID = applicationReceiversCodeToRetailerID[applicationReceiversCode] || "test";
+
+            // Process transaction sets
+            for (const transactionSet of data.transactionSets) {
+                const reportingDate = convertDate(transactionSet.reportingDateAction?.[0]?.date);
+                const reportingDate1 = convertDate(transactionSet.reportingDateAction?.[0]?.date1);
+
+                for (const LIN_loop_item of transactionSet.LIN_loop) {
+                    let productServiceID1 = LIN_loop_item.itemIdentification?.[0]?.productServiceID1;
+                    
+                    // --- CLEANUP STEP ADDED: Remove non-breaking spaces (\u00A0) and trim standard whitespace
+                    if (productServiceID1) {
+                         // \u00A0 is the Non-Breaking Space which often causes the 'Â' character in CSV exports.
+                        productServiceID1 = productServiceID1.replace(/\u00A0/g, '').trim();
+                    }
+                    // --- END CLEANUP STEP ---
+
+                    if (!productServiceID1) continue; // Skip if no item ID
+
+                    let currentStoreCode = null;
+
+                    for (const ZA_loop_item of transactionSet.ZA_loop || LIN_loop_item.ZA_loop) { // Check both locations
+                        const activityCode = ZA_loop_item.productActivityReporting?.[0]?.activityCode;
+                        let foundQuantities = false;
+
+                        for (const destinationQuantity of ZA_loop_item.destinationQuantity || []) {
+                            for (let i = 0; i <= 9; i++) {
+                                const identificationCodeKey = i === 0 ? 'identificationCode' : `identificationCode${i}`;
+                                const quantityKey = i === 0 ? 'quantity' : `quantity${i}`;
+                                
+                                const identificationCode = destinationQuantity[identificationCodeKey];
+                                const quantityString = destinationQuantity[quantityKey];
+                                
+                                // Use 0 if quantity is not a valid number or not present, but only if the identificationCode is present
+                                const quantity = identificationCode && quantityString ? parseInt(quantityString) : NaN;
+
+
+                                if (identificationCode !== undefined && identificationCode !== null && identificationCode !== "" && !isNaN(quantity) && quantityString) {
+                                    currentStoreCode = identificationCode;
+
+                                    // Create a unique key based on date, item, and storeCode
+                                    const key = `${reportingDate}_${productServiceID1}_${currentStoreCode}`;
+
+                                    // If the key doesn't exist in groupedData, create a new record
+                                    if (!groupedData[key]) {
+                                        groupedData[key] = {
+                                            RetailerId: retailerID,
+                                            date: reportingDate,
+                                            date1: reportingDate1,
+                                            item: productServiceID1,
+                                            storeCode: currentStoreCode,
+                                            currentQuantity: 0,
+                                            soldQuantity: 0,
+                                            onOrderQuantity: 0
+                                        };
+                                    }
+
+                                    // Update the respective quantity based on activity code
+                                    if (activityCode === 'QA') {
+                                        groupedData[key].currentQuantity += quantity;
+                                    } else if (activityCode === 'QS') {
+                                        groupedData[key].soldQuantity += quantity;
+                                    } else if (activityCode === 'QP') {
+                                        groupedData[key].onOrderQuantity += quantity;
+                                    }
+                                    foundQuantities = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Convert groupedData object to array
+            const flattenedData = Object.values(groupedData);
+
+            // Add the 'delivery' note to the first record for visibility, as per original logic
+            if (flattenedData.length > 0) {
+                flattenedData[0]['delivery'] = options.delivery;
+            }
+            
+            statusMessage.textContent = `Data processing complete. Found ${flattenedData.length} records.`;
+            console.log('---- Processed Data Array (Flattened) ----');
+            console.log(JSON.stringify(flattenedData, null, 2));
+            console.log('------------------------------------------');
+
+
+            return {
+                data: flattenedData,
+                errors: options.errors,
+                abort: false,
+                newErrorsAndRetryData: []
+            };
+        }
+
+        /**
+         * Triggers the download of the CSV file in the browser.
+         * @param {string} csvString - The content of the CSV file.
+         * @param {string} filename - The desired filename.
+         */
+        function downloadCSV(csvString, filename) {
+            const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            
+            // Generate a more unique filename
+            const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+            const finalFilename = filename.replace('.csv', '') + `_${date}.csv`;
+
+            if (link.download !== undefined) {
+                // Browsers that support HTML5 download attribute
+                link.setAttribute("href", URL.createObjectURL(blob));
+                link.setAttribute("download", finalFilename);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                document.getElementById('statusMessage').textContent = `Success! Downloading file: ${finalFilename}`;
+            } else {
+                // Fallback for older browsers
+                document.getElementById('statusMessage').textContent = 'Error: Your browser does not support automatic downloads.';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fileInput = document.getElementById('jsonFile');
+            const processButton = document.getElementById('processAndDownload');
+            const statusMessage = document.getElementById('statusMessage');
+
+            processButton.addEventListener('click', () => {
+                if (fileInput.files.length === 0) {
+                    statusMessage.textContent = 'Please select a JSON file first.';
+                    return;
+                }
+                
+                statusMessage.textContent = 'Reading file...';
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    try {
+                        const jsonText = e.target.result;
+                        const options = JSON.parse(jsonText);
+                        
+                        statusMessage.textContent = 'File loaded and JSON parsed. Processing data...';
+                        
+                        const result = ZBpreSavePage(options);
+                        
+                        if (result && result.data && result.data.length > 0) {
+                            const csvContent = arrayToCSV(result.data);
+                            
+                            console.log('---- Generated CSV Content ----');
+                            console.log(csvContent);
+                            console.log('-------------------------------');
+                            
+                            downloadCSV(csvContent, 'RetailerInventoryReport.csv');
+                        } else if (result && result.errors) {
+                            statusMessage.textContent = `Processing completed with errors: ${result.errors}`;
+                        } else {
+                            statusMessage.textContent = 'Processing completed, but no records were generated.';
+                        }
+                    } catch (error) {
+                        statusMessage.textContent = `Error: Could not parse JSON file. Check file format. (${error.message})`;
+                        console.error("File processing error:", error);
+                    }
+                };
+
+                reader.onerror = function(e) {
+                    statusMessage.textContent = `Error reading file: ${e.target.error.name}`;
+                    console.error("FileReader error:", e.target.error);
+                };
+
+                reader.readAsText(file);
+            });
+        });
+
+    </script>
+</body>
+</html>
