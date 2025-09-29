@@ -2,7 +2,7 @@
 import options from './data/DownloadedOrderful852.json' assert { type: "json" };
 ZBpreSavePage(options);
 
-console.log(JSON.stringify(options, undefined, 2));
+//console.log(JSON.stringify(options, undefined, 2));
 
 ZBpreSavePage(options);
 
@@ -24,7 +24,7 @@ function ZBpreSavePage(options) {
     console.log('blank file');
   }
   else {
-  const data = [options];
+  const data = options;
   const groupedData = {};
   const applicationReceiversCodeToRetailerID = {
     "BEACHHOUSEPTTN": "849509",
@@ -33,11 +33,11 @@ function ZBpreSavePage(options) {
     // Add more mappings here as needed, for example:
     // "ANOTHERCODE": "ANOTHERID",
   };
-  const applicationReceiversCode = data[0].functionalGroupHeader[0].applicationReceiversCode;
+  const applicationReceiversCode = data.functionalGroupHeader[0].applicationReceiversCode;
   const retailerID = applicationReceiversCodeToRetailerID[applicationReceiversCode] || "test"; // Fallback to a default ID if not found
 
   // Process transaction sets
-  for (const transactionSet of data[0].transactionSets) {
+  for (const transactionSet of data.transactionSets) {
     const reportingDate = convertDate(transactionSet.reportingDateAction[0].date);
     const reportingDate1 = convertDate(transactionSet.reportingDateAction[0].date1);
 
@@ -112,12 +112,10 @@ function ZBpreSavePage(options) {
 
   // Convert groupedData object to array
   const flattenedData = Object.values(groupedData);
-  flattenedData[0]['delivery'] = options.data[0].delivery
+  flattenedData[0]['delivery'] = options.delivery
   
   console.log('---- Approval -------------------------');
-  console.log('Orderful Id: ',options.data[0].id); 
-  console.log('Delivery Id: ',options.data[0].delivery.id);
-  console.log('Receiver   : ',options.data[0].receiver.name); 
+
   console.log('---- DATA ------- if applicable -------');
   //console.log(JSON.stringify(data, null, 2));
 
