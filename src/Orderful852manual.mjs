@@ -2,7 +2,7 @@
 import options from './data/DownloadedOrderful852.json' assert { type: "json" };
 ZBpreSavePage(options);
 
-console.log(JSON.stringify(options.data, undefined, 2));
+console.log(JSON.stringify(options, undefined, 2));
 
 ZBpreSavePage(options);
 
