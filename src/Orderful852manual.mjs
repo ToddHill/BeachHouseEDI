@@ -24,7 +24,7 @@ function ZBpreSavePage(options) {
     console.log('blank file');
   }
   else {
-  const data = options.data;
+  const data = options;
   const groupedData = {};
   const applicationReceiversCodeToRetailerID = {
     "BEACHHOUSEPTTN": "849509",
