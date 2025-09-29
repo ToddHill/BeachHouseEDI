@@ -19,8 +19,9 @@ function ZBpreSavePage(options) {
   if (options === undefined || options.length === 0) {
     return {
       output: "this has no items",
-      console.log('blank file');
+      errors: "EMPTY FILE"
     }
+    console.log('blank file');
   }
   else {
   const data = options.data;
