@@ -16,11 +16,10 @@ function convertDate(date) {
 
 
 function ZBpreSavePage(options) {
-  if (options.data === undefined || options.data.length === 0) {
+  if (options === undefined || options.length === 0) {
     return {
-      data: [],
-      errors: [],
-      abort: false
+      output: "this has no items",
+      console.log('blank file');
     }
   }
   else {
